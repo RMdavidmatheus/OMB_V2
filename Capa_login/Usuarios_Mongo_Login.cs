@@ -10,7 +10,7 @@ namespace Capa_login
 {
     class Usuarios_Mongo_Login
     {
-        public Usuarios_Mongo_Login(ObjectId id, long documento, string tipo_de_documento, string nombres, string apellidos, long telefono, string email)
+        public Usuarios_Mongo_Login(ObjectId id, long documento, string tipo_de_documento, string nombres, string apellidos, long telefono, string email, string password)
         {
             _id = id;
             Documento = documento;
@@ -19,6 +19,7 @@ namespace Capa_login
             Apellidos = apellidos ?? throw new ArgumentNullException(nameof(apellidos));
             Telefono = telefono;
             Email = email ?? throw new ArgumentNullException(nameof(email));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
         }
 
         [BsonId]
@@ -35,5 +36,7 @@ namespace Capa_login
         public long Telefono { get; set; }
         [BsonElement]
         public string Email { get; set; }
+        [BsonElement]
+        public string Password { get; set; }
     }
 }
