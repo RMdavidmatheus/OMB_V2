@@ -110,6 +110,12 @@
     <Compile Include="Forms\Listado_tomadores.Designer.cs">
       <DependentUpon>Listado_tomadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Listado_vigencias_polizas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Listado_vigencias_polizas.Designer.cs">
+      <DependentUpon>Listado_vigencias_polizas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login_diseño.cs">
       <SubType>Form</SubType>
     </Compile>
