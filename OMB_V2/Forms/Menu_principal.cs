@@ -24,6 +24,8 @@ namespace OMB_V2.Forms
         }
         // INICIALIZANDO METODOS DESDE CAPA LOGICA
         Capa_logica.Metodos Metodos_capa_logica = new Capa_logica.Metodos();
+        // INICIALIZANDO METODOS DESDE LOGIN
+        Capa_login.Metodos_login Metodos_login = new Capa_login.Metodos_login();
         // METODO MOVER PANTALLA
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -191,6 +193,7 @@ namespace OMB_V2.Forms
 
         private void Btn_vehiculos_Click(object sender, EventArgs e)
         {
+            // TITULO TRANSICION
             if (Titulo_window.Visible == true)
             {
                 Animacion_txt_title.HideSync(Titulo_window);
@@ -201,6 +204,7 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN TRANSICION
         }
 
         private void Btn_vig_pol_Click(object sender, EventArgs e)
