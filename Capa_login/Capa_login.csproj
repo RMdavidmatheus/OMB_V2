@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Metodos_login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios_Mongo_Login.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
