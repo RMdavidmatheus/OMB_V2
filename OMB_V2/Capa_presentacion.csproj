@@ -86,6 +86,12 @@
     <Compile Include="Forms\Bienvenida.Designer.cs">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Listado_beneficiarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Listado_beneficiarios.Designer.cs">
+      <DependentUpon>Listado_beneficiarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Listado_polizas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Listado_beneficiarios.resx">
+      <DependentUpon>Listado_beneficiarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Listado_polizas.resx">
       <DependentUpon>Listado_polizas.cs</DependentUpon>
