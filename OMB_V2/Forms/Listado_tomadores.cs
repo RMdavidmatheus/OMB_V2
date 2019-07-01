@@ -16,5 +16,14 @@ namespace OMB_V2.Forms
         {
             InitializeComponent();
         }
+        // INICIALIZACION METODOS
+        #region
+        Capa_logica.Metodos Metodos = new Capa_logica.Metodos();
+        #endregion
+        // FIN
+        private void Listado_tomadores_Load(object sender, EventArgs e)
+        {
+            // LLENAR EL DATAGRID CON EL METODO CORRESPONDIENTE PARA TENER EL DATA SOURCE
+        }
     }
 }
