@@ -10,6 +10,7 @@ namespace Capa_login
 {
     class Usuarios_Mongo_Login
     {
+        // METODO CONSTRUCTOR
         public Usuarios_Mongo_Login(ObjectId id, long documento, string tipo_de_documento, string nombres, string apellidos, long telefono, string email, string password, string rol)
         {
             _id = id;
