@@ -155,6 +155,7 @@ namespace OMB_V2.Forms
 
         private void Btn_tomadores_Click(object sender, EventArgs e)
         {
+            // TITULO TRANSICION
             if (Titulo_window.Visible == true)
             {
                 Animacion_txt_title.HideSync(Titulo_window);
@@ -165,6 +166,9 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN TRANSICION TITULO
+
+            Metodos_capa_logica.Llenar_panel(Panel_content, new Forms.Listado_tomadores());
         }
 
         private void Btn_beneficiarios_Click(object sender, EventArgs e)
