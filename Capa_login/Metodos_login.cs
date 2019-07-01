@@ -9,6 +9,9 @@ namespace Capa_login
 {
     class Metodos_login
     {
-
+        public void Conexion_login()
+        {
+            // EN PROGRESO......
+        }
     }
 }
