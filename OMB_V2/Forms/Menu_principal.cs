@@ -136,7 +136,8 @@ namespace OMB_V2.Forms
         }
 
         private void Btn_listado_pol_Click(object sender, EventArgs e)
-        {
+        {   
+            // TITULO TRANSICION
             if (Titulo_window.Visible == true)
             {
                 Animacion_txt_title.HideSync(Titulo_window);
@@ -147,6 +148,9 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN TRANSICION LETRAS
+
+            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_polizas());
         }
 
         private void Btn_tomadores_Click(object sender, EventArgs e)

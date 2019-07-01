@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_diseño));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.Contorno_app_login = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_sup_login = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.UI.WinForms.BunifuImageButton();
@@ -72,6 +72,7 @@
             this.Panel_sup_login.Name = "Panel_sup_login";
             this.Panel_sup_login.Size = new System.Drawing.Size(496, 46);
             this.Panel_sup_login.TabIndex = 0;
+            this.Panel_sup_login.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_sup_login_MouseDown);
             // 
             // bunifuImageButton2
             // 
@@ -156,6 +157,7 @@
             this.Panel_content.Name = "Panel_content";
             this.Panel_content.Size = new System.Drawing.Size(496, 639);
             this.Panel_content.TabIndex = 1;
+            this.Panel_content.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_content_MouseDown);
             // 
             // bunifuSeparator1
             // 
@@ -265,13 +267,13 @@
             this.Btn_register.IdleIconRightImage = null;
             this.Btn_register.Location = new System.Drawing.Point(104, 426);
             this.Btn_register.Name = "Btn_register";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
-            stateProperties1.BorderRadius = 50;
-            stateProperties1.BorderThickness = 1;
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
-            stateProperties1.IconLeftImage = null;
-            stateProperties1.IconRightImage = null;
-            this.Btn_register.onHoverState = stateProperties1;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
+            stateProperties5.BorderRadius = 50;
+            stateProperties5.BorderThickness = 1;
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(77)))), ((int)(((byte)(0)))));
+            stateProperties5.IconLeftImage = null;
+            stateProperties5.IconRightImage = null;
+            this.Btn_register.onHoverState = stateProperties5;
             this.Btn_register.Size = new System.Drawing.Size(295, 61);
             this.Btn_register.TabIndex = 3;
             this.Btn_register.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -299,13 +301,13 @@
             this.Btn_iniciar_sesion.IdleIconRightImage = null;
             this.Btn_iniciar_sesion.Location = new System.Drawing.Point(104, 344);
             this.Btn_iniciar_sesion.Name = "Btn_iniciar_sesion";
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            stateProperties2.BorderRadius = 50;
-            stateProperties2.BorderThickness = 1;
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
-            stateProperties2.IconLeftImage = null;
-            stateProperties2.IconRightImage = null;
-            this.Btn_iniciar_sesion.onHoverState = stateProperties2;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            stateProperties6.BorderRadius = 50;
+            stateProperties6.BorderThickness = 1;
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(51)))), ((int)(((byte)(0)))));
+            stateProperties6.IconLeftImage = null;
+            stateProperties6.IconRightImage = null;
+            this.Btn_iniciar_sesion.onHoverState = stateProperties6;
             this.Btn_iniciar_sesion.Size = new System.Drawing.Size(295, 61);
             this.Btn_iniciar_sesion.TabIndex = 2;
             this.Btn_iniciar_sesion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -409,6 +411,7 @@
             this.Opacity = 0.97D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login_diseño";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Login_diseño_MouseDown);
             this.Panel_sup_login.ResumeLayout(false);
             this.Panel_content.ResumeLayout(false);
             this.Panel_content.PerformLayout();

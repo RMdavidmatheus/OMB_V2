@@ -31,15 +31,27 @@
             this.components = new System.ComponentModel.Container();
             BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_principal));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
-            this.Forma_ventana = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Panel_lateral = new System.Windows.Forms.Panel();
+            this.Separador_menu = new Bunifu.Framework.UI.BunifuSeparator();
+            this.Animacion_menu_lateral = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Panel_sup = new System.Windows.Forms.Panel();
+            this.Titulo_window = new System.Windows.Forms.Label();
+            this.Panel_content = new System.Windows.Forms.Panel();
+            this.Animacion_logo = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Animacion_btn_menu = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Animacion_menu_lateral_vuelta = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Animacion_txt_title = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Indicador_img = new System.Windows.Forms.PictureBox();
+            this.Btn_max = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.Btn_min = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.Btn_rest = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.Btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
             this.Expanded_btn = new System.Windows.Forms.PictureBox();
             this.Logo_pic = new System.Windows.Forms.PictureBox();
-            this.Separador_menu = new Bunifu.Framework.UI.BunifuSeparator();
             this.Menu_btn = new Bunifu.UI.WinForms.BunifuImageButton();
             this.Btn_vig_soat = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Btn_vig_pol = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -47,30 +59,13 @@
             this.Btn_tomadores = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Btn_beneficiarios = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Btn_listado_pol = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Btn_min = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.Btn_max = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.Btn_close = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.Btn_rest = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.Animacion_menu_lateral = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.Panel_sup = new System.Windows.Forms.Panel();
-            this.Indicador_img = new System.Windows.Forms.PictureBox();
-            this.Titulo_window = new System.Windows.Forms.Label();
-            this.Panel_content = new System.Windows.Forms.Panel();
-            this.Animacion_logo = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.Animacion_btn_menu = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.Animacion_menu_lateral_vuelta = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.Animacion_txt_title = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.Conf_form = new Bunifu.UI.WinForms.BunifuFormDock();
             this.Panel_lateral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Expanded_btn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo_pic)).BeginInit();
             this.Panel_sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Indicador_img)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Expanded_btn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo_pic)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Forma_ventana
-            // 
-            this.Forma_ventana.ElipseRadius = 5;
-            this.Forma_ventana.TargetControl = this;
             // 
             // Panel_lateral
             // 
@@ -95,6 +90,341 @@
             this.Panel_lateral.Name = "Panel_lateral";
             this.Panel_lateral.Size = new System.Drawing.Size(301, 720);
             this.Panel_lateral.TabIndex = 0;
+            // 
+            // Separador_menu
+            // 
+            this.Separador_menu.BackColor = System.Drawing.Color.Transparent;
+            this.Animacion_btn_menu.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_txt_title.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
+            this.Separador_menu.ForeColor = System.Drawing.SystemColors.Control;
+            this.Separador_menu.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Separador_menu.LineThickness = 1;
+            this.Separador_menu.Location = new System.Drawing.Point(12, 201);
+            this.Separador_menu.Name = "Separador_menu";
+            this.Separador_menu.Size = new System.Drawing.Size(283, 10);
+            this.Separador_menu.TabIndex = 8;
+            this.Separador_menu.Transparency = 140;
+            this.Separador_menu.Vertical = false;
+            // 
+            // Animacion_menu_lateral
+            // 
+            this.Animacion_menu_lateral.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.Animacion_menu_lateral.Cursor = null;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.Animacion_menu_lateral.DefaultAnimation = animation3;
+            // 
+            // Panel_sup
+            // 
+            this.Panel_sup.Controls.Add(this.Indicador_img);
+            this.Panel_sup.Controls.Add(this.Titulo_window);
+            this.Panel_sup.Controls.Add(this.Btn_max);
+            this.Panel_sup.Controls.Add(this.Btn_min);
+            this.Panel_sup.Controls.Add(this.Btn_rest);
+            this.Panel_sup.Controls.Add(this.Btn_close);
+            this.Animacion_btn_menu.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_txt_title.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
+            this.Panel_sup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Panel_sup.Location = new System.Drawing.Point(301, 0);
+            this.Panel_sup.Name = "Panel_sup";
+            this.Panel_sup.Size = new System.Drawing.Size(1067, 49);
+            this.Panel_sup.TabIndex = 3;
+            this.Panel_sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_sup_MouseDown);
+            // 
+            // Titulo_window
+            // 
+            this.Titulo_window.AutoSize = true;
+            this.Animacion_btn_menu.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_txt_title.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
+            this.Titulo_window.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Titulo_window.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.Titulo_window.Location = new System.Drawing.Point(64, 6);
+            this.Titulo_window.Name = "Titulo_window";
+            this.Titulo_window.Size = new System.Drawing.Size(256, 37);
+            this.Titulo_window.TabIndex = 4;
+            this.Titulo_window.Text = "Pantalla de bienvenida";
+            // 
+            // Panel_content
+            // 
+            this.Animacion_btn_menu.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_txt_title.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
+            this.Panel_content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_content.Location = new System.Drawing.Point(301, 49);
+            this.Panel_content.Name = "Panel_content";
+            this.Panel_content.Size = new System.Drawing.Size(1067, 671);
+            this.Panel_content.TabIndex = 4;
+            // 
+            // Animacion_logo
+            // 
+            this.Animacion_logo.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
+            this.Animacion_logo.Cursor = null;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 1F;
+            this.Animacion_logo.DefaultAnimation = animation4;
+            // 
+            // Animacion_btn_menu
+            // 
+            this.Animacion_btn_menu.AnimationType = BunifuAnimatorNS.AnimationType.Rotate;
+            this.Animacion_btn_menu.Cursor = null;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(50);
+            animation5.RotateCoeff = 1F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 1F;
+            this.Animacion_btn_menu.DefaultAnimation = animation5;
+            // 
+            // Animacion_menu_lateral_vuelta
+            // 
+            this.Animacion_menu_lateral_vuelta.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.Animacion_menu_lateral_vuelta.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.Animacion_menu_lateral_vuelta.DefaultAnimation = animation2;
+            // 
+            // Animacion_txt_title
+            // 
+            this.Animacion_txt_title.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
+            this.Animacion_txt_title.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.Animacion_txt_title.DefaultAnimation = animation1;
+            // 
+            // Indicador_img
+            // 
+            this.Animacion_txt_title.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
+            this.Indicador_img.Image = ((System.Drawing.Image)(resources.GetObject("Indicador_img.Image")));
+            this.Indicador_img.Location = new System.Drawing.Point(23, 6);
+            this.Indicador_img.Name = "Indicador_img";
+            this.Indicador_img.Size = new System.Drawing.Size(35, 39);
+            this.Indicador_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Indicador_img.TabIndex = 5;
+            this.Indicador_img.TabStop = false;
+            // 
+            // Btn_max
+            // 
+            this.Btn_max.ActiveImage = null;
+            this.Btn_max.AllowAnimations = true;
+            this.Btn_max.AllowZooming = true;
+            this.Btn_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_max.BackColor = System.Drawing.Color.Transparent;
+            this.Animacion_txt_title.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
+            this.Btn_max.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_max.ErrorImage")));
+            this.Btn_max.FadeWhenInactive = false;
+            this.Btn_max.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Btn_max.Image = ((System.Drawing.Image)(resources.GetObject("Btn_max.Image")));
+            this.Btn_max.ImageActive = null;
+            this.Btn_max.ImageLocation = null;
+            this.Btn_max.ImageMargin = 15;
+            this.Btn_max.ImageSize = new System.Drawing.Size(23, 23);
+            this.Btn_max.ImageZoomSize = new System.Drawing.Size(38, 38);
+            this.Btn_max.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_max.InitialImage")));
+            this.Btn_max.Location = new System.Drawing.Point(973, 6);
+            this.Btn_max.Name = "Btn_max";
+            this.Btn_max.Rotation = 0;
+            this.Btn_max.ShowActiveImage = true;
+            this.Btn_max.ShowCursorChanges = true;
+            this.Btn_max.ShowImageBorders = true;
+            this.Btn_max.ShowSizeMarkers = false;
+            this.Btn_max.Size = new System.Drawing.Size(38, 38);
+            this.Btn_max.TabIndex = 1;
+            this.Btn_max.ToolTipText = "";
+            this.Btn_max.WaitOnLoad = false;
+            this.Btn_max.Zoom = 15;
+            this.Btn_max.ZoomSpeed = 10;
+            this.Btn_max.Click += new System.EventHandler(this.Btn_max_Click);
+            // 
+            // Btn_min
+            // 
+            this.Btn_min.ActiveImage = null;
+            this.Btn_min.AllowAnimations = true;
+            this.Btn_min.AllowZooming = true;
+            this.Btn_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_min.BackColor = System.Drawing.Color.Transparent;
+            this.Animacion_txt_title.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
+            this.Btn_min.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_min.ErrorImage")));
+            this.Btn_min.FadeWhenInactive = false;
+            this.Btn_min.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Btn_min.Image = ((System.Drawing.Image)(resources.GetObject("Btn_min.Image")));
+            this.Btn_min.ImageActive = null;
+            this.Btn_min.ImageLocation = null;
+            this.Btn_min.ImageMargin = 15;
+            this.Btn_min.ImageSize = new System.Drawing.Size(23, 23);
+            this.Btn_min.ImageZoomSize = new System.Drawing.Size(38, 38);
+            this.Btn_min.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_min.InitialImage")));
+            this.Btn_min.Location = new System.Drawing.Point(929, 6);
+            this.Btn_min.Name = "Btn_min";
+            this.Btn_min.Rotation = 0;
+            this.Btn_min.ShowActiveImage = true;
+            this.Btn_min.ShowCursorChanges = true;
+            this.Btn_min.ShowImageBorders = true;
+            this.Btn_min.ShowSizeMarkers = false;
+            this.Btn_min.Size = new System.Drawing.Size(38, 38);
+            this.Btn_min.TabIndex = 2;
+            this.Btn_min.ToolTipText = "";
+            this.Btn_min.WaitOnLoad = false;
+            this.Btn_min.Zoom = 15;
+            this.Btn_min.ZoomSpeed = 10;
+            this.Btn_min.Click += new System.EventHandler(this.Btn_min_Click);
+            // 
+            // Btn_rest
+            // 
+            this.Btn_rest.ActiveImage = null;
+            this.Btn_rest.AllowAnimations = true;
+            this.Btn_rest.AllowZooming = true;
+            this.Btn_rest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_rest.BackColor = System.Drawing.Color.Transparent;
+            this.Animacion_txt_title.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
+            this.Btn_rest.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_rest.ErrorImage")));
+            this.Btn_rest.FadeWhenInactive = false;
+            this.Btn_rest.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Btn_rest.Image = ((System.Drawing.Image)(resources.GetObject("Btn_rest.Image")));
+            this.Btn_rest.ImageActive = null;
+            this.Btn_rest.ImageLocation = null;
+            this.Btn_rest.ImageMargin = 15;
+            this.Btn_rest.ImageSize = new System.Drawing.Size(23, 23);
+            this.Btn_rest.ImageZoomSize = new System.Drawing.Size(38, 38);
+            this.Btn_rest.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_rest.InitialImage")));
+            this.Btn_rest.Location = new System.Drawing.Point(973, 6);
+            this.Btn_rest.Name = "Btn_rest";
+            this.Btn_rest.Rotation = 0;
+            this.Btn_rest.ShowActiveImage = true;
+            this.Btn_rest.ShowCursorChanges = true;
+            this.Btn_rest.ShowImageBorders = true;
+            this.Btn_rest.ShowSizeMarkers = false;
+            this.Btn_rest.Size = new System.Drawing.Size(38, 38);
+            this.Btn_rest.TabIndex = 3;
+            this.Btn_rest.ToolTipText = "";
+            this.Btn_rest.WaitOnLoad = false;
+            this.Btn_rest.Zoom = 15;
+            this.Btn_rest.ZoomSpeed = 10;
+            this.Btn_rest.Click += new System.EventHandler(this.Btn_rest_Click);
+            // 
+            // Btn_close
+            // 
+            this.Btn_close.ActiveImage = null;
+            this.Btn_close.AllowAnimations = true;
+            this.Btn_close.AllowZooming = true;
+            this.Btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.Animacion_txt_title.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
+            this.Btn_close.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_close.ErrorImage")));
+            this.Btn_close.FadeWhenInactive = false;
+            this.Btn_close.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Btn_close.Image = ((System.Drawing.Image)(resources.GetObject("Btn_close.Image")));
+            this.Btn_close.ImageActive = null;
+            this.Btn_close.ImageLocation = null;
+            this.Btn_close.ImageMargin = 15;
+            this.Btn_close.ImageSize = new System.Drawing.Size(23, 23);
+            this.Btn_close.ImageZoomSize = new System.Drawing.Size(38, 38);
+            this.Btn_close.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_close.InitialImage")));
+            this.Btn_close.Location = new System.Drawing.Point(1017, 6);
+            this.Btn_close.Name = "Btn_close";
+            this.Btn_close.Rotation = 0;
+            this.Btn_close.ShowActiveImage = true;
+            this.Btn_close.ShowCursorChanges = true;
+            this.Btn_close.ShowImageBorders = true;
+            this.Btn_close.ShowSizeMarkers = false;
+            this.Btn_close.Size = new System.Drawing.Size(38, 38);
+            this.Btn_close.TabIndex = 0;
+            this.Btn_close.ToolTipText = "";
+            this.Btn_close.WaitOnLoad = false;
+            this.Btn_close.Zoom = 15;
+            this.Btn_close.ZoomSpeed = 10;
+            this.Btn_close.Click += new System.EventHandler(this.Btn_close_Click);
             // 
             // Expanded_btn
             // 
@@ -129,24 +459,6 @@
             this.Logo_pic.TabIndex = 10;
             this.Logo_pic.TabStop = false;
             this.Logo_pic.Click += new System.EventHandler(this.Logo_pic_Click);
-            // 
-            // Separador_menu
-            // 
-            this.Separador_menu.BackColor = System.Drawing.Color.Transparent;
-            this.Animacion_btn_menu.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_txt_title.SetDecoration(this.Separador_menu, BunifuAnimatorNS.DecorationType.None);
-            this.Separador_menu.ForeColor = System.Drawing.SystemColors.Control;
-            this.Separador_menu.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Separador_menu.LineThickness = 1;
-            this.Separador_menu.Location = new System.Drawing.Point(12, 201);
-            this.Separador_menu.Name = "Separador_menu";
-            this.Separador_menu.Size = new System.Drawing.Size(283, 10);
-            this.Separador_menu.TabIndex = 8;
-            this.Separador_menu.Transparency = 140;
-            this.Separador_menu.Vertical = false;
             // 
             // Menu_btn
             // 
@@ -442,322 +754,45 @@
             this.Btn_listado_pol.TextFont = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_listado_pol.Click += new System.EventHandler(this.Btn_listado_pol_Click);
             // 
-            // Btn_min
+            // Conf_form
             // 
-            this.Btn_min.ActiveImage = null;
-            this.Btn_min.AllowAnimations = true;
-            this.Btn_min.AllowZooming = true;
-            this.Btn_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_min.BackColor = System.Drawing.Color.Transparent;
-            this.Animacion_txt_title.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_btn_menu.SetDecoration(this.Btn_min, BunifuAnimatorNS.DecorationType.None);
-            this.Btn_min.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_min.ErrorImage")));
-            this.Btn_min.FadeWhenInactive = false;
-            this.Btn_min.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.Btn_min.Image = ((System.Drawing.Image)(resources.GetObject("Btn_min.Image")));
-            this.Btn_min.ImageActive = null;
-            this.Btn_min.ImageLocation = null;
-            this.Btn_min.ImageMargin = 15;
-            this.Btn_min.ImageSize = new System.Drawing.Size(23, 23);
-            this.Btn_min.ImageZoomSize = new System.Drawing.Size(38, 38);
-            this.Btn_min.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_min.InitialImage")));
-            this.Btn_min.Location = new System.Drawing.Point(929, 6);
-            this.Btn_min.Name = "Btn_min";
-            this.Btn_min.Rotation = 0;
-            this.Btn_min.ShowActiveImage = true;
-            this.Btn_min.ShowCursorChanges = true;
-            this.Btn_min.ShowImageBorders = true;
-            this.Btn_min.ShowSizeMarkers = false;
-            this.Btn_min.Size = new System.Drawing.Size(38, 38);
-            this.Btn_min.TabIndex = 2;
-            this.Btn_min.ToolTipText = "";
-            this.Btn_min.WaitOnLoad = false;
-            this.Btn_min.Zoom = 15;
-            this.Btn_min.ZoomSpeed = 10;
-            this.Btn_min.Click += new System.EventHandler(this.Btn_min_Click);
-            // 
-            // Btn_max
-            // 
-            this.Btn_max.ActiveImage = null;
-            this.Btn_max.AllowAnimations = true;
-            this.Btn_max.AllowZooming = true;
-            this.Btn_max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_max.BackColor = System.Drawing.Color.Transparent;
-            this.Animacion_txt_title.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_btn_menu.SetDecoration(this.Btn_max, BunifuAnimatorNS.DecorationType.None);
-            this.Btn_max.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_max.ErrorImage")));
-            this.Btn_max.FadeWhenInactive = false;
-            this.Btn_max.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.Btn_max.Image = ((System.Drawing.Image)(resources.GetObject("Btn_max.Image")));
-            this.Btn_max.ImageActive = null;
-            this.Btn_max.ImageLocation = null;
-            this.Btn_max.ImageMargin = 15;
-            this.Btn_max.ImageSize = new System.Drawing.Size(23, 23);
-            this.Btn_max.ImageZoomSize = new System.Drawing.Size(38, 38);
-            this.Btn_max.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_max.InitialImage")));
-            this.Btn_max.Location = new System.Drawing.Point(973, 6);
-            this.Btn_max.Name = "Btn_max";
-            this.Btn_max.Rotation = 0;
-            this.Btn_max.ShowActiveImage = true;
-            this.Btn_max.ShowCursorChanges = true;
-            this.Btn_max.ShowImageBorders = true;
-            this.Btn_max.ShowSizeMarkers = false;
-            this.Btn_max.Size = new System.Drawing.Size(38, 38);
-            this.Btn_max.TabIndex = 1;
-            this.Btn_max.ToolTipText = "";
-            this.Btn_max.WaitOnLoad = false;
-            this.Btn_max.Zoom = 15;
-            this.Btn_max.ZoomSpeed = 10;
-            this.Btn_max.Click += new System.EventHandler(this.Btn_max_Click);
-            // 
-            // Btn_close
-            // 
-            this.Btn_close.ActiveImage = null;
-            this.Btn_close.AllowAnimations = true;
-            this.Btn_close.AllowZooming = true;
-            this.Btn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.Animacion_txt_title.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_btn_menu.SetDecoration(this.Btn_close, BunifuAnimatorNS.DecorationType.None);
-            this.Btn_close.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_close.ErrorImage")));
-            this.Btn_close.FadeWhenInactive = false;
-            this.Btn_close.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.Btn_close.Image = ((System.Drawing.Image)(resources.GetObject("Btn_close.Image")));
-            this.Btn_close.ImageActive = null;
-            this.Btn_close.ImageLocation = null;
-            this.Btn_close.ImageMargin = 15;
-            this.Btn_close.ImageSize = new System.Drawing.Size(23, 23);
-            this.Btn_close.ImageZoomSize = new System.Drawing.Size(38, 38);
-            this.Btn_close.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_close.InitialImage")));
-            this.Btn_close.Location = new System.Drawing.Point(1017, 6);
-            this.Btn_close.Name = "Btn_close";
-            this.Btn_close.Rotation = 0;
-            this.Btn_close.ShowActiveImage = true;
-            this.Btn_close.ShowCursorChanges = true;
-            this.Btn_close.ShowImageBorders = true;
-            this.Btn_close.ShowSizeMarkers = false;
-            this.Btn_close.Size = new System.Drawing.Size(38, 38);
-            this.Btn_close.TabIndex = 0;
-            this.Btn_close.ToolTipText = "";
-            this.Btn_close.WaitOnLoad = false;
-            this.Btn_close.Zoom = 15;
-            this.Btn_close.ZoomSpeed = 10;
-            this.Btn_close.Click += new System.EventHandler(this.Btn_close_Click);
-            // 
-            // Btn_rest
-            // 
-            this.Btn_rest.ActiveImage = null;
-            this.Btn_rest.AllowAnimations = true;
-            this.Btn_rest.AllowZooming = true;
-            this.Btn_rest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Btn_rest.BackColor = System.Drawing.Color.Transparent;
-            this.Animacion_txt_title.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_btn_menu.SetDecoration(this.Btn_rest, BunifuAnimatorNS.DecorationType.None);
-            this.Btn_rest.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Btn_rest.ErrorImage")));
-            this.Btn_rest.FadeWhenInactive = false;
-            this.Btn_rest.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
-            this.Btn_rest.Image = ((System.Drawing.Image)(resources.GetObject("Btn_rest.Image")));
-            this.Btn_rest.ImageActive = null;
-            this.Btn_rest.ImageLocation = null;
-            this.Btn_rest.ImageMargin = 15;
-            this.Btn_rest.ImageSize = new System.Drawing.Size(23, 23);
-            this.Btn_rest.ImageZoomSize = new System.Drawing.Size(38, 38);
-            this.Btn_rest.InitialImage = ((System.Drawing.Image)(resources.GetObject("Btn_rest.InitialImage")));
-            this.Btn_rest.Location = new System.Drawing.Point(973, 6);
-            this.Btn_rest.Name = "Btn_rest";
-            this.Btn_rest.Rotation = 0;
-            this.Btn_rest.ShowActiveImage = true;
-            this.Btn_rest.ShowCursorChanges = true;
-            this.Btn_rest.ShowImageBorders = true;
-            this.Btn_rest.ShowSizeMarkers = false;
-            this.Btn_rest.Size = new System.Drawing.Size(38, 38);
-            this.Btn_rest.TabIndex = 3;
-            this.Btn_rest.ToolTipText = "";
-            this.Btn_rest.WaitOnLoad = false;
-            this.Btn_rest.Zoom = 15;
-            this.Btn_rest.ZoomSpeed = 10;
-            this.Btn_rest.Click += new System.EventHandler(this.Btn_rest_Click);
-            // 
-            // Animacion_menu_lateral
-            // 
-            this.Animacion_menu_lateral.AnimationType = BunifuAnimatorNS.AnimationType.HorizBlind;
-            this.Animacion_menu_lateral.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.Animacion_menu_lateral.DefaultAnimation = animation3;
-            // 
-            // Panel_sup
-            // 
-            this.Panel_sup.Controls.Add(this.Indicador_img);
-            this.Panel_sup.Controls.Add(this.Titulo_window);
-            this.Panel_sup.Controls.Add(this.Btn_max);
-            this.Panel_sup.Controls.Add(this.Btn_min);
-            this.Panel_sup.Controls.Add(this.Btn_rest);
-            this.Panel_sup.Controls.Add(this.Btn_close);
-            this.Animacion_btn_menu.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_txt_title.SetDecoration(this.Panel_sup, BunifuAnimatorNS.DecorationType.None);
-            this.Panel_sup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Panel_sup.Location = new System.Drawing.Point(301, 0);
-            this.Panel_sup.Name = "Panel_sup";
-            this.Panel_sup.Size = new System.Drawing.Size(1067, 49);
-            this.Panel_sup.TabIndex = 3;
-            this.Panel_sup.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_sup_MouseDown);
-            // 
-            // Indicador_img
-            // 
-            this.Animacion_txt_title.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_btn_menu.SetDecoration(this.Indicador_img, BunifuAnimatorNS.DecorationType.None);
-            this.Indicador_img.Image = ((System.Drawing.Image)(resources.GetObject("Indicador_img.Image")));
-            this.Indicador_img.Location = new System.Drawing.Point(23, 6);
-            this.Indicador_img.Name = "Indicador_img";
-            this.Indicador_img.Size = new System.Drawing.Size(35, 39);
-            this.Indicador_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Indicador_img.TabIndex = 5;
-            this.Indicador_img.TabStop = false;
-            // 
-            // Titulo_window
-            // 
-            this.Titulo_window.AutoSize = true;
-            this.Animacion_btn_menu.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_txt_title.SetDecoration(this.Titulo_window, BunifuAnimatorNS.DecorationType.None);
-            this.Titulo_window.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Titulo_window.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.Titulo_window.Location = new System.Drawing.Point(64, 6);
-            this.Titulo_window.Name = "Titulo_window";
-            this.Titulo_window.Size = new System.Drawing.Size(256, 37);
-            this.Titulo_window.TabIndex = 4;
-            this.Titulo_window.Text = "Pantalla de bienvenida";
-            // 
-            // Panel_content
-            // 
-            this.Animacion_btn_menu.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_menu_lateral.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_logo.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
-            this.Animacion_txt_title.SetDecoration(this.Panel_content, BunifuAnimatorNS.DecorationType.None);
-            this.Panel_content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_content.Location = new System.Drawing.Point(301, 49);
-            this.Panel_content.Name = "Panel_content";
-            this.Panel_content.Size = new System.Drawing.Size(1067, 671);
-            this.Panel_content.TabIndex = 4;
-            // 
-            // Animacion_logo
-            // 
-            this.Animacion_logo.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
-            this.Animacion_logo.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 1F;
-            this.Animacion_logo.DefaultAnimation = animation4;
-            // 
-            // Animacion_btn_menu
-            // 
-            this.Animacion_btn_menu.AnimationType = BunifuAnimatorNS.AnimationType.Rotate;
-            this.Animacion_btn_menu.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(50);
-            animation1.RotateCoeff = 1F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.Animacion_btn_menu.DefaultAnimation = animation1;
-            // 
-            // Animacion_menu_lateral_vuelta
-            // 
-            this.Animacion_menu_lateral_vuelta.AnimationType = BunifuAnimatorNS.AnimationType.HorizBlind;
-            this.Animacion_menu_lateral_vuelta.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.Animacion_menu_lateral_vuelta.DefaultAnimation = animation2;
-            // 
-            // Animacion_txt_title
-            // 
-            this.Animacion_txt_title.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
-            this.Animacion_txt_title.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 1F;
-            this.Animacion_txt_title.DefaultAnimation = animation5;
+            this.Conf_form.AllowFormDragging = true;
+            this.Conf_form.AllowFormDropShadow = true;
+            this.Conf_form.AllowFormResizing = true;
+            this.Conf_form.AllowHidingBottomRegion = true;
+            this.Conf_form.AllowOpacityChangesWhileDragging = false;
+            this.Conf_form.BorderOptions.BottomBorder.BorderColor = System.Drawing.Color.Silver;
+            this.Conf_form.BorderOptions.BottomBorder.BorderThickness = 1;
+            this.Conf_form.BorderOptions.BottomBorder.ShowBorder = true;
+            this.Conf_form.BorderOptions.LeftBorder.BorderColor = System.Drawing.Color.Silver;
+            this.Conf_form.BorderOptions.LeftBorder.BorderThickness = 1;
+            this.Conf_form.BorderOptions.LeftBorder.ShowBorder = true;
+            this.Conf_form.BorderOptions.RightBorder.BorderColor = System.Drawing.Color.Silver;
+            this.Conf_form.BorderOptions.RightBorder.BorderThickness = 1;
+            this.Conf_form.BorderOptions.RightBorder.ShowBorder = true;
+            this.Conf_form.BorderOptions.TopBorder.BorderColor = System.Drawing.Color.Silver;
+            this.Conf_form.BorderOptions.TopBorder.BorderThickness = 1;
+            this.Conf_form.BorderOptions.TopBorder.ShowBorder = true;
+            this.Conf_form.ContainerControl = this;
+            this.Conf_form.DockingIndicatorsColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(215)))), ((int)(((byte)(233)))));
+            this.Conf_form.DockingIndicatorsOpacity = 0.5D;
+            this.Conf_form.DockingOptions.DockAll = true;
+            this.Conf_form.DockingOptions.DockBottomLeft = true;
+            this.Conf_form.DockingOptions.DockBottomRight = true;
+            this.Conf_form.DockingOptions.DockFullScreen = true;
+            this.Conf_form.DockingOptions.DockLeft = true;
+            this.Conf_form.DockingOptions.DockRight = true;
+            this.Conf_form.DockingOptions.DockTopLeft = true;
+            this.Conf_form.DockingOptions.DockTopRight = true;
+            this.Conf_form.FormDraggingOpacity = 0.9D;
+            this.Conf_form.ParentForm = this;
+            this.Conf_form.ShowCursorChanges = true;
+            this.Conf_form.ShowDockingIndicators = true;
+            this.Conf_form.TitleBarOptions.AllowFormDragging = true;
+            this.Conf_form.TitleBarOptions.BunifuFormDock = this.Conf_form;
+            this.Conf_form.TitleBarOptions.DoubleClickToExpandWindow = true;
+            this.Conf_form.TitleBarOptions.TitleBarControl = null;
+            this.Conf_form.TitleBarOptions.UseBackColorOnDockingIndicators = false;
             // 
             // Menu_principal
             // 
@@ -777,18 +812,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu_principal";
             this.Panel_lateral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Expanded_btn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo_pic)).EndInit();
             this.Panel_sup.ResumeLayout(false);
             this.Panel_sup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Indicador_img)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Expanded_btn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo_pic)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Bunifu.Framework.UI.BunifuElipse Forma_ventana;
         private System.Windows.Forms.Panel Panel_lateral;
         private Bunifu.Framework.UI.BunifuFlatButton Btn_listado_pol;
         private Bunifu.Framework.UI.BunifuFlatButton Btn_vig_soat;
@@ -813,5 +846,6 @@
         private System.Windows.Forms.PictureBox Indicador_img;
         private System.Windows.Forms.Label Titulo_window;
         private BunifuAnimatorNS.BunifuTransition Animacion_txt_title;
+        private Bunifu.UI.WinForms.BunifuFormDock Conf_form;
     }
 }

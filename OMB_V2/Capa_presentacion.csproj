@@ -37,14 +37,32 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\Proyecto_Omb_SQL_SERVER\Proyecto_Omb_SQL_SERVER\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -68,6 +86,12 @@
     <Compile Include="Forms\Bienvenida.Designer.cs">
       <DependentUpon>Bienvenida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Listado_polizas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Listado_polizas.Designer.cs">
+      <DependentUpon>Listado_polizas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login_diseño.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Bienvenida.resx">
       <DependentUpon>Bienvenida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Listado_polizas.resx">
+      <DependentUpon>Listado_polizas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login_diseño.resx">
       <DependentUpon>Login_diseño.cs</DependentUpon>
@@ -129,6 +156,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8_medium_volume_512px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Alertas\" />
+    <Folder Include="Forms\Notificaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
