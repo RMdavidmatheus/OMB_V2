@@ -201,6 +201,8 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN ANIMACION
+            Metodos_capa_logica.Llenar_panel(Panel_content,new Listados_vehiculos());
         }
 
         private void Btn_vig_pol_Click(object sender, EventArgs e)
