@@ -91,6 +91,14 @@ namespace OMB_V2.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        private void Btn_iniciar_sesion_Click(object sender, EventArgs e)
+        {
+            // PRUEBA DEL LOGIN
+            Menu_principal Ventana = new Menu_principal();
+            Ventana.Show();
+            this.Hide();
+        }
+
         private void Login_diseño_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
