@@ -204,7 +204,6 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
-            // FIN TRANSICION
         }
 
         private void Btn_vig_pol_Click(object sender, EventArgs e)
