@@ -145,6 +145,9 @@
     <EmbeddedResource Include="Forms\Listado_tomadores.resx">
       <DependentUpon>Listado_tomadores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Listado_vigencias_polizas.resx">
+      <DependentUpon>Listado_vigencias_polizas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login_diseño.resx">
       <DependentUpon>Login_diseño.cs</DependentUpon>
     </EmbeddedResource>

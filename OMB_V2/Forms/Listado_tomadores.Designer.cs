@@ -273,5 +273,6 @@
         private Bunifu.UI.WinForms.BunifuPictureBox User_image;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
         private Bunifu.Framework.UI.BunifuElipse Forma_grid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prueba;
     }
 }
