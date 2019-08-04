@@ -220,6 +220,8 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN ANIMACION
+            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_vigencias_polizas());
         }
 
         private void Btn_vig_soat_Click(object sender, EventArgs e)

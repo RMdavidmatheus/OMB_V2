@@ -41,6 +41,7 @@
             this.txt_bienvenida = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_content = new System.Windows.Forms.Panel();
             this.Dtg_Listado_tomadores = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.prueba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Forma_grid = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel_sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.User_image)).BeginInit();
@@ -178,6 +179,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dtg_Listado_tomadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dtg_Listado_tomadores.ColumnHeadersHeight = 40;
+            this.Dtg_Listado_tomadores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.prueba});
             this.Dtg_Listado_tomadores.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.Dtg_Listado_tomadores.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Dtg_Listado_tomadores.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.White;
@@ -217,6 +220,12 @@
             this.Dtg_Listado_tomadores.TabIndex = 9;
             this.Dtg_Listado_tomadores.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
             // 
+            // prueba
+            // 
+            this.prueba.HeaderText = "prueba";
+            this.prueba.Name = "prueba";
+            this.prueba.ReadOnly = true;
+            // 
             // Forma_grid
             // 
             this.Forma_grid.ElipseRadius = 20;
@@ -255,5 +264,6 @@
         private Bunifu.UI.WinForms.BunifuPictureBox User_image;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
         private Bunifu.Framework.UI.BunifuElipse Forma_grid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prueba;
     }
 }
