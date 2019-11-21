@@ -116,6 +116,12 @@
     <Compile Include="Forms\Listado_vigencias_polizas.Designer.cs">
       <DependentUpon>Listado_vigencias_polizas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Listado_vigencias_Soat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Listado_vigencias_Soat.Designer.cs">
+      <DependentUpon>Listado_vigencias_Soat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login_diseño.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Listado_vigencias_polizas.resx">
       <DependentUpon>Listado_vigencias_polizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Listado_vigencias_Soat.resx">
+      <DependentUpon>Listado_vigencias_Soat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login_diseño.resx">
       <DependentUpon>Login_diseño.cs</DependentUpon>
