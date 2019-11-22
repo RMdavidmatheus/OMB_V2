@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tab_page));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Inicio_page = new System.Windows.Forms.TabPage();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -144,13 +144,13 @@
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.Location = new System.Drawing.Point(13, 472);
             this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
-            stateProperties4.BorderRadius = 50;
-            stateProperties4.BorderThickness = 1;
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
-            stateProperties4.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties4.IconLeftImage")));
-            stateProperties4.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties4;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
+            stateProperties7.BorderRadius = 50;
+            stateProperties7.BorderThickness = 1;
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
+            stateProperties7.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties7.IconLeftImage")));
+            stateProperties7.IconRightImage = null;
+            this.bunifuButton1.onHoverState = stateProperties7;
             this.bunifuButton1.Size = new System.Drawing.Size(301, 55);
             this.bunifuButton1.TabIndex = 8;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -203,13 +203,13 @@
             this.CotizacionesBTN.IdleIconRightImage = null;
             this.CotizacionesBTN.Location = new System.Drawing.Point(13, 396);
             this.CotizacionesBTN.Name = "CotizacionesBTN";
-            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
-            stateProperties5.BorderRadius = 50;
-            stateProperties5.BorderThickness = 1;
-            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
-            stateProperties5.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties5.IconLeftImage")));
-            stateProperties5.IconRightImage = null;
-            this.CotizacionesBTN.onHoverState = stateProperties5;
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
+            stateProperties8.BorderRadius = 50;
+            stateProperties8.BorderThickness = 1;
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
+            stateProperties8.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties8.IconLeftImage")));
+            stateProperties8.IconRightImage = null;
+            this.CotizacionesBTN.onHoverState = stateProperties8;
             this.CotizacionesBTN.Size = new System.Drawing.Size(301, 55);
             this.CotizacionesBTN.TabIndex = 6;
             this.CotizacionesBTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -238,13 +238,13 @@
             this.DownloadBTN.IdleIconRightImage = null;
             this.DownloadBTN.Location = new System.Drawing.Point(13, 317);
             this.DownloadBTN.Name = "DownloadBTN";
-            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
-            stateProperties6.BorderRadius = 50;
-            stateProperties6.BorderThickness = 1;
-            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
-            stateProperties6.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties6.IconLeftImage")));
-            stateProperties6.IconRightImage = null;
-            this.DownloadBTN.onHoverState = stateProperties6;
+            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
+            stateProperties9.BorderRadius = 50;
+            stateProperties9.BorderThickness = 1;
+            stateProperties9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
+            stateProperties9.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties9.IconLeftImage")));
+            stateProperties9.IconRightImage = null;
+            this.DownloadBTN.onHoverState = stateProperties9;
             this.DownloadBTN.Size = new System.Drawing.Size(301, 55);
             this.DownloadBTN.TabIndex = 5;
             this.DownloadBTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -341,7 +341,7 @@
             // 
             // bunifuElipse1
             // 
-            this.bunifuElipse1.ElipseRadius = 8;
+            this.bunifuElipse1.ElipseRadius = 10;
             this.bunifuElipse1.TargetControl = this.axShockwaveFlash1;
             // 
             // Añadir_btn
