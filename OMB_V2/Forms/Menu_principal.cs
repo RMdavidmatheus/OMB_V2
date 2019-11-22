@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KimtToo.VisualReactive;
 
 namespace OMB_V2.Forms
 {
@@ -78,6 +79,7 @@ namespace OMB_V2.Forms
 
         private void BunifuImageButton2_Click(object sender, EventArgs e)
         {
+            VSReactive<int>.SetState("menu", int.Parse(((Control)sender).Tag.ToString()));
             // ANIMACION DEL MENU SLIDE
             if (Panel_lateral.Width == 42)
             {
@@ -236,6 +238,8 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
+            // FIN ANIMACION
+            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_vigencias_Soat());
         }
 
         private void Btn_max_Click(object sender, EventArgs e)

@@ -52,11 +52,17 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuUserControl">
+      <HintPath>E:\David\Libreria Banifu\1.10\Bunifu.UI.WinForms.BunifuUserControl.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -137,6 +143,12 @@
     <Compile Include="Forms\Menu_principal.Designer.cs">
       <DependentUpon>Menu_principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Submenus\Tab_page.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Submenus\Tab_page.Designer.cs">
+      <DependentUpon>Tab_page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Bienvenida.resx">
@@ -165,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu_principal.resx">
       <DependentUpon>Menu_principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Submenus\Tab_page.resx">
+      <DependentUpon>Tab_page.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +223,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Notificaciones\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
