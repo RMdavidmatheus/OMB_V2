@@ -30,63 +30,63 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tab_page));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Inicio_page = new System.Windows.Forms.TabPage();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Panel_sup = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.Title = new System.Windows.Forms.Label();
             this.CotizacionesBTN = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.DownloadBTN = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.axShockwaveFlash1 = new AxShockwaveFlashObjects.AxShockwaveFlash();
             this.Listado_page = new System.Windows.Forms.TabPage();
-            this.Tomadores_page = new System.Windows.Forms.TabPage();
-            this.Beneficiaros_page = new System.Windows.Forms.TabPage();
-            this.Vehiculos_page = new System.Windows.Forms.TabPage();
-            this.Vigencias_page = new System.Windows.Forms.TabPage();
-            this.Soat_page = new System.Windows.Forms.TabPage();
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.Añadir_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Editar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Eliminar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Pdf_listado_pol_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Ttl_listado = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Ttl_listado = new System.Windows.Forms.Label();
+            this.Pdf_listado_pol_btn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Eliminar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Editar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Añadir_btn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Tomadores_page = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PDF_ben_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Pdf_listado_p_btn = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Beneficiaros_page = new System.Windows.Forms.TabPage();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Vehiculos_page = new System.Windows.Forms.TabPage();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Vigencias_page = new System.Windows.Forms.TabPage();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Soat_page = new System.Windows.Forms.TabPage();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuFlatButton4 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Pdf_listado_p_btn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tabControl1.SuspendLayout();
             this.Inicio_page.SuspendLayout();
             this.Panel_sup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).BeginInit();
             this.Listado_page.SuspendLayout();
-            this.Tomadores_page.SuspendLayout();
-            this.Beneficiaros_page.SuspendLayout();
-            this.Vehiculos_page.SuspendLayout();
-            this.Vigencias_page.SuspendLayout();
-            this.Soat_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Tomadores_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.Beneficiaros_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.Vehiculos_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.Vigencias_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.Soat_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,13 +144,13 @@
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.Location = new System.Drawing.Point(13, 472);
             this.bunifuButton1.Name = "bunifuButton1";
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
-            stateProperties7.BorderRadius = 50;
-            stateProperties7.BorderThickness = 1;
-            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
-            stateProperties7.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties7.IconLeftImage")));
-            stateProperties7.IconRightImage = null;
-            this.bunifuButton1.onHoverState = stateProperties7;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
+            stateProperties1.BorderRadius = 50;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(6)))), ((int)(((byte)(0)))));
+            stateProperties1.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties1.IconLeftImage")));
+            stateProperties1.IconRightImage = null;
+            this.bunifuButton1.onHoverState = stateProperties1;
             this.bunifuButton1.Size = new System.Drawing.Size(301, 55);
             this.bunifuButton1.TabIndex = 8;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -164,6 +164,16 @@
             this.Panel_sup.Name = "Panel_sup";
             this.Panel_sup.Size = new System.Drawing.Size(329, 75);
             this.Panel_sup.TabIndex = 7;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(7, 20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(42, 36);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 1;
+            this.pictureBox5.TabStop = false;
             // 
             // Title
             // 
@@ -203,13 +213,13 @@
             this.CotizacionesBTN.IdleIconRightImage = null;
             this.CotizacionesBTN.Location = new System.Drawing.Point(13, 396);
             this.CotizacionesBTN.Name = "CotizacionesBTN";
-            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
-            stateProperties8.BorderRadius = 50;
-            stateProperties8.BorderThickness = 1;
-            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
-            stateProperties8.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties8.IconLeftImage")));
-            stateProperties8.IconRightImage = null;
-            this.CotizacionesBTN.onHoverState = stateProperties8;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
+            stateProperties2.BorderRadius = 50;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(166)))), ((int)(((byte)(221)))));
+            stateProperties2.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties2.IconLeftImage")));
+            stateProperties2.IconRightImage = null;
+            this.CotizacionesBTN.onHoverState = stateProperties2;
             this.CotizacionesBTN.Size = new System.Drawing.Size(301, 55);
             this.CotizacionesBTN.TabIndex = 6;
             this.CotizacionesBTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -238,13 +248,13 @@
             this.DownloadBTN.IdleIconRightImage = null;
             this.DownloadBTN.Location = new System.Drawing.Point(13, 317);
             this.DownloadBTN.Name = "DownloadBTN";
-            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
-            stateProperties9.BorderRadius = 50;
-            stateProperties9.BorderThickness = 1;
-            stateProperties9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
-            stateProperties9.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties9.IconLeftImage")));
-            stateProperties9.IconRightImage = null;
-            this.DownloadBTN.onHoverState = stateProperties9;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
+            stateProperties3.BorderRadius = 50;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
+            stateProperties3.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties3.IconLeftImage")));
+            stateProperties3.IconRightImage = null;
+            this.DownloadBTN.onHoverState = stateProperties3;
             this.DownloadBTN.Size = new System.Drawing.Size(301, 55);
             this.DownloadBTN.TabIndex = 5;
             this.DownloadBTN.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -274,179 +284,25 @@
             this.Listado_page.Text = "1";
             this.Listado_page.UseVisualStyleBackColor = true;
             // 
-            // Tomadores_page
+            // pictureBox1
             // 
-            this.Tomadores_page.Controls.Add(this.pictureBox2);
-            this.Tomadores_page.Controls.Add(this.label1);
-            this.Tomadores_page.Controls.Add(this.PDF_ben_btn);
-            this.Tomadores_page.Location = new System.Drawing.Point(4, 22);
-            this.Tomadores_page.Name = "Tomadores_page";
-            this.Tomadores_page.Padding = new System.Windows.Forms.Padding(3);
-            this.Tomadores_page.Size = new System.Drawing.Size(329, 674);
-            this.Tomadores_page.TabIndex = 2;
-            this.Tomadores_page.Text = "2";
-            this.Tomadores_page.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(123, 83);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(79, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
-            // Beneficiaros_page
+            // Ttl_listado
             // 
-            this.Beneficiaros_page.Controls.Add(this.pictureBox3);
-            this.Beneficiaros_page.Controls.Add(this.label2);
-            this.Beneficiaros_page.Controls.Add(this.bunifuFlatButton1);
-            this.Beneficiaros_page.Location = new System.Drawing.Point(4, 22);
-            this.Beneficiaros_page.Name = "Beneficiaros_page";
-            this.Beneficiaros_page.Padding = new System.Windows.Forms.Padding(3);
-            this.Beneficiaros_page.Size = new System.Drawing.Size(329, 674);
-            this.Beneficiaros_page.TabIndex = 3;
-            this.Beneficiaros_page.Text = "3";
-            this.Beneficiaros_page.UseVisualStyleBackColor = true;
-            // 
-            // Vehiculos_page
-            // 
-            this.Vehiculos_page.Controls.Add(this.pictureBox4);
-            this.Vehiculos_page.Controls.Add(this.label3);
-            this.Vehiculos_page.Controls.Add(this.bunifuFlatButton2);
-            this.Vehiculos_page.Location = new System.Drawing.Point(4, 22);
-            this.Vehiculos_page.Name = "Vehiculos_page";
-            this.Vehiculos_page.Padding = new System.Windows.Forms.Padding(3);
-            this.Vehiculos_page.Size = new System.Drawing.Size(329, 674);
-            this.Vehiculos_page.TabIndex = 4;
-            this.Vehiculos_page.Text = "4";
-            this.Vehiculos_page.UseVisualStyleBackColor = true;
-            // 
-            // Vigencias_page
-            // 
-            this.Vigencias_page.Controls.Add(this.pictureBox6);
-            this.Vigencias_page.Controls.Add(this.label4);
-            this.Vigencias_page.Controls.Add(this.bunifuFlatButton3);
-            this.Vigencias_page.Location = new System.Drawing.Point(4, 22);
-            this.Vigencias_page.Name = "Vigencias_page";
-            this.Vigencias_page.Padding = new System.Windows.Forms.Padding(3);
-            this.Vigencias_page.Size = new System.Drawing.Size(329, 674);
-            this.Vigencias_page.TabIndex = 5;
-            this.Vigencias_page.Text = "5";
-            this.Vigencias_page.UseVisualStyleBackColor = true;
-            // 
-            // Soat_page
-            // 
-            this.Soat_page.Controls.Add(this.pictureBox7);
-            this.Soat_page.Controls.Add(this.label5);
-            this.Soat_page.Controls.Add(this.bunifuFlatButton4);
-            this.Soat_page.Location = new System.Drawing.Point(4, 22);
-            this.Soat_page.Name = "Soat_page";
-            this.Soat_page.Padding = new System.Windows.Forms.Padding(3);
-            this.Soat_page.Size = new System.Drawing.Size(329, 674);
-            this.Soat_page.TabIndex = 6;
-            this.Soat_page.Text = "6";
-            this.Soat_page.UseVisualStyleBackColor = true;
-            // 
-            // bunifuElipse1
-            // 
-            this.bunifuElipse1.ElipseRadius = 10;
-            this.bunifuElipse1.TargetControl = this.axShockwaveFlash1;
-            // 
-            // Añadir_btn
-            // 
-            this.Añadir_btn.Active = false;
-            this.Añadir_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Añadir_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Añadir_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Añadir_btn.BorderRadius = 0;
-            this.Añadir_btn.ButtonText = "Añadir póliza";
-            this.Añadir_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Añadir_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Añadir_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Añadir_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Añadir_btn.Iconimage")));
-            this.Añadir_btn.Iconimage_right = null;
-            this.Añadir_btn.Iconimage_right_Selected = null;
-            this.Añadir_btn.Iconimage_Selected = null;
-            this.Añadir_btn.IconMarginLeft = 0;
-            this.Añadir_btn.IconMarginRight = 0;
-            this.Añadir_btn.IconRightVisible = false;
-            this.Añadir_btn.IconRightZoom = 0D;
-            this.Añadir_btn.IconVisible = false;
-            this.Añadir_btn.IconZoom = 40D;
-            this.Añadir_btn.IsTab = false;
-            this.Añadir_btn.Location = new System.Drawing.Point(0, 146);
-            this.Añadir_btn.Name = "Añadir_btn";
-            this.Añadir_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Añadir_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.Añadir_btn.OnHoverTextColor = System.Drawing.Color.White;
-            this.Añadir_btn.selected = false;
-            this.Añadir_btn.Size = new System.Drawing.Size(329, 58);
-            this.Añadir_btn.TabIndex = 0;
-            this.Añadir_btn.Text = "Añadir póliza";
-            this.Añadir_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Añadir_btn.Textcolor = System.Drawing.Color.Black;
-            this.Añadir_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // Editar_btn
-            // 
-            this.Editar_btn.Active = false;
-            this.Editar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Editar_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Editar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Editar_btn.BorderRadius = 0;
-            this.Editar_btn.ButtonText = "Editar póliza";
-            this.Editar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Editar_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Editar_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Editar_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Editar_btn.Iconimage")));
-            this.Editar_btn.Iconimage_right = null;
-            this.Editar_btn.Iconimage_right_Selected = null;
-            this.Editar_btn.Iconimage_Selected = null;
-            this.Editar_btn.IconMarginLeft = 0;
-            this.Editar_btn.IconMarginRight = 0;
-            this.Editar_btn.IconRightVisible = false;
-            this.Editar_btn.IconRightZoom = 0D;
-            this.Editar_btn.IconVisible = false;
-            this.Editar_btn.IconZoom = 40D;
-            this.Editar_btn.IsTab = false;
-            this.Editar_btn.Location = new System.Drawing.Point(0, 210);
-            this.Editar_btn.Name = "Editar_btn";
-            this.Editar_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Editar_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.Editar_btn.OnHoverTextColor = System.Drawing.Color.White;
-            this.Editar_btn.selected = false;
-            this.Editar_btn.Size = new System.Drawing.Size(329, 58);
-            this.Editar_btn.TabIndex = 1;
-            this.Editar_btn.Text = "Editar póliza";
-            this.Editar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Editar_btn.Textcolor = System.Drawing.Color.Black;
-            this.Editar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // Eliminar_btn
-            // 
-            this.Eliminar_btn.Active = false;
-            this.Eliminar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Eliminar_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Eliminar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Eliminar_btn.BorderRadius = 0;
-            this.Eliminar_btn.ButtonText = "Eliminar póliza";
-            this.Eliminar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Eliminar_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Eliminar_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Eliminar_btn.Iconimage_right = null;
-            this.Eliminar_btn.Iconimage_right_Selected = null;
-            this.Eliminar_btn.Iconimage_Selected = null;
-            this.Eliminar_btn.IconMarginLeft = 0;
-            this.Eliminar_btn.IconMarginRight = 0;
-            this.Eliminar_btn.IconRightVisible = false;
-            this.Eliminar_btn.IconRightZoom = 0D;
-            this.Eliminar_btn.IconVisible = false;
-            this.Eliminar_btn.IconZoom = 40D;
-            this.Eliminar_btn.IsTab = false;
-            this.Eliminar_btn.Location = new System.Drawing.Point(0, 274);
-            this.Eliminar_btn.Name = "Eliminar_btn";
-            this.Eliminar_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Eliminar_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.Eliminar_btn.OnHoverTextColor = System.Drawing.Color.White;
-            this.Eliminar_btn.selected = false;
-            this.Eliminar_btn.Size = new System.Drawing.Size(329, 58);
-            this.Eliminar_btn.TabIndex = 2;
-            this.Eliminar_btn.Text = "Eliminar póliza";
-            this.Eliminar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Eliminar_btn.Textcolor = System.Drawing.Color.Black;
-            this.Eliminar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ttl_listado.AutoSize = true;
+            this.Ttl_listado.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ttl_listado.Location = new System.Drawing.Point(91, 23);
+            this.Ttl_listado.Name = "Ttl_listado";
+            this.Ttl_listado.Size = new System.Drawing.Size(146, 45);
+            this.Ttl_listado.TabIndex = 4;
+            this.Ttl_listado.Text = "Opciones";
             // 
             // Pdf_listado_pol_btn
             // 
@@ -483,25 +339,123 @@
             this.Pdf_listado_pol_btn.Textcolor = System.Drawing.Color.Black;
             this.Pdf_listado_pol_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // Ttl_listado
+            // Eliminar_btn
             // 
-            this.Ttl_listado.AutoSize = true;
-            this.Ttl_listado.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ttl_listado.Location = new System.Drawing.Point(91, 23);
-            this.Ttl_listado.Name = "Ttl_listado";
-            this.Ttl_listado.Size = new System.Drawing.Size(146, 45);
-            this.Ttl_listado.TabIndex = 4;
-            this.Ttl_listado.Text = "Opciones";
+            this.Eliminar_btn.Active = false;
+            this.Eliminar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
+            this.Eliminar_btn.BackColor = System.Drawing.SystemColors.Control;
+            this.Eliminar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Eliminar_btn.BorderRadius = 0;
+            this.Eliminar_btn.ButtonText = "Eliminar póliza";
+            this.Eliminar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Eliminar_btn.DisabledColor = System.Drawing.Color.Gray;
+            this.Eliminar_btn.Iconcolor = System.Drawing.Color.Transparent;
+            this.Eliminar_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Eliminar_btn.Iconimage")));
+            this.Eliminar_btn.Iconimage_right = null;
+            this.Eliminar_btn.Iconimage_right_Selected = null;
+            this.Eliminar_btn.Iconimage_Selected = null;
+            this.Eliminar_btn.IconMarginLeft = 0;
+            this.Eliminar_btn.IconMarginRight = 0;
+            this.Eliminar_btn.IconRightVisible = false;
+            this.Eliminar_btn.IconRightZoom = 0D;
+            this.Eliminar_btn.IconVisible = false;
+            this.Eliminar_btn.IconZoom = 40D;
+            this.Eliminar_btn.IsTab = false;
+            this.Eliminar_btn.Location = new System.Drawing.Point(0, 274);
+            this.Eliminar_btn.Name = "Eliminar_btn";
+            this.Eliminar_btn.Normalcolor = System.Drawing.SystemColors.Control;
+            this.Eliminar_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Eliminar_btn.OnHoverTextColor = System.Drawing.Color.White;
+            this.Eliminar_btn.selected = false;
+            this.Eliminar_btn.Size = new System.Drawing.Size(329, 58);
+            this.Eliminar_btn.TabIndex = 2;
+            this.Eliminar_btn.Text = "Eliminar póliza";
+            this.Eliminar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Eliminar_btn.Textcolor = System.Drawing.Color.Black;
+            this.Eliminar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // pictureBox1
+            // Editar_btn
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(123, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 40);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.Editar_btn.Active = false;
+            this.Editar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
+            this.Editar_btn.BackColor = System.Drawing.SystemColors.Control;
+            this.Editar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Editar_btn.BorderRadius = 0;
+            this.Editar_btn.ButtonText = "Editar póliza";
+            this.Editar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Editar_btn.DisabledColor = System.Drawing.Color.Gray;
+            this.Editar_btn.Iconcolor = System.Drawing.Color.Transparent;
+            this.Editar_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Editar_btn.Iconimage")));
+            this.Editar_btn.Iconimage_right = null;
+            this.Editar_btn.Iconimage_right_Selected = null;
+            this.Editar_btn.Iconimage_Selected = null;
+            this.Editar_btn.IconMarginLeft = 0;
+            this.Editar_btn.IconMarginRight = 0;
+            this.Editar_btn.IconRightVisible = false;
+            this.Editar_btn.IconRightZoom = 0D;
+            this.Editar_btn.IconVisible = false;
+            this.Editar_btn.IconZoom = 40D;
+            this.Editar_btn.IsTab = false;
+            this.Editar_btn.Location = new System.Drawing.Point(0, 210);
+            this.Editar_btn.Name = "Editar_btn";
+            this.Editar_btn.Normalcolor = System.Drawing.SystemColors.Control;
+            this.Editar_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Editar_btn.OnHoverTextColor = System.Drawing.Color.White;
+            this.Editar_btn.selected = false;
+            this.Editar_btn.Size = new System.Drawing.Size(329, 58);
+            this.Editar_btn.TabIndex = 1;
+            this.Editar_btn.Text = "Editar póliza";
+            this.Editar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Editar_btn.Textcolor = System.Drawing.Color.Black;
+            this.Editar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // Añadir_btn
+            // 
+            this.Añadir_btn.Active = false;
+            this.Añadir_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
+            this.Añadir_btn.BackColor = System.Drawing.SystemColors.Control;
+            this.Añadir_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Añadir_btn.BorderRadius = 0;
+            this.Añadir_btn.ButtonText = "Añadir póliza";
+            this.Añadir_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Añadir_btn.DisabledColor = System.Drawing.Color.Gray;
+            this.Añadir_btn.Iconcolor = System.Drawing.Color.Transparent;
+            this.Añadir_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Añadir_btn.Iconimage")));
+            this.Añadir_btn.Iconimage_right = null;
+            this.Añadir_btn.Iconimage_right_Selected = null;
+            this.Añadir_btn.Iconimage_Selected = null;
+            this.Añadir_btn.IconMarginLeft = 0;
+            this.Añadir_btn.IconMarginRight = 0;
+            this.Añadir_btn.IconRightVisible = false;
+            this.Añadir_btn.IconRightZoom = 0D;
+            this.Añadir_btn.IconVisible = false;
+            this.Añadir_btn.IconZoom = 40D;
+            this.Añadir_btn.IsTab = false;
+            this.Añadir_btn.Location = new System.Drawing.Point(0, 146);
+            this.Añadir_btn.Name = "Añadir_btn";
+            this.Añadir_btn.Normalcolor = System.Drawing.SystemColors.Control;
+            this.Añadir_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Añadir_btn.OnHoverTextColor = System.Drawing.Color.White;
+            this.Añadir_btn.selected = false;
+            this.Añadir_btn.Size = new System.Drawing.Size(329, 58);
+            this.Añadir_btn.TabIndex = 0;
+            this.Añadir_btn.Text = "Añadir póliza";
+            this.Añadir_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Añadir_btn.Textcolor = System.Drawing.Color.Black;
+            this.Añadir_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // Tomadores_page
+            // 
+            this.Tomadores_page.Controls.Add(this.pictureBox2);
+            this.Tomadores_page.Controls.Add(this.label1);
+            this.Tomadores_page.Controls.Add(this.PDF_ben_btn);
+            this.Tomadores_page.Location = new System.Drawing.Point(4, 22);
+            this.Tomadores_page.Name = "Tomadores_page";
+            this.Tomadores_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Tomadores_page.Size = new System.Drawing.Size(329, 674);
+            this.Tomadores_page.TabIndex = 2;
+            this.Tomadores_page.Text = "2";
+            this.Tomadores_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -558,40 +512,18 @@
             this.PDF_ben_btn.Textcolor = System.Drawing.Color.Black;
             this.PDF_ben_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // Pdf_listado_p_btn
+            // Beneficiaros_page
             // 
-            this.Pdf_listado_p_btn.Active = false;
-            this.Pdf_listado_p_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Pdf_listado_p_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Pdf_listado_p_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Pdf_listado_p_btn.BorderRadius = 0;
-            this.Pdf_listado_p_btn.ButtonText = "Descargar PDF";
-            this.Pdf_listado_p_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Pdf_listado_p_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Pdf_listado_p_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Pdf_listado_p_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Pdf_listado_p_btn.Iconimage")));
-            this.Pdf_listado_p_btn.Iconimage_right = null;
-            this.Pdf_listado_p_btn.Iconimage_right_Selected = null;
-            this.Pdf_listado_p_btn.Iconimage_Selected = null;
-            this.Pdf_listado_p_btn.IconMarginLeft = 0;
-            this.Pdf_listado_p_btn.IconMarginRight = 0;
-            this.Pdf_listado_p_btn.IconRightVisible = true;
-            this.Pdf_listado_p_btn.IconRightZoom = 0D;
-            this.Pdf_listado_p_btn.IconVisible = true;
-            this.Pdf_listado_p_btn.IconZoom = 40D;
-            this.Pdf_listado_p_btn.IsTab = false;
-            this.Pdf_listado_p_btn.Location = new System.Drawing.Point(0, 338);
-            this.Pdf_listado_p_btn.Name = "Pdf_listado_p_btn";
-            this.Pdf_listado_p_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Pdf_listado_p_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.Pdf_listado_p_btn.OnHoverTextColor = System.Drawing.Color.White;
-            this.Pdf_listado_p_btn.selected = false;
-            this.Pdf_listado_p_btn.Size = new System.Drawing.Size(329, 58);
-            this.Pdf_listado_p_btn.TabIndex = 3;
-            this.Pdf_listado_p_btn.Text = "Descargar PDF";
-            this.Pdf_listado_p_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Pdf_listado_p_btn.Textcolor = System.Drawing.Color.Black;
-            this.Pdf_listado_p_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Beneficiaros_page.Controls.Add(this.pictureBox3);
+            this.Beneficiaros_page.Controls.Add(this.label2);
+            this.Beneficiaros_page.Controls.Add(this.bunifuFlatButton1);
+            this.Beneficiaros_page.Location = new System.Drawing.Point(4, 22);
+            this.Beneficiaros_page.Name = "Beneficiaros_page";
+            this.Beneficiaros_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Beneficiaros_page.Size = new System.Drawing.Size(329, 674);
+            this.Beneficiaros_page.TabIndex = 3;
+            this.Beneficiaros_page.Text = "3";
+            this.Beneficiaros_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -648,6 +580,19 @@
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // Vehiculos_page
+            // 
+            this.Vehiculos_page.Controls.Add(this.pictureBox4);
+            this.Vehiculos_page.Controls.Add(this.label3);
+            this.Vehiculos_page.Controls.Add(this.bunifuFlatButton2);
+            this.Vehiculos_page.Location = new System.Drawing.Point(4, 22);
+            this.Vehiculos_page.Name = "Vehiculos_page";
+            this.Vehiculos_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Vehiculos_page.Size = new System.Drawing.Size(329, 674);
+            this.Vehiculos_page.TabIndex = 4;
+            this.Vehiculos_page.Text = "4";
+            this.Vehiculos_page.UseVisualStyleBackColor = true;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
@@ -703,15 +648,18 @@
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // pictureBox5
+            // Vigencias_page
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(7, 20);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(42, 36);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 1;
-            this.pictureBox5.TabStop = false;
+            this.Vigencias_page.Controls.Add(this.pictureBox6);
+            this.Vigencias_page.Controls.Add(this.label4);
+            this.Vigencias_page.Controls.Add(this.bunifuFlatButton3);
+            this.Vigencias_page.Location = new System.Drawing.Point(4, 22);
+            this.Vigencias_page.Name = "Vigencias_page";
+            this.Vigencias_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Vigencias_page.Size = new System.Drawing.Size(329, 674);
+            this.Vigencias_page.TabIndex = 5;
+            this.Vigencias_page.Text = "5";
+            this.Vigencias_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox6
             // 
@@ -768,6 +716,19 @@
             this.bunifuFlatButton3.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton3.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // Soat_page
+            // 
+            this.Soat_page.Controls.Add(this.pictureBox7);
+            this.Soat_page.Controls.Add(this.label5);
+            this.Soat_page.Controls.Add(this.bunifuFlatButton4);
+            this.Soat_page.Location = new System.Drawing.Point(4, 22);
+            this.Soat_page.Name = "Soat_page";
+            this.Soat_page.Padding = new System.Windows.Forms.Padding(3);
+            this.Soat_page.Size = new System.Drawing.Size(329, 674);
+            this.Soat_page.TabIndex = 6;
+            this.Soat_page.Text = "6";
+            this.Soat_page.UseVisualStyleBackColor = true;
+            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
@@ -823,6 +784,46 @@
             this.bunifuFlatButton4.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton4.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 10;
+            this.bunifuElipse1.TargetControl = this.axShockwaveFlash1;
+            // 
+            // Pdf_listado_p_btn
+            // 
+            this.Pdf_listado_p_btn.Active = false;
+            this.Pdf_listado_p_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
+            this.Pdf_listado_p_btn.BackColor = System.Drawing.SystemColors.Control;
+            this.Pdf_listado_p_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Pdf_listado_p_btn.BorderRadius = 0;
+            this.Pdf_listado_p_btn.ButtonText = "Descargar PDF";
+            this.Pdf_listado_p_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Pdf_listado_p_btn.DisabledColor = System.Drawing.Color.Gray;
+            this.Pdf_listado_p_btn.Iconcolor = System.Drawing.Color.Transparent;
+            this.Pdf_listado_p_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Pdf_listado_p_btn.Iconimage")));
+            this.Pdf_listado_p_btn.Iconimage_right = null;
+            this.Pdf_listado_p_btn.Iconimage_right_Selected = null;
+            this.Pdf_listado_p_btn.Iconimage_Selected = null;
+            this.Pdf_listado_p_btn.IconMarginLeft = 0;
+            this.Pdf_listado_p_btn.IconMarginRight = 0;
+            this.Pdf_listado_p_btn.IconRightVisible = true;
+            this.Pdf_listado_p_btn.IconRightZoom = 0D;
+            this.Pdf_listado_p_btn.IconVisible = true;
+            this.Pdf_listado_p_btn.IconZoom = 40D;
+            this.Pdf_listado_p_btn.IsTab = false;
+            this.Pdf_listado_p_btn.Location = new System.Drawing.Point(0, 338);
+            this.Pdf_listado_p_btn.Name = "Pdf_listado_p_btn";
+            this.Pdf_listado_p_btn.Normalcolor = System.Drawing.SystemColors.Control;
+            this.Pdf_listado_p_btn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.Pdf_listado_p_btn.OnHoverTextColor = System.Drawing.Color.White;
+            this.Pdf_listado_p_btn.selected = false;
+            this.Pdf_listado_p_btn.Size = new System.Drawing.Size(329, 58);
+            this.Pdf_listado_p_btn.TabIndex = 3;
+            this.Pdf_listado_p_btn.Text = "Descargar PDF";
+            this.Pdf_listado_p_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Pdf_listado_p_btn.Textcolor = System.Drawing.Color.Black;
+            this.Pdf_listado_p_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // Tab_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -834,25 +835,25 @@
             this.Inicio_page.ResumeLayout(false);
             this.Panel_sup.ResumeLayout(false);
             this.Panel_sup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).EndInit();
             this.Listado_page.ResumeLayout(false);
             this.Listado_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Tomadores_page.ResumeLayout(false);
             this.Tomadores_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.Beneficiaros_page.ResumeLayout(false);
             this.Beneficiaros_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.Vehiculos_page.ResumeLayout(false);
             this.Vehiculos_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.Vigencias_page.ResumeLayout(false);
             this.Vigencias_page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.Soat_page.ResumeLayout(false);
             this.Soat_page.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
 

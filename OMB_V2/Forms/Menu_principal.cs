@@ -21,8 +21,9 @@ namespace OMB_V2.Forms
             #region
             Metodos_capa_logica.Llenar_panel(Panel_content, new Forms.Bienvenida());
             #endregion
-            Expanded_btn.Hide();
+            Logo_pic.Visible = false;
         }
+        bool Menu_expandido = false;
         // INICIALIZANDO METODOS DESDE CAPA LOGICA
         Capa_logica.Metodos Metodos_capa_logica = new Capa_logica.Metodos();
         // INICIALIZANDO METODOS DESDE LOGIN
@@ -77,51 +78,9 @@ namespace OMB_V2.Forms
             Metodos_capa_logica.Llenar_panel(Panel_content,new Forms.Bienvenida());
         }
 
-        private void BunifuImageButton2_Click(object sender, EventArgs e)
+        private void Menu_btn_Click(object sender, EventArgs e)
         {
             VSReactive<int>.SetState("menu", int.Parse(((Control)sender).Tag.ToString()));
-            // ANIMACION DEL MENU SLIDE
-            if (Panel_lateral.Width == 42)
-            {
-                Animacion_btn_menu.HideSync(Expanded_btn);
-                Panel_lateral.Visible = false;
-                Panel_lateral.Width = 301;
-                Animacion_menu_lateral.ShowSync(Panel_lateral);
-                Animacion_logo.ShowSync(Logo_pic);
-                Separador_menu.Visible = true;
-            }
-            else
-            {
-                Animacion_logo.HideSync(Logo_pic);
-                Animacion_btn_menu.ShowSync(Expanded_btn);
-                Separador_menu.Visible = false;
-                Panel_lateral.Visible = false;
-                Panel_lateral.Width = 42;
-                Menu_btn.Hide();
-                Animacion_menu_lateral_vuelta.ShowSync(Panel_lateral);
-            }
-        }
-
-        private void Expanded_btn_Click(object sender, EventArgs e)
-        {
-            // ANIMACION DEL MENU SLIDE
-            if (Panel_lateral.Width == 42)
-            {
-                Menu_btn.Show();
-                Animacion_btn_menu.HideSync(Expanded_btn);
-                Panel_lateral.Visible = false;
-                Panel_lateral.Width = 301;
-                Animacion_menu_lateral.ShowSync(Panel_lateral);
-                Animacion_logo.ShowSync(Logo_pic);
-                Separador_menu.Visible = true;
-            }
-            else
-            {
-                if (Menu_btn.Visible == true)
-                {
-                    Animacion_btn_menu.HideSync(Expanded_btn);
-                }
-            }
         }
 
         private void Logo_pic_Click(object sender, EventArgs e)
@@ -240,6 +199,32 @@ namespace OMB_V2.Forms
             }
             // FIN ANIMACION
             Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_vigencias_Soat());
+        }
+
+        private void Mouse_detectado_Tick(object sender, EventArgs e)
+        {
+            // ABRIR EL MENU AUTOMATICAMENTE
+            if (!Animacion_menu_lateral.IsCompleted) return;
+            if (Panel_lateral.ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            {
+                if (!Menu_expandido)
+                {
+                    Menu_expandido = true;
+                    Panel_lateral.Width = 301;
+                    Animacion_logo.Show(Logo_pic);
+                }
+            }
+            else 
+            {
+                if (Menu_expandido) 
+                {
+                    Menu_expandido = false;
+                    Animacion_logo.Hide(Logo_pic);
+                    Panel_lateral.Visible = false;
+                    Panel_lateral.Width = 42;
+                    Animacion_menu_lateral.Show(Panel_lateral);
+                }
+            }
         }
 
         private void Btn_max_Click(object sender, EventArgs e)
