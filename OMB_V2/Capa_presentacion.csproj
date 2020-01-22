@@ -70,13 +70,21 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>E:\David\Libreria Banifu\1.10\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin">
       <HintPath>..\..\Proyecto_Omb_SQL_SERVER\Proyecto_Omb_SQL_SERVER\bin\Debug\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -152,6 +160,85 @@
     <Compile Include="Forms\Submenus\Tab_page.Designer.cs">
       <DependentUpon>Tab_page.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aseguradora.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Beneficiario.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Metodos bases de datos\Metodos_DB.cs" />
+    <Compile Include="Models\OMB_DATA_BASE.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OMB_DATA_BASE.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OMB_DATA_BASE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OMB_DATA_BASE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OMB_DATA_BASE.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Poliza.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Polizas_Vehiculos.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipo_poliza.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tomador.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuarios.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vehiculo.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Beneficiario.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Ben_2.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Listado_Polizas.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_reporte_soat.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_reporte_vigencias.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Tomador.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Tom_2.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Vehiculos.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vista_Vig_Pol_2.cs">
+      <DependentUpon>OMB_DATA_BASE.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Bienvenida.resx">
@@ -194,6 +281,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Models\OMB_DATA_BASE.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OMB_DATA_BASE.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\OMB_DATA_BASE.edmx.diagram">
+      <DependentUpon>OMB_DATA_BASE.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -245,6 +339,21 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\OMB_DATA_BASE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OMB_DATA_BASE.edmx</DependentUpon>
+      <LastGenOutput>OMB_DATA_BASE.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\OMB_DATA_BASE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OMB_DATA_BASE.edmx</DependentUpon>
+      <LastGenOutput>OMB_DATA_BASE.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

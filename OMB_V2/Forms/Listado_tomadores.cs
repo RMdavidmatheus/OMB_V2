@@ -18,14 +18,13 @@ namespace OMB_V2.Forms
         }
         // INICIALIZACION METODOS
         #region
-        Capa_logica.Metodos Metodos = new Capa_logica.Metodos();
-        Capa_login.Metodos_login Metodos_mongo = new Capa_login.Metodos_login();
+        Models.Metodos_bases_de_datos.Metodos_DB Metodos_DB = new Models.Metodos_bases_de_datos.Metodos_DB();
         #endregion
         // FIN
         private void Listado_tomadores_Load(object sender, EventArgs e)
         {
-            // LLENAR EL DATAGRID CON EL METODO CORRESPONDIENTE PARA TENER EL DATA SOURCE
-            //Metodos_mongo.Listar_usuarios(Dtg_Listado_tomadores);
+            // Llenar tabla
+            Metodos_DB.Listar_DB_Tomadores(Dtg_Listado_tomadores);
         }
     }
 }

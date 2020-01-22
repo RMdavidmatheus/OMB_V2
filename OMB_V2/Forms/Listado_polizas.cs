@@ -16,5 +16,12 @@ namespace OMB_V2.Forms
         {
             InitializeComponent();
         }
+
+        // Inicializacion Metodos DB
+        Models.Metodos_bases_de_datos.Metodos_DB Metodos = new Models.Metodos_bases_de_datos.Metodos_DB();
+        private void Listado_polizas_Load(object sender, EventArgs e)
+        {
+            Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+        }
     }
 }

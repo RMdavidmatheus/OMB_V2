@@ -1,0 +1,1379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Data_base_model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aseguradora">
+          <Key>
+            <PropertyRef Name="Aseguradora_ID" />
+          </Key>
+          <Property Name="Aseguradora_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Aseguradora_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha_de_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Beneficiario">
+          <Key>
+            <PropertyRef Name="Ben_Documento" />
+          </Key>
+          <Property Name="Ben_Documento" Type="bigint" Nullable="false" />
+          <Property Name="Ben_Tipo_Doc" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ben_Nombres" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ben_Apellidos" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Ben_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ben_Telefono" Type="bigint" Nullable="false" />
+          <Property Name="Ben_Email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Ben_Fecha_Nacimiento" Type="date" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poliza">
+          <Key>
+            <PropertyRef Name="Pol_Numero_Poliza" />
+          </Key>
+          <Property Name="Pol_Numero_Poliza" Type="bigint" Nullable="false" />
+          <Property Name="Tipo_Poliza_ID" Type="int" Nullable="false" />
+          <Property Name="Aseguradora_ID" Type="int" Nullable="false" />
+          <Property Name="Tomador_Documento" Type="bigint" Nullable="false" />
+          <Property Name="Beneficiario_Documento" Type="bigint" Nullable="false" />
+          <Property Name="Pol_Vigencia_Inicial" Type="date" Nullable="false" />
+          <Property Name="Pol_Vigencia_Final" Type="date" Nullable="false" />
+          <Property Name="Pol_Valor_Prima" Type="money" Nullable="false" />
+          <Property Name="Pol_Estado" Type="varchar" MaxLength="10" />
+          <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Polizas_Vehiculos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Polizas_Vehiculos">
+          <Key>
+            <PropertyRef Name="PolVeh_Numero_Poliza" />
+            <PropertyRef Name="PolVeh_Veh_Placa" />
+            <PropertyRef Name="Fecha_creacion" />
+          </Key>
+          <Property Name="PolVeh_Numero_Poliza" Type="bigint" Nullable="false" />
+          <Property Name="PolVeh_Veh_Placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tipo_poliza">
+          <Key>
+            <PropertyRef Name="ID_Tipo_poliza" />
+          </Key>
+          <Property Name="ID_Tipo_poliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Ramo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tomador">
+          <Key>
+            <PropertyRef Name="Tom_Documento" />
+          </Key>
+          <Property Name="Tom_Documento" Type="bigint" Nullable="false" />
+          <Property Name="Tom_Tip_Doc" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Tom_Nombres" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Tom_Apellidos" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Tom_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tom_Telefono" Type="bigint" Nullable="false" />
+          <Property Name="Tom_Email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Tom_Fecha_Nacimiento" Type="date" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Nombre_Usuario" />
+          </Key>
+          <Property Name="Nombre_Usuario" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contraseña_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Documento_Usuario" Type="bigint" Nullable="false" />
+          <Property Name="Imagenes_Usuario" Type="image" />
+          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="Veh_Placa" />
+          </Key>
+          <Property Name="Veh_Placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Veh_Modelo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Veh_Fasecolda" Type="int" Nullable="false" />
+          <Property Name="Veh_Servicio" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Veh_Clase" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Veh_Marca" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Veh_Valor_Auto" Type="money" Nullable="false" />
+          <Property Name="Veh_Vigencia_Soat" Type="date" Nullable="false" />
+          <Property Name="Veh_Soat_Estado" Type="varchar" MaxLength="10" />
+          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Ben_2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Ben_2">
+          <Key>
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Tipo documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Fecha de nacimiento" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="Documento" Type="bigint" Nullable="false" />
+          <Property Name="Tipo documento" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Fecha de nacimiento" Type="date" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Beneficiario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Beneficiario">
+          <Key>
+            <PropertyRef Name="Tipo de documento" />
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Fecha de nacimiento" />
+          </Key>
+          <Property Name="Tipo de documento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Documento" Type="bigint" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fecha de nacimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Listado_Polizas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Listado_Polizas">
+          <Key>
+            <PropertyRef Name="Numero de Poliza" />
+            <PropertyRef Name="Nombres Tomador" />
+            <PropertyRef Name="Nombres Beneficiario" />
+            <PropertyRef Name="Valor Prima" />
+          </Key>
+          <Property Name="Numero de Poliza" Type="bigint" Nullable="false" />
+          <Property Name="Ramo" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre Aseguradora" Type="varchar" MaxLength="20" />
+          <Property Name="Tipo documento Tomador" Type="varchar" MaxLength="20" />
+          <Property Name="Documento Tomador" Type="bigint" />
+          <Property Name="Nombres Tomador" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Tipo documento Beneficiario" Type="varchar" MaxLength="20" />
+          <Property Name="Documento Beneficiario" Type="bigint" />
+          <Property Name="Nombres Beneficiario" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Vigencia Inicial" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Vigencia Final" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Valor Prima" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_reporte_soat' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_reporte_soat">
+          <Key>
+            <PropertyRef Name="Numero de poliza" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Valor del Auto" />
+          </Key>
+          <Property Name="Numero de poliza" Type="bigint" Nullable="false" />
+          <Property Name="Tipo de Documento" Type="varchar" MaxLength="20" />
+          <Property Name="Documento" Type="bigint" />
+          <Property Name="Nombres" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fasecolda" Type="int" />
+          <Property Name="Servicio" Type="varchar" MaxLength="20" />
+          <Property Name="Clase" Type="varchar" MaxLength="20" />
+          <Property Name="Modelo" Type="varchar" MaxLength="4" />
+          <Property Name="Marca" Type="varchar" MaxLength="20" />
+          <Property Name="Valor del Auto" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Vigencia SOAT" Type="date" />
+          <Property Name="Estado SOAT" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_reporte_vigencias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_reporte_vigencias">
+          <Key>
+            <PropertyRef Name="Numero de poliza" />
+            <PropertyRef Name="Nombres Tomador" />
+            <PropertyRef Name="Valor prima" />
+            <PropertyRef Name="Vigencia Inicial" />
+            <PropertyRef Name="Vigencia Final" />
+          </Key>
+          <Property Name="Numero de poliza" Type="bigint" Nullable="false" />
+          <Property Name="Tipo de documento" Type="varchar" MaxLength="20" />
+          <Property Name="Documento" Type="bigint" />
+          <Property Name="Nombres Tomador" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Telefono" Type="int" />
+          <Property Name="Valor prima" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Vigencia Inicial" Type="date" Nullable="false" />
+          <Property Name="Vigencia Final" Type="date" Nullable="false" />
+          <Property Name="Estado de la poliza" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Tom_2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Tom_2">
+          <Key>
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Tipo documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Fecha de nacimiento" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="Documento" Type="bigint" Nullable="false" />
+          <Property Name="Tipo documento" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Fecha de nacimiento" Type="date" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Tomador' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Tomador">
+          <Key>
+            <PropertyRef Name="Tipo de documento" />
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Fecha de nacimiento" />
+          </Key>
+          <Property Name="Tipo de documento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Documento" Type="bigint" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Fecha de nacimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Vehiculos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Vehiculos">
+          <Key>
+            <PropertyRef Name="Nombres Tomador" />
+            <PropertyRef Name="Fasecolda" />
+            <PropertyRef Name="Clase" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Servicio" />
+          </Key>
+          <Property Name="Numero de Poliza" Type="bigint" />
+          <Property Name="Aseguradora" Type="varchar" MaxLength="20" />
+          <Property Name="Ramo" Type="varchar" MaxLength="20" />
+          <Property Name="Tipo Documento Tomador" Type="varchar" MaxLength="20" />
+          <Property Name="Documento Tomador" Type="bigint" />
+          <Property Name="Nombres Tomador" Type="varchar" MaxLength="41" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="10" />
+          <Property Name="Fasecolda" Type="int" Nullable="false" />
+          <Property Name="Clase" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Servicio" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Vig_Pol_2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_Vig_Pol_2">
+          <Key>
+            <PropertyRef Name="Numero Poliza" />
+            <PropertyRef Name="Tipo documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Valor prima" />
+            <PropertyRef Name="VIgencia Inicial" />
+            <PropertyRef Name="Vigencia Final" />
+          </Key>
+          <Property Name="Numero Poliza" Type="bigint" Nullable="false" />
+          <Property Name="Tipo documento" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" Nullable="false" />
+          <Property Name="Valor prima" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="VIgencia Inicial" Type="date" Nullable="false" />
+          <Property Name="Vigencia Final" Type="date" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Poliza_Aseguradora">
+          <End Role="Aseguradora" Type="Self.Aseguradora" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aseguradora">
+              <PropertyRef Name="Aseguradora_ID" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Aseguradora_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Beneficiario">
+          <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beneficiario">
+              <PropertyRef Name="Ben_Documento" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Beneficiario_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Tipo_poliza">
+          <End Role="Tipo_poliza" Type="Self.Tipo_poliza" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_poliza">
+              <PropertyRef Name="ID_Tipo_poliza" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Tipo_Poliza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Tomador">
+          <End Role="Tomador" Type="Self.Tomador" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tomador">
+              <PropertyRef Name="Tom_Documento" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Tomador_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizas_Vehiculos_Poliza">
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
+          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poliza">
+              <PropertyRef Name="Pol_Numero_Poliza" />
+            </Principal>
+            <Dependent Role="Polizas_Vehiculos">
+              <PropertyRef Name="PolVeh_Numero_Poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizas_Vehiculos_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Veh_Placa" />
+            </Principal>
+            <Dependent Role="Polizas_Vehiculos">
+              <PropertyRef Name="PolVeh_Veh_Placa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Data_base_modelStoreContainer">
+          <EntitySet Name="Aseguradora" EntityType="Self.Aseguradora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poliza" EntityType="Self.Poliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tomador" EntityType="Self.Tomador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Polizas_Vehiculos" EntityType="Self.Polizas_Vehiculos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Polizas_Vehiculos].[PolVeh_Numero_Poliza] AS [PolVeh_Numero_Poliza], 
+    [Polizas_Vehiculos].[PolVeh_Veh_Placa] AS [PolVeh_Veh_Placa], 
+    [Polizas_Vehiculos].[Fecha_creacion] AS [Fecha_creacion]
+    FROM [dbo].[Polizas_Vehiculos] AS [Polizas_Vehiculos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Ben_2].[Documento] AS [Documento], 
+    [Vista_Ben_2].[Tipo documento] AS [Tipo documento], 
+    [Vista_Ben_2].[Nombres] AS [Nombres], 
+    [Vista_Ben_2].[Fecha de nacimiento] AS [Fecha de nacimiento], 
+    [Vista_Ben_2].[Direccion] AS [Direccion], 
+    [Vista_Ben_2].[Email] AS [Email], 
+    [Vista_Ben_2].[Telefono] AS [Telefono]
+    FROM [dbo].[Vista_Ben_2] AS [Vista_Ben_2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Beneficiario" EntityType="Self.Vista_Beneficiario" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Beneficiario].[Tipo de documento] AS [Tipo de documento], 
+    [Vista_Beneficiario].[Documento] AS [Documento], 
+    [Vista_Beneficiario].[Nombres] AS [Nombres], 
+    [Vista_Beneficiario].[Direccion] AS [Direccion], 
+    [Vista_Beneficiario].[Telefono] AS [Telefono], 
+    [Vista_Beneficiario].[Email] AS [Email], 
+    [Vista_Beneficiario].[Fecha de nacimiento] AS [Fecha de nacimiento]
+    FROM [dbo].[Vista_Beneficiario] AS [Vista_Beneficiario]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Listado_Polizas" EntityType="Self.Vista_Listado_Polizas" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Listado_Polizas].[Numero de Poliza] AS [Numero de Poliza], 
+    [Vista_Listado_Polizas].[Ramo] AS [Ramo], 
+    [Vista_Listado_Polizas].[Nombre Aseguradora] AS [Nombre Aseguradora], 
+    [Vista_Listado_Polizas].[Tipo documento Tomador] AS [Tipo documento Tomador], 
+    [Vista_Listado_Polizas].[Documento Tomador] AS [Documento Tomador], 
+    [Vista_Listado_Polizas].[Nombres Tomador] AS [Nombres Tomador], 
+    [Vista_Listado_Polizas].[Tipo documento Beneficiario] AS [Tipo documento Beneficiario], 
+    [Vista_Listado_Polizas].[Documento Beneficiario] AS [Documento Beneficiario], 
+    [Vista_Listado_Polizas].[Nombres Beneficiario] AS [Nombres Beneficiario], 
+    [Vista_Listado_Polizas].[Vigencia Inicial] AS [Vigencia Inicial], 
+    [Vista_Listado_Polizas].[Vigencia Final] AS [Vigencia Final], 
+    [Vista_Listado_Polizas].[Valor Prima] AS [Valor Prima], 
+    [Vista_Listado_Polizas].[Estado] AS [Estado]
+    FROM [dbo].[Vista_Listado_Polizas] AS [Vista_Listado_Polizas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_reporte_soat" EntityType="Self.Vista_reporte_soat" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_reporte_soat].[Numero de poliza] AS [Numero de poliza], 
+    [Vista_reporte_soat].[Tipo de Documento] AS [Tipo de Documento], 
+    [Vista_reporte_soat].[Documento] AS [Documento], 
+    [Vista_reporte_soat].[Nombres] AS [Nombres], 
+    [Vista_reporte_soat].[Placa] AS [Placa], 
+    [Vista_reporte_soat].[Fasecolda] AS [Fasecolda], 
+    [Vista_reporte_soat].[Servicio] AS [Servicio], 
+    [Vista_reporte_soat].[Clase] AS [Clase], 
+    [Vista_reporte_soat].[Modelo] AS [Modelo], 
+    [Vista_reporte_soat].[Marca] AS [Marca], 
+    [Vista_reporte_soat].[Valor del Auto] AS [Valor del Auto], 
+    [Vista_reporte_soat].[Vigencia SOAT] AS [Vigencia SOAT], 
+    [Vista_reporte_soat].[Estado SOAT] AS [Estado SOAT]
+    FROM [dbo].[Vista_reporte_soat] AS [Vista_reporte_soat]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_reporte_vigencias" EntityType="Self.Vista_reporte_vigencias" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_reporte_vigencias].[Numero de poliza] AS [Numero de poliza], 
+    [Vista_reporte_vigencias].[Tipo de documento] AS [Tipo de documento], 
+    [Vista_reporte_vigencias].[Documento] AS [Documento], 
+    [Vista_reporte_vigencias].[Nombres Tomador] AS [Nombres Tomador], 
+    [Vista_reporte_vigencias].[Telefono] AS [Telefono], 
+    [Vista_reporte_vigencias].[Valor prima] AS [Valor prima], 
+    [Vista_reporte_vigencias].[Vigencia Inicial] AS [Vigencia Inicial], 
+    [Vista_reporte_vigencias].[Vigencia Final] AS [Vigencia Final], 
+    [Vista_reporte_vigencias].[Estado de la poliza] AS [Estado de la poliza]
+    FROM [dbo].[Vista_reporte_vigencias] AS [Vista_reporte_vigencias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Tom_2" EntityType="Self.Vista_Tom_2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Tom_2].[Documento] AS [Documento], 
+    [Vista_Tom_2].[Tipo documento] AS [Tipo documento], 
+    [Vista_Tom_2].[Nombres] AS [Nombres], 
+    [Vista_Tom_2].[Fecha de nacimiento] AS [Fecha de nacimiento], 
+    [Vista_Tom_2].[Direccion] AS [Direccion], 
+    [Vista_Tom_2].[Email] AS [Email], 
+    [Vista_Tom_2].[Telefono] AS [Telefono]
+    FROM [dbo].[Vista_Tom_2] AS [Vista_Tom_2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Tomador" EntityType="Self.Vista_Tomador" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Tomador].[Tipo de documento] AS [Tipo de documento], 
+    [Vista_Tomador].[Documento] AS [Documento], 
+    [Vista_Tomador].[Nombres] AS [Nombres], 
+    [Vista_Tomador].[Direccion] AS [Direccion], 
+    [Vista_Tomador].[Telefono] AS [Telefono], 
+    [Vista_Tomador].[Email] AS [Email], 
+    [Vista_Tomador].[Fecha de nacimiento] AS [Fecha de nacimiento]
+    FROM [dbo].[Vista_Tomador] AS [Vista_Tomador]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Vehiculos" EntityType="Self.Vista_Vehiculos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Vehiculos].[Numero de Poliza] AS [Numero de Poliza], 
+    [Vista_Vehiculos].[Aseguradora] AS [Aseguradora], 
+    [Vista_Vehiculos].[Ramo] AS [Ramo], 
+    [Vista_Vehiculos].[Tipo Documento Tomador] AS [Tipo Documento Tomador], 
+    [Vista_Vehiculos].[Documento Tomador] AS [Documento Tomador], 
+    [Vista_Vehiculos].[Nombres Tomador] AS [Nombres Tomador], 
+    [Vista_Vehiculos].[Placa] AS [Placa], 
+    [Vista_Vehiculos].[Fasecolda] AS [Fasecolda], 
+    [Vista_Vehiculos].[Clase] AS [Clase], 
+    [Vista_Vehiculos].[Marca] AS [Marca], 
+    [Vista_Vehiculos].[Modelo] AS [Modelo], 
+    [Vista_Vehiculos].[Servicio] AS [Servicio]
+    FROM [dbo].[Vista_Vehiculos] AS [Vista_Vehiculos]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vista_Vig_Pol_2" EntityType="Self.Vista_Vig_Pol_2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_Vig_Pol_2].[Numero Poliza] AS [Numero Poliza], 
+    [Vista_Vig_Pol_2].[Tipo documento] AS [Tipo documento], 
+    [Vista_Vig_Pol_2].[Nombres] AS [Nombres], 
+    [Vista_Vig_Pol_2].[Telefono] AS [Telefono], 
+    [Vista_Vig_Pol_2].[Valor prima] AS [Valor prima], 
+    [Vista_Vig_Pol_2].[VIgencia Inicial] AS [VIgencia Inicial], 
+    [Vista_Vig_Pol_2].[Vigencia Final] AS [Vigencia Final], 
+    [Vista_Vig_Pol_2].[Estado] AS [Estado]
+    FROM [dbo].[Vista_Vig_Pol_2] AS [Vista_Vig_Pol_2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Poliza_Aseguradora" Association="Self.FK_Poliza_Aseguradora">
+            <End Role="Aseguradora" EntitySet="Aseguradora" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Beneficiario" Association="Self.FK_Poliza_Beneficiario">
+            <End Role="Beneficiario" EntitySet="Beneficiario" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Tipo_poliza" Association="Self.FK_Poliza_Tipo_poliza">
+            <End Role="Tipo_poliza" EntitySet="Tipo_poliza" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Tomador" Association="Self.FK_Poliza_Tomador">
+            <End Role="Tomador" EntitySet="Tomador" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizas_Vehiculos_Poliza" Association="Self.FK_Polizas_Vehiculos_Poliza">
+            <End Role="Poliza" EntitySet="Poliza" />
+            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizas_Vehiculos_Vehiculo" Association="Self.FK_Polizas_Vehiculos_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Data_base_model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aseguradora">
+          <Key>
+            <PropertyRef Name="Aseguradora_ID" />
+          </Key>
+          <Property Name="Aseguradora_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aseguradora_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_de_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Aseguradora" FromRole="Aseguradora" ToRole="Poliza" />
+        </EntityType>
+        <EntityType Name="Beneficiario">
+          <Key>
+            <PropertyRef Name="Ben_Documento" />
+          </Key>
+          <Property Name="Ben_Documento" Type="Int64" Nullable="false" />
+          <Property Name="Ben_Tipo_Doc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ben_Nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ben_Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ben_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ben_Telefono" Type="Int64" Nullable="false" />
+          <Property Name="Ben_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ben_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Beneficiario" FromRole="Beneficiario" ToRole="Poliza" />
+        </EntityType>
+        <EntityType Name="Poliza">
+          <Key>
+            <PropertyRef Name="Pol_Numero_Poliza" />
+          </Key>
+          <Property Name="Pol_Numero_Poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_Poliza_ID" Type="Int32" Nullable="false" />
+          <Property Name="Aseguradora_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tomador_Documento" Type="Int64" Nullable="false" />
+          <Property Name="Beneficiario_Documento" Type="Int64" Nullable="false" />
+          <Property Name="Pol_Vigencia_Inicial" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pol_Vigencia_Final" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pol_Valor_Prima" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Pol_Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Aseguradora" Relationship="Self.FK_Poliza_Aseguradora" FromRole="Poliza" ToRole="Aseguradora" />
+          <NavigationProperty Name="Beneficiario" Relationship="Self.FK_Poliza_Beneficiario" FromRole="Poliza" ToRole="Beneficiario" />
+          <NavigationProperty Name="Tipo_poliza" Relationship="Self.FK_Poliza_Tipo_poliza" FromRole="Poliza" ToRole="Tipo_poliza" />
+          <NavigationProperty Name="Tomador" Relationship="Self.FK_Poliza_Tomador" FromRole="Poliza" ToRole="Tomador" />
+          <NavigationProperty Name="Polizas_Vehiculos" Relationship="Self.FK_Polizas_Vehiculos_Poliza" FromRole="Poliza" ToRole="Polizas_Vehiculos" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tipo_poliza">
+          <Key>
+            <PropertyRef Name="ID_Tipo_poliza" />
+          </Key>
+          <Property Name="ID_Tipo_poliza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Ramo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tipo_poliza" FromRole="Tipo_poliza" ToRole="Poliza" />
+        </EntityType>
+        <EntityType Name="Tomador">
+          <Key>
+            <PropertyRef Name="Tom_Documento" />
+          </Key>
+          <Property Name="Tom_Documento" Type="Int64" Nullable="false" />
+          <Property Name="Tom_Tip_Doc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tom_Nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tom_Apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tom_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tom_Telefono" Type="Int64" Nullable="false" />
+          <Property Name="Tom_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tom_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tomador" FromRole="Tomador" ToRole="Poliza" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Nombre_Usuario" />
+          </Key>
+          <Property Name="Nombre_Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contraseña_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento_Usuario" Type="Int64" Nullable="false" />
+          <Property Name="Imagenes_Usuario" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="Veh_Placa" />
+          </Key>
+          <Property Name="Veh_Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Veh_Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Veh_Fasecolda" Type="Int32" Nullable="false" />
+          <Property Name="Veh_Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Veh_Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Veh_Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Veh_Valor_Auto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Veh_Vigencia_Soat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Veh_Soat_Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Polizas_Vehiculos" Relationship="Self.FK_Polizas_Vehiculos_Vehiculo" FromRole="Vehiculo" ToRole="Polizas_Vehiculos" />
+        </EntityType>
+        <EntityType Name="Polizas_Vehiculos">
+          <Key>
+            <PropertyRef Name="PolVeh_Numero_Poliza" />
+            <PropertyRef Name="PolVeh_Veh_Placa" />
+            <PropertyRef Name="Fecha_creacion" />
+          </Key>
+          <Property Name="PolVeh_Numero_Poliza" Type="Int64" Nullable="false" />
+          <Property Name="PolVeh_Veh_Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Polizas_Vehiculos_Poliza" FromRole="Polizas_Vehiculos" ToRole="Poliza" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Polizas_Vehiculos_Vehiculo" FromRole="Polizas_Vehiculos" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Vista_Ben_2">
+          <Key>
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Tipo_documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Fecha_de_nacimiento" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="Documento" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vista_Beneficiario">
+          <Key>
+            <PropertyRef Name="Tipo_de_documento" />
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Fecha_de_nacimiento" />
+          </Key>
+          <Property Name="Tipo_de_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="Int64" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Vista_Listado_Polizas">
+          <Key>
+            <PropertyRef Name="Numero_de_Poliza" />
+            <PropertyRef Name="Nombres_Tomador" />
+            <PropertyRef Name="Nombres_Beneficiario" />
+            <PropertyRef Name="Valor_Prima" />
+          </Key>
+          <Property Name="Numero_de_Poliza" Type="Int64" Nullable="false" />
+          <Property Name="Ramo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre_Aseguradora" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_documento_Tomador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Documento_Tomador" Type="Int64" />
+          <Property Name="Nombres_Tomador" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_documento_Beneficiario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Documento_Beneficiario" Type="Int64" />
+          <Property Name="Nombres_Beneficiario" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vigencia_Inicial" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Vigencia_Final" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Valor_Prima" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vista_reporte_soat">
+          <Key>
+            <PropertyRef Name="Numero_de_poliza" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Valor_del_Auto" />
+          </Key>
+          <Property Name="Numero_de_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_de_Documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Documento" Type="Int64" />
+          <Property Name="Nombres" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fasecolda" Type="Int32" />
+          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_del_Auto" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
+          <Property Name="Estado_SOAT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vista_reporte_vigencias">
+          <Key>
+            <PropertyRef Name="Numero_de_poliza" />
+            <PropertyRef Name="Nombres_Tomador" />
+            <PropertyRef Name="Valor_prima" />
+            <PropertyRef Name="Vigencia_Inicial" />
+            <PropertyRef Name="Vigencia_Final" />
+          </Key>
+          <Property Name="Numero_de_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_de_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Documento" Type="Int64" />
+          <Property Name="Nombres_Tomador" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" />
+          <Property Name="Valor_prima" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vigencia_Inicial" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vigencia_Final" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Estado_de_la_poliza" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vista_Tom_2">
+          <Key>
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Tipo_documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Fecha_de_nacimiento" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="Documento" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vista_Tomador">
+          <Key>
+            <PropertyRef Name="Tipo_de_documento" />
+            <PropertyRef Name="Documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Direccion" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Fecha_de_nacimiento" />
+          </Key>
+          <Property Name="Tipo_de_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento" Type="Int64" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Vista_Vehiculos">
+          <Key>
+            <PropertyRef Name="Nombres_Tomador" />
+            <PropertyRef Name="Fasecolda" />
+            <PropertyRef Name="Clase" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Servicio" />
+          </Key>
+          <Property Name="Numero_de_Poliza" Type="Int64" />
+          <Property Name="Aseguradora" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Ramo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_Documento_Tomador" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Documento_Tomador" Type="Int64" />
+          <Property Name="Nombres_Tomador" Type="String" MaxLength="41" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fasecolda" Type="Int32" Nullable="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Poliza_Aseguradora">
+          <End Role="Aseguradora" Type="Self.Aseguradora" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aseguradora">
+              <PropertyRef Name="Aseguradora_ID" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Aseguradora_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Beneficiario">
+          <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Beneficiario">
+              <PropertyRef Name="Ben_Documento" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Beneficiario_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Tipo_poliza">
+          <End Role="Tipo_poliza" Type="Self.Tipo_poliza" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_poliza">
+              <PropertyRef Name="ID_Tipo_poliza" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Tipo_Poliza_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Tomador">
+          <End Role="Tomador" Type="Self.Tomador" Multiplicity="1" />
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tomador">
+              <PropertyRef Name="Tom_Documento" />
+            </Principal>
+            <Dependent Role="Poliza">
+              <PropertyRef Name="Tomador_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizas_Vehiculos_Poliza">
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
+          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poliza">
+              <PropertyRef Name="Pol_Numero_Poliza" />
+            </Principal>
+            <Dependent Role="Polizas_Vehiculos">
+              <PropertyRef Name="PolVeh_Numero_Poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Polizas_Vehiculos_Vehiculo">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Veh_Placa" />
+            </Principal>
+            <Dependent Role="Polizas_Vehiculos">
+              <PropertyRef Name="PolVeh_Veh_Placa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Data_base_entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aseguradora" EntityType="Self.Aseguradora" />
+          <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" />
+          <EntitySet Name="Poliza" EntityType="Self.Poliza" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" />
+          <EntitySet Name="Tomador" EntityType="Self.Tomador" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+          <EntitySet Name="Polizas_Vehiculos" EntityType="Self.Polizas_Vehiculos" />
+          <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" />
+          <EntitySet Name="Vista_Beneficiario" EntityType="Self.Vista_Beneficiario" />
+          <EntitySet Name="Vista_Listado_Polizas" EntityType="Self.Vista_Listado_Polizas" />
+          <EntitySet Name="Vista_reporte_soat" EntityType="Self.Vista_reporte_soat" />
+          <EntitySet Name="Vista_reporte_vigencias" EntityType="Self.Vista_reporte_vigencias" />
+          <EntitySet Name="Vista_Tom_2" EntityType="Self.Vista_Tom_2" />
+          <EntitySet Name="Vista_Tomador" EntityType="Self.Vista_Tomador" />
+          <EntitySet Name="Vista_Vehiculos" EntityType="Self.Vista_Vehiculos" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+          <AssociationSet Name="FK_Poliza_Aseguradora" Association="Self.FK_Poliza_Aseguradora">
+            <End Role="Aseguradora" EntitySet="Aseguradora" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Beneficiario" Association="Self.FK_Poliza_Beneficiario">
+            <End Role="Beneficiario" EntitySet="Beneficiario" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Tipo_poliza" Association="Self.FK_Poliza_Tipo_poliza">
+            <End Role="Tipo_poliza" EntitySet="Tipo_poliza" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Tomador" Association="Self.FK_Poliza_Tomador">
+            <End Role="Tomador" EntitySet="Tomador" />
+            <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizas_Vehiculos_Poliza" Association="Self.FK_Polizas_Vehiculos_Poliza">
+            <End Role="Poliza" EntitySet="Poliza" />
+            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Polizas_Vehiculos_Vehiculo" Association="Self.FK_Polizas_Vehiculos_Vehiculo">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Data_base_model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Data_base_model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Vista_Vig_Pol_2" EntityType="Data_base_model.Vista_Vig_Pol_2" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Vista_Vig_Pol_2">
+          <Key>
+            <PropertyRef Name="Numero_Poliza" />
+            <PropertyRef Name="Tipo_documento" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Valor_prima" />
+            <PropertyRef Name="VIgencia_Inicial" />
+            <PropertyRef Name="Vigencia_Final" />
+          </Key>
+          <Property Name="Numero_Poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_documento" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="Int64" Nullable="false" />
+          <Property Name="Valor_prima" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="VIgencia_Inicial" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Vigencia_Final" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Data_base_modelStoreContainer" CdmEntityContainer="Data_base_entities">
+          <EntitySetMapping Name="Aseguradora">
+            <EntityTypeMapping TypeName="Data_base_model.Aseguradora">
+              <MappingFragment StoreEntitySet="Aseguradora">
+                <ScalarProperty Name="Aseguradora_ID" ColumnName="Aseguradora_ID" />
+                <ScalarProperty Name="Aseguradora_Nombre" ColumnName="Aseguradora_Nombre" />
+                <ScalarProperty Name="Fecha_de_creacion" ColumnName="Fecha_de_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Beneficiario">
+            <EntityTypeMapping TypeName="Data_base_model.Beneficiario">
+              <MappingFragment StoreEntitySet="Beneficiario">
+                <ScalarProperty Name="Ben_Documento" ColumnName="Ben_Documento" />
+                <ScalarProperty Name="Ben_Tipo_Doc" ColumnName="Ben_Tipo_Doc" />
+                <ScalarProperty Name="Ben_Nombres" ColumnName="Ben_Nombres" />
+                <ScalarProperty Name="Ben_Apellidos" ColumnName="Ben_Apellidos" />
+                <ScalarProperty Name="Ben_Direccion" ColumnName="Ben_Direccion" />
+                <ScalarProperty Name="Ben_Telefono" ColumnName="Ben_Telefono" />
+                <ScalarProperty Name="Ben_Email" ColumnName="Ben_Email" />
+                <ScalarProperty Name="Ben_Fecha_Nacimiento" ColumnName="Ben_Fecha_Nacimiento" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poliza">
+            <EntityTypeMapping TypeName="Data_base_model.Poliza">
+              <MappingFragment StoreEntitySet="Poliza">
+                <ScalarProperty Name="Pol_Numero_Poliza" ColumnName="Pol_Numero_Poliza" />
+                <ScalarProperty Name="Tipo_Poliza_ID" ColumnName="Tipo_Poliza_ID" />
+                <ScalarProperty Name="Aseguradora_ID" ColumnName="Aseguradora_ID" />
+                <ScalarProperty Name="Tomador_Documento" ColumnName="Tomador_Documento" />
+                <ScalarProperty Name="Beneficiario_Documento" ColumnName="Beneficiario_Documento" />
+                <ScalarProperty Name="Pol_Vigencia_Inicial" ColumnName="Pol_Vigencia_Inicial" />
+                <ScalarProperty Name="Pol_Vigencia_Final" ColumnName="Pol_Vigencia_Final" />
+                <ScalarProperty Name="Pol_Valor_Prima" ColumnName="Pol_Valor_Prima" />
+                <ScalarProperty Name="Pol_Estado" ColumnName="Pol_Estado" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Data_base_model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_poliza">
+            <EntityTypeMapping TypeName="Data_base_model.Tipo_poliza">
+              <MappingFragment StoreEntitySet="Tipo_poliza">
+                <ScalarProperty Name="ID_Tipo_poliza" ColumnName="ID_Tipo_poliza" />
+                <ScalarProperty Name="Nombre_Ramo" ColumnName="Nombre_Ramo" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tomador">
+            <EntityTypeMapping TypeName="Data_base_model.Tomador">
+              <MappingFragment StoreEntitySet="Tomador">
+                <ScalarProperty Name="Tom_Documento" ColumnName="Tom_Documento" />
+                <ScalarProperty Name="Tom_Tip_Doc" ColumnName="Tom_Tip_Doc" />
+                <ScalarProperty Name="Tom_Nombres" ColumnName="Tom_Nombres" />
+                <ScalarProperty Name="Tom_Apellidos" ColumnName="Tom_Apellidos" />
+                <ScalarProperty Name="Tom_Direccion" ColumnName="Tom_Direccion" />
+                <ScalarProperty Name="Tom_Telefono" ColumnName="Tom_Telefono" />
+                <ScalarProperty Name="Tom_Email" ColumnName="Tom_Email" />
+                <ScalarProperty Name="Tom_Fecha_Nacimiento" ColumnName="Tom_Fecha_Nacimiento" />
+                <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Data_base_model.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
+                <ScalarProperty Name="Contraseña_Usuario" ColumnName="Contraseña_Usuario" />
+                <ScalarProperty Name="Email_Usuario" ColumnName="Email_Usuario" />
+                <ScalarProperty Name="Documento_Usuario" ColumnName="Documento_Usuario" />
+                <ScalarProperty Name="Imagenes_Usuario" ColumnName="Imagenes_Usuario" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculo">
+            <EntityTypeMapping TypeName="Data_base_model.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="Veh_Placa" ColumnName="Veh_Placa" />
+                <ScalarProperty Name="Veh_Modelo" ColumnName="Veh_Modelo" />
+                <ScalarProperty Name="Veh_Fasecolda" ColumnName="Veh_Fasecolda" />
+                <ScalarProperty Name="Veh_Servicio" ColumnName="Veh_Servicio" />
+                <ScalarProperty Name="Veh_Clase" ColumnName="Veh_Clase" />
+                <ScalarProperty Name="Veh_Marca" ColumnName="Veh_Marca" />
+                <ScalarProperty Name="Veh_Valor_Auto" ColumnName="Veh_Valor_Auto" />
+                <ScalarProperty Name="Veh_Vigencia_Soat" ColumnName="Veh_Vigencia_Soat" />
+                <ScalarProperty Name="Veh_Soat_Estado" ColumnName="Veh_Soat_Estado" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polizas_Vehiculos">
+            <EntityTypeMapping TypeName="Data_base_model.Polizas_Vehiculos">
+              <MappingFragment StoreEntitySet="Polizas_Vehiculos">
+                <ScalarProperty Name="PolVeh_Numero_Poliza" ColumnName="PolVeh_Numero_Poliza" />
+                <ScalarProperty Name="PolVeh_Veh_Placa" ColumnName="PolVeh_Veh_Placa" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Ben_2">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Ben_2">
+              <MappingFragment StoreEntitySet="Vista_Ben_2">
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Beneficiario">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Beneficiario">
+              <MappingFragment StoreEntitySet="Vista_Beneficiario">
+                <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Listado_Polizas">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Listado_Polizas">
+              <MappingFragment StoreEntitySet="Vista_Listado_Polizas">
+                <ScalarProperty Name="Numero_de_Poliza" ColumnName="Numero de Poliza" />
+                <ScalarProperty Name="Ramo" ColumnName="Ramo" />
+                <ScalarProperty Name="Nombre_Aseguradora" ColumnName="Nombre Aseguradora" />
+                <ScalarProperty Name="Tipo_documento_Tomador" ColumnName="Tipo documento Tomador" />
+                <ScalarProperty Name="Documento_Tomador" ColumnName="Documento Tomador" />
+                <ScalarProperty Name="Nombres_Tomador" ColumnName="Nombres Tomador" />
+                <ScalarProperty Name="Tipo_documento_Beneficiario" ColumnName="Tipo documento Beneficiario" />
+                <ScalarProperty Name="Documento_Beneficiario" ColumnName="Documento Beneficiario" />
+                <ScalarProperty Name="Nombres_Beneficiario" ColumnName="Nombres Beneficiario" />
+                <ScalarProperty Name="Vigencia_Inicial" ColumnName="Vigencia Inicial" />
+                <ScalarProperty Name="Vigencia_Final" ColumnName="Vigencia Final" />
+                <ScalarProperty Name="Valor_Prima" ColumnName="Valor Prima" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_reporte_soat">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_reporte_soat">
+              <MappingFragment StoreEntitySet="Vista_reporte_soat">
+                <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
+                <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
+                <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
+                <ScalarProperty Name="Estado_SOAT" ColumnName="Estado SOAT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_reporte_vigencias">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_reporte_vigencias">
+              <MappingFragment StoreEntitySet="Vista_reporte_vigencias">
+                <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
+                <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Nombres_Tomador" ColumnName="Nombres Tomador" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Valor_prima" ColumnName="Valor prima" />
+                <ScalarProperty Name="Vigencia_Inicial" ColumnName="Vigencia Inicial" />
+                <ScalarProperty Name="Vigencia_Final" ColumnName="Vigencia Final" />
+                <ScalarProperty Name="Estado_de_la_poliza" ColumnName="Estado de la poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Tom_2">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Tom_2">
+              <MappingFragment StoreEntitySet="Vista_Tom_2">
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Tomador">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Tomador">
+              <MappingFragment StoreEntitySet="Vista_Tomador">
+                <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_Vehiculos">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Vehiculos">
+              <MappingFragment StoreEntitySet="Vista_Vehiculos">
+                <ScalarProperty Name="Numero_de_Poliza" ColumnName="Numero de Poliza" />
+                <ScalarProperty Name="Aseguradora" ColumnName="Aseguradora" />
+                <ScalarProperty Name="Ramo" ColumnName="Ramo" />
+                <ScalarProperty Name="Tipo_Documento_Tomador" ColumnName="Tipo Documento Tomador" />
+                <ScalarProperty Name="Documento_Tomador" ColumnName="Documento Tomador" />
+                <ScalarProperty Name="Nombres_Tomador" ColumnName="Nombres Tomador" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="Data_base_model.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Data_base_model.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Data_base_model.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Data_base_model.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Data_base_model.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Data_base_model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Data_base_model.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Data_base_model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Data_base_model.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Data_base_model.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Vista_Vig_Pol_2">
+            <EntityTypeMapping TypeName="Data_base_model.Vista_Vig_Pol_2">
+              <MappingFragment StoreEntitySet="Vista_Vig_Pol_2">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Vigencia_Final" ColumnName="Vigencia Final" />
+                <ScalarProperty Name="VIgencia_Inicial" ColumnName="VIgencia Inicial" />
+                <ScalarProperty Name="Valor_prima" ColumnName="Valor prima" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Numero_Poliza" ColumnName="Numero Poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

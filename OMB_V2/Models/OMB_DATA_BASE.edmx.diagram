@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e273b3cd125d45c69785181a7812b479" Name="Diagram1">
+        <EntityTypeShape EntityType="Data_base_model.Aseguradora" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Beneficiario" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Poliza" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Tipo_poliza" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Tomador" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Usuarios" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vehiculo" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Polizas_Vehiculos" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Ben_2" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Beneficiario" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Listado_Polizas" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_reporte_soat" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_reporte_vigencias" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Tom_2" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Tomador" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Vehiculos" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_base_model.database_firewall_rules" Width="1.5" PointX="4.75" PointY="11.75" IsExpanded="true" />
+        <AssociationConnector Association="Data_base_model.FK_Poliza_Aseguradora" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_base_model.FK_Poliza_Beneficiario" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_base_model.FK_Poliza_Tipo_poliza" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_base_model.FK_Poliza_Tomador" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_base_model.FK_Polizas_Vehiculos_Poliza" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_base_model.FK_Polizas_Vehiculos_Vehiculo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Data_base_model.Vista_Vig_Pol_2" Width="1.5" PointX="12.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

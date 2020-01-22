@@ -23,6 +23,8 @@ namespace OMB_V2.Forms
             #endregion
             Logo_pic.Visible = false;
         }
+        Forms.Submenus.Tab_page Paginado = new Submenus.Tab_page();
+        // BOOLEANO METODO PARA MENU AUTOMATICO
         bool Menu_expandido = false;
         // INICIALIZANDO METODOS DESDE CAPA LOGICA
         Capa_logica.Metodos Metodos_capa_logica = new Capa_logica.Metodos();
@@ -80,7 +82,9 @@ namespace OMB_V2.Forms
 
         private void Menu_btn_Click(object sender, EventArgs e)
         {
+            // VS REACTIVE EN MENU
             VSReactive<int>.SetState("menu", int.Parse(((Control)sender).Tag.ToString()));
+            Paginado.Paneles(Panel_content, Animacion_txt_title, Titulo_window);
         }
 
         private void Logo_pic_Click(object sender, EventArgs e)
@@ -96,109 +100,6 @@ namespace OMB_V2.Forms
             {
                 Animacion_txt_title.ShowSync(Titulo_window);
             }
-        }
-
-        private void Btn_listado_pol_Click(object sender, EventArgs e)
-        {   
-            // TITULO TRANSICION
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Listado de polizas";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN TRANSICION LETRAS
-
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_polizas());
-        }
-
-        private void Btn_tomadores_Click(object sender, EventArgs e)
-        {
-            // TITULO TRANSICION
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Tomadores";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN TRANSICION TITULO
-
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Forms.Listado_tomadores());
-        }
-
-        private void Btn_beneficiarios_Click(object sender, EventArgs e)
-        {
-            // TITULO TRANSICION
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Beneficiarios";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN TRANSICION
-
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_beneficiarios());
-        }
-
-        private void Btn_vehiculos_Click(object sender, EventArgs e)
-        {
-            // TITULO TRANSICION
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Vehiculos";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN ANIMACION
-            Metodos_capa_logica.Llenar_panel(Panel_content,new Listados_vehiculos());
-        }
-
-        private void Btn_vig_pol_Click(object sender, EventArgs e)
-        {
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Vigencia de polizas";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN ANIMACION
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_vigencias_polizas());
-        }
-
-        private void Btn_vig_soat_Click(object sender, EventArgs e)
-        {
-            if (Titulo_window.Visible == true)
-            {
-                Animacion_txt_title.HideSync(Titulo_window);
-                Titulo_window.Text = "Vigencia de SOATS";
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            else
-            {
-                Animacion_txt_title.ShowSync(Titulo_window);
-            }
-            // FIN ANIMACION
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Listado_vigencias_Soat());
         }
 
         private void Mouse_detectado_Tick(object sender, EventArgs e)
