@@ -35,19 +35,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listado_beneficiarios));
             this.Forma_app = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Dtg_Listado_beneficiarios = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.Prueba = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_sup = new System.Windows.Forms.Panel();
+            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_user_edit = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.txt_bienvenida = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_content = new System.Windows.Forms.Panel();
-            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.Forma_datagrid = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_beneficiarios)).BeginInit();
             this.panel_sup.SuspendLayout();
-            this.panel_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.User_image)).BeginInit();
+            this.panel_content.SuspendLayout();
             this.SuspendLayout();
             // 
             // Forma_app
@@ -77,9 +75,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dtg_Listado_beneficiarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Dtg_Listado_beneficiarios.ColumnHeadersHeight = 40;
-            this.Dtg_Listado_beneficiarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Prueba,
-            this.nombre});
             this.Dtg_Listado_beneficiarios.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.Dtg_Listado_beneficiarios.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Dtg_Listado_beneficiarios.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.White;
@@ -119,18 +114,6 @@
             this.Dtg_Listado_beneficiarios.TabIndex = 9;
             this.Dtg_Listado_beneficiarios.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
             // 
-            // Prueba
-            // 
-            this.Prueba.HeaderText = "Prueba";
-            this.Prueba.Name = "Prueba";
-            this.Prueba.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            // 
             // panel_sup
             // 
             this.panel_sup.Controls.Add(this.txt_search);
@@ -142,37 +125,6 @@
             this.panel_sup.Name = "panel_sup";
             this.panel_sup.Size = new System.Drawing.Size(1352, 209);
             this.panel_sup.TabIndex = 2;
-            // 
-            // txt_user_edit
-            // 
-            this.txt_user_edit.AutoSize = true;
-            this.txt_user_edit.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_user_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.txt_user_edit.Location = new System.Drawing.Point(133, 127);
-            this.txt_user_edit.Name = "txt_user_edit";
-            this.txt_user_edit.Size = new System.Drawing.Size(428, 43);
-            this.txt_user_edit.TabIndex = 13;
-            this.txt_user_edit.Text = "David Alejandro Mateus Martinez";
-            // 
-            // txt_bienvenida
-            // 
-            this.txt_bienvenida.AutoSize = true;
-            this.txt_bienvenida.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_bienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.txt_bienvenida.Location = new System.Drawing.Point(133, 84);
-            this.txt_bienvenida.Name = "txt_bienvenida";
-            this.txt_bienvenida.Size = new System.Drawing.Size(165, 43);
-            this.txt_bienvenida.TabIndex = 12;
-            this.txt_bienvenida.Text = "¡Bienvenido!";
-            // 
-            // panel_content
-            // 
-            this.panel_content.Controls.Add(this.Dtg_Listado_beneficiarios);
-            this.panel_content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_content.Location = new System.Drawing.Point(0, 0);
-            this.panel_content.Name = "panel_content";
-            this.panel_content.Size = new System.Drawing.Size(1352, 681);
-            this.panel_content.TabIndex = 3;
             // 
             // txt_search
             // 
@@ -219,6 +171,17 @@
             this.txt_search.TextPlaceholder = "Buscar...";
             this.txt_search.UseSystemPasswordChar = false;
             // 
+            // txt_user_edit
+            // 
+            this.txt_user_edit.AutoSize = true;
+            this.txt_user_edit.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_user_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.txt_user_edit.Location = new System.Drawing.Point(133, 127);
+            this.txt_user_edit.Name = "txt_user_edit";
+            this.txt_user_edit.Size = new System.Drawing.Size(428, 43);
+            this.txt_user_edit.TabIndex = 13;
+            this.txt_user_edit.Text = "David Alejandro Mateus Martinez";
+            // 
             // User_image
             // 
             this.User_image.AllowFocused = false;
@@ -233,6 +196,26 @@
             this.User_image.TabIndex = 11;
             this.User_image.TabStop = false;
             this.User_image.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            // 
+            // txt_bienvenida
+            // 
+            this.txt_bienvenida.AutoSize = true;
+            this.txt_bienvenida.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_bienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.txt_bienvenida.Location = new System.Drawing.Point(133, 84);
+            this.txt_bienvenida.Name = "txt_bienvenida";
+            this.txt_bienvenida.Size = new System.Drawing.Size(165, 43);
+            this.txt_bienvenida.TabIndex = 12;
+            this.txt_bienvenida.Text = "¡Bienvenido!";
+            // 
+            // panel_content
+            // 
+            this.panel_content.Controls.Add(this.Dtg_Listado_beneficiarios);
+            this.panel_content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_content.Location = new System.Drawing.Point(0, 0);
+            this.panel_content.Name = "panel_content";
+            this.panel_content.Size = new System.Drawing.Size(1352, 681);
+            this.panel_content.TabIndex = 3;
             // 
             // Forma_datagrid
             // 
@@ -249,11 +232,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Listado_beneficiarios";
             this.Text = "Listado_beneficiarios";
+            this.Load += new System.EventHandler(this.Listado_beneficiarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_beneficiarios)).EndInit();
             this.panel_sup.ResumeLayout(false);
             this.panel_sup.PerformLayout();
-            this.panel_content.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.User_image)).EndInit();
+            this.panel_content.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -268,8 +252,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
         private System.Windows.Forms.Panel panel_content;
         private Bunifu.UI.WinForms.BunifuDataGridView Dtg_Listado_beneficiarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prueba;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private Bunifu.Framework.UI.BunifuElipse Forma_datagrid;
     }
 }

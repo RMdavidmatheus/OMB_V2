@@ -29,21 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listados_vehiculos));
             this.panel_content = new System.Windows.Forms.Panel();
             this.Dtg_Listado_vehiculos = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.Prueba = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_user_edit = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txt_bienvenida = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_sup = new System.Windows.Forms.Panel();
-            this.contorno_ventana = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.contorno_dtg = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.contorno_ventana = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.contorno_dtg = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_vehiculos)).BeginInit();
             this.panel_sup.SuspendLayout();
@@ -62,9 +60,9 @@
             // Dtg_Listado_vehiculos
             // 
             this.Dtg_Listado_vehiculos.AllowCustomTheming = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            this.Dtg_Listado_vehiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            this.Dtg_Listado_vehiculos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Dtg_Listado_vehiculos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -72,18 +70,15 @@
             this.Dtg_Listado_vehiculos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dtg_Listado_vehiculos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.Dtg_Listado_vehiculos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dtg_Listado_vehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dtg_Listado_vehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.Dtg_Listado_vehiculos.ColumnHeadersHeight = 40;
-            this.Dtg_Listado_vehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Prueba,
-            this.nombre});
             this.Dtg_Listado_vehiculos.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.Dtg_Listado_vehiculos.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Dtg_Listado_vehiculos.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.White;
@@ -100,14 +95,14 @@
             this.Dtg_Listado_vehiculos.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.White;
             this.Dtg_Listado_vehiculos.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.Dtg_Listado_vehiculos.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dtg_Listado_vehiculos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dtg_Listado_vehiculos.DefaultCellStyle = dataGridViewCellStyle6;
             this.Dtg_Listado_vehiculos.EnableHeadersVisualStyles = false;
             this.Dtg_Listado_vehiculos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(56)))), ((int)(((byte)(62)))));
             this.Dtg_Listado_vehiculos.HeaderBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
@@ -122,18 +117,6 @@
             this.Dtg_Listado_vehiculos.Size = new System.Drawing.Size(1310, 415);
             this.Dtg_Listado_vehiculos.TabIndex = 9;
             this.Dtg_Listado_vehiculos.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
-            // 
-            // Prueba
-            // 
-            this.Prueba.HeaderText = "Prueba";
-            this.Prueba.Name = "Prueba";
-            this.Prueba.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
             // 
             // txt_user_edit
             // 
@@ -168,16 +151,6 @@
             this.panel_sup.Name = "panel_sup";
             this.panel_sup.Size = new System.Drawing.Size(1336, 209);
             this.panel_sup.TabIndex = 2;
-            // 
-            // contorno_ventana
-            // 
-            this.contorno_ventana.ElipseRadius = 5;
-            this.contorno_ventana.TargetControl = this;
-            // 
-            // contorno_dtg
-            // 
-            this.contorno_dtg.ElipseRadius = 20;
-            this.contorno_dtg.TargetControl = this.Dtg_Listado_vehiculos;
             // 
             // txt_search
             // 
@@ -239,6 +212,16 @@
             this.User_image.TabStop = false;
             this.User_image.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             // 
+            // contorno_ventana
+            // 
+            this.contorno_ventana.ElipseRadius = 5;
+            this.contorno_ventana.TargetControl = this;
+            // 
+            // contorno_dtg
+            // 
+            this.contorno_dtg.ElipseRadius = 20;
+            this.contorno_dtg.TargetControl = this.Dtg_Listado_vehiculos;
+            // 
             // Listados_vehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +232,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Listados_vehiculos";
             this.Text = "Listados_vehiculos";
+            this.Load += new System.EventHandler(this.Listados_vehiculos_Load);
             this.panel_content.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_vehiculos)).EndInit();
             this.panel_sup.ResumeLayout(false);
@@ -262,8 +246,6 @@
 
         private System.Windows.Forms.Panel panel_content;
         private Bunifu.UI.WinForms.BunifuDataGridView Dtg_Listado_vehiculos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Prueba;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_user_edit;
         private Bunifu.UI.WinForms.BunifuPictureBox User_image;

@@ -707,6 +707,8 @@
             animation2.TimeCoeff = 0F;
             animation2.TransparencyCoeff = 1F;
             this.Animacion_logo.DefaultAnimation = animation2;
+            this.Animacion_logo.Interval = 3;
+            this.Animacion_logo.MaxAnimationTime = 1000;
             // 
             // Animacion_btn_menu
             // 

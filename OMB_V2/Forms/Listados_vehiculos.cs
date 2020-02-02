@@ -16,5 +16,13 @@ namespace OMB_V2.Forms
         {
             InitializeComponent();
         }
+        #region
+        // Metodos Base de datos
+        Models.Metodos_bases_de_datos.Metodos_DB Metodos = new Models.Metodos_bases_de_datos.Metodos_DB();
+        #endregion
+        private void Listados_vehiculos_Load(object sender, EventArgs e)
+        {
+            Metodos.Listar_DB_Vehiculos(Dtg_Listado_vehiculos);
+        }
     }
 }

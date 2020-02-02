@@ -15,10 +15,10 @@ namespace OMB_V2.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Data_base_entities : DbContext
+    public partial class DB_Entities_OMB : DbContext
     {
-        public Data_base_entities()
-            : base("name=Data_base_entities")
+        public DB_Entities_OMB()
+            : base("name=DB_Entities_OMB")
         {
         }
     
@@ -44,8 +44,9 @@ namespace OMB_V2.Models
         public virtual DbSet<Vista_Tom_2> Vista_Tom_2 { get; set; }
         public virtual DbSet<Vista_Tomador> Vista_Tomador { get; set; }
         public virtual DbSet<Vista_Vehiculos> Vista_Vehiculos { get; set; }
-        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
         public virtual DbSet<Vista_Vig_Pol_2> Vista_Vig_Pol_2 { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Reporte_SOAT_V3> Reporte_SOAT_V3 { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
