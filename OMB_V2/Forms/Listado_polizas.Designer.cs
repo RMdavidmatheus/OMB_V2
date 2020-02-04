@@ -33,19 +33,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listado_polizas));
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.panel_content = new System.Windows.Forms.Panel();
             this.Dtg_Listado_polizas = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel_sup = new System.Windows.Forms.Panel();
-            this.txt_user_edit = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txt_bienvenida = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.Eliminar_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.Editar_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.Añadir_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Forma_ventana = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.forma_grid = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_polizas)).BeginInit();
             this.panel_sup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.User_image)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_content
@@ -74,7 +76,7 @@
             this.Dtg_Listado_polizas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(18)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -120,13 +122,14 @@
             this.Dtg_Listado_polizas.Size = new System.Drawing.Size(1326, 468);
             this.Dtg_Listado_polizas.TabIndex = 2;
             this.Dtg_Listado_polizas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
+            this.Dtg_Listado_polizas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dtg_Listado_polizas_CellClick);
             // 
             // panel_sup
             // 
             this.panel_sup.BackColor = System.Drawing.SystemColors.Control;
-            this.panel_sup.Controls.Add(this.txt_user_edit);
-            this.panel_sup.Controls.Add(this.txt_bienvenida);
-            this.panel_sup.Controls.Add(this.User_image);
+            this.panel_sup.Controls.Add(this.Eliminar_btn);
+            this.panel_sup.Controls.Add(this.Editar_btn);
+            this.panel_sup.Controls.Add(this.Añadir_btn);
             this.panel_sup.Controls.Add(this.txt_search);
             this.panel_sup.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_sup.Location = new System.Drawing.Point(0, 0);
@@ -134,42 +137,109 @@
             this.panel_sup.Size = new System.Drawing.Size(1352, 195);
             this.panel_sup.TabIndex = 0;
             // 
-            // txt_user_edit
+            // Eliminar_btn
             // 
-            this.txt_user_edit.AutoSize = true;
-            this.txt_user_edit.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_user_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.txt_user_edit.Location = new System.Drawing.Point(139, 116);
-            this.txt_user_edit.Name = "txt_user_edit";
-            this.txt_user_edit.Size = new System.Drawing.Size(428, 43);
-            this.txt_user_edit.TabIndex = 8;
-            this.txt_user_edit.Text = "David Alejandro Mateus Martinez";
+            this.Eliminar_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Eliminar_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Eliminar_btn.BackgroundImage")));
+            this.Eliminar_btn.ButtonText = "Eliminar";
+            this.Eliminar_btn.ButtonTextMarginLeft = 0;
+            this.Eliminar_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.Eliminar_btn.DisabledFillColor = System.Drawing.Color.Gray;
+            this.Eliminar_btn.DisabledForecolor = System.Drawing.Color.White;
+            this.Eliminar_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Eliminar_btn.ForeColor = System.Drawing.Color.White;
+            this.Eliminar_btn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.Eliminar_btn.IconPadding = 6;
+            this.Eliminar_btn.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.Eliminar_btn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(44)))), ((int)(((byte)(36)))));
+            this.Eliminar_btn.IdleBorderRadius = 30;
+            this.Eliminar_btn.IdleBorderThickness = 0;
+            this.Eliminar_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(44)))), ((int)(((byte)(36)))));
+            this.Eliminar_btn.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("Eliminar_btn.IdleIconLeftImage")));
+            this.Eliminar_btn.IdleIconRightImage = null;
+            this.Eliminar_btn.Location = new System.Drawing.Point(335, 102);
+            this.Eliminar_btn.Name = "Eliminar_btn";
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            stateProperties1.BorderRadius = 30;
+            stateProperties1.BorderThickness = 1;
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
+            stateProperties1.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties1.IconLeftImage")));
+            stateProperties1.IconRightImage = null;
+            this.Eliminar_btn.onHoverState = stateProperties1;
+            this.Eliminar_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Eliminar_btn.Size = new System.Drawing.Size(139, 45);
+            this.Eliminar_btn.TabIndex = 8;
+            this.Eliminar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txt_bienvenida
+            // Editar_btn
             // 
-            this.txt_bienvenida.AutoSize = true;
-            this.txt_bienvenida.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_bienvenida.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.txt_bienvenida.Location = new System.Drawing.Point(139, 73);
-            this.txt_bienvenida.Name = "txt_bienvenida";
-            this.txt_bienvenida.Size = new System.Drawing.Size(165, 43);
-            this.txt_bienvenida.TabIndex = 7;
-            this.txt_bienvenida.Text = "¡Bienvenido!";
+            this.Editar_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Editar_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Editar_btn.BackgroundImage")));
+            this.Editar_btn.ButtonText = "Editar";
+            this.Editar_btn.ButtonTextMarginLeft = 0;
+            this.Editar_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.Editar_btn.DisabledFillColor = System.Drawing.Color.Gray;
+            this.Editar_btn.DisabledForecolor = System.Drawing.Color.White;
+            this.Editar_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Editar_btn.ForeColor = System.Drawing.Color.White;
+            this.Editar_btn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.Editar_btn.IconPadding = 10;
+            this.Editar_btn.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.Editar_btn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Editar_btn.IdleBorderRadius = 30;
+            this.Editar_btn.IdleBorderThickness = 0;
+            this.Editar_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Editar_btn.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("Editar_btn.IdleIconLeftImage")));
+            this.Editar_btn.IdleIconRightImage = null;
+            this.Editar_btn.Location = new System.Drawing.Point(177, 102);
+            this.Editar_btn.Name = "Editar_btn";
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            stateProperties2.BorderRadius = 30;
+            stateProperties2.BorderThickness = 1;
+            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            stateProperties2.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties2.IconLeftImage")));
+            stateProperties2.IconRightImage = null;
+            this.Editar_btn.onHoverState = stateProperties2;
+            this.Editar_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Editar_btn.Size = new System.Drawing.Size(139, 45);
+            this.Editar_btn.TabIndex = 7;
+            this.Editar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Editar_btn.Click += new System.EventHandler(this.Editar_btn_Click);
             // 
-            // User_image
+            // Añadir_btn
             // 
-            this.User_image.AllowFocused = false;
-            this.User_image.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.User_image.BorderRadius = 57;
-            this.User_image.Image = ((System.Drawing.Image)(resources.GetObject("User_image.Image")));
-            this.User_image.IsCircle = true;
-            this.User_image.Location = new System.Drawing.Point(18, 59);
-            this.User_image.Name = "User_image";
-            this.User_image.Size = new System.Drawing.Size(115, 115);
-            this.User_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.User_image.TabIndex = 6;
-            this.User_image.TabStop = false;
-            this.User_image.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            this.Añadir_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Añadir_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Añadir_btn.BackgroundImage")));
+            this.Añadir_btn.ButtonText = "Añadir";
+            this.Añadir_btn.ButtonTextMarginLeft = 0;
+            this.Añadir_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.Añadir_btn.DisabledFillColor = System.Drawing.Color.Gray;
+            this.Añadir_btn.DisabledForecolor = System.Drawing.Color.White;
+            this.Añadir_btn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Añadir_btn.ForeColor = System.Drawing.Color.White;
+            this.Añadir_btn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.Añadir_btn.IconPadding = 8;
+            this.Añadir_btn.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.Añadir_btn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Añadir_btn.IdleBorderRadius = 30;
+            this.Añadir_btn.IdleBorderThickness = 0;
+            this.Añadir_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Añadir_btn.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("Añadir_btn.IdleIconLeftImage")));
+            this.Añadir_btn.IdleIconRightImage = null;
+            this.Añadir_btn.Location = new System.Drawing.Point(18, 102);
+            this.Añadir_btn.Name = "Añadir_btn";
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            stateProperties3.BorderRadius = 30;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
+            stateProperties3.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties3.IconLeftImage")));
+            stateProperties3.IconRightImage = null;
+            this.Añadir_btn.onHoverState = stateProperties3;
+            this.Añadir_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Añadir_btn.Size = new System.Drawing.Size(139, 45);
+            this.Añadir_btn.TabIndex = 6;
+            this.Añadir_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Añadir_btn.Click += new System.EventHandler(this.Añadir_btn_Click);
             // 
             // txt_search
             // 
@@ -241,8 +311,6 @@
             this.panel_content.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_polizas)).EndInit();
             this.panel_sup.ResumeLayout(false);
-            this.panel_sup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.User_image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,9 +321,9 @@
         private System.Windows.Forms.Panel panel_sup;
         private Bunifu.Framework.UI.BunifuElipse Forma_ventana;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
-        private Bunifu.UI.WinForms.BunifuPictureBox User_image;
-        private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
-        private Bunifu.Framework.UI.BunifuCustomLabel txt_user_edit;
         private Bunifu.Framework.UI.BunifuElipse forma_grid;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Añadir_btn;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Eliminar_btn;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Editar_btn;
     }
 }

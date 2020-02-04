@@ -20,6 +20,7 @@ namespace OMB_V2.Forms.Submenus
             VSReactive<int>.Subscribe("menu",e=>tabControl1.SelectedIndex = e);
         }
         Capa_logica.Metodos Metodos = new Capa_logica.Metodos();
+        // Variables Llaves primarias
         public void Paneles(Panel Receptor, BunifuAnimatorNS.BunifuTransition Animacion, Label Receptor_lbl) 
         {
             if (tabControl1.SelectedIndex == 0)

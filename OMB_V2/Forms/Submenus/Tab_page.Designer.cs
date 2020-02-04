@@ -45,9 +45,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Ttl_listado = new System.Windows.Forms.Label();
             this.Pdf_listado_pol_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Eliminar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Editar_btn = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Añadir_btn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Tomadores_page = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -106,6 +103,7 @@
             // 
             // Inicio_page
             // 
+            this.Inicio_page.BackColor = System.Drawing.SystemColors.Control;
             this.Inicio_page.Controls.Add(this.Errores_BTN);
             this.Inicio_page.Controls.Add(this.Panel_sup);
             this.Inicio_page.Controls.Add(this.CotizacionesBTN);
@@ -116,7 +114,6 @@
             this.Inicio_page.Size = new System.Drawing.Size(278, 674);
             this.Inicio_page.TabIndex = 0;
             this.Inicio_page.Text = "0";
-            this.Inicio_page.UseVisualStyleBackColor = true;
             // 
             // Errores_BTN
             // 
@@ -155,7 +152,7 @@
             // 
             // Panel_sup
             // 
-            this.Panel_sup.BackColor = System.Drawing.Color.White;
+            this.Panel_sup.BackColor = System.Drawing.SystemColors.Control;
             this.Panel_sup.Controls.Add(this.pictureBox5);
             this.Panel_sup.Controls.Add(this.Title);
             this.Panel_sup.Location = new System.Drawing.Point(0, 3);
@@ -259,19 +256,16 @@
             // 
             // Listado_page
             // 
+            this.Listado_page.BackColor = System.Drawing.SystemColors.Control;
             this.Listado_page.Controls.Add(this.pictureBox1);
             this.Listado_page.Controls.Add(this.Ttl_listado);
             this.Listado_page.Controls.Add(this.Pdf_listado_pol_btn);
-            this.Listado_page.Controls.Add(this.Eliminar_btn);
-            this.Listado_page.Controls.Add(this.Editar_btn);
-            this.Listado_page.Controls.Add(this.Añadir_btn);
             this.Listado_page.Location = new System.Drawing.Point(4, 22);
             this.Listado_page.Name = "Listado_page";
             this.Listado_page.Padding = new System.Windows.Forms.Padding(3);
             this.Listado_page.Size = new System.Drawing.Size(278, 674);
             this.Listado_page.TabIndex = 1;
             this.Listado_page.Text = "1";
-            this.Listado_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -315,7 +309,7 @@
             this.Pdf_listado_pol_btn.IconVisible = false;
             this.Pdf_listado_pol_btn.IconZoom = 40D;
             this.Pdf_listado_pol_btn.IsTab = false;
-            this.Pdf_listado_pol_btn.Location = new System.Drawing.Point(0, 332);
+            this.Pdf_listado_pol_btn.Location = new System.Drawing.Point(0, 147);
             this.Pdf_listado_pol_btn.Name = "Pdf_listado_pol_btn";
             this.Pdf_listado_pol_btn.Normalcolor = System.Drawing.SystemColors.Control;
             this.Pdf_listado_pol_btn.OnHovercolor = System.Drawing.Color.Gainsboro;
@@ -328,113 +322,9 @@
             this.Pdf_listado_pol_btn.Textcolor = System.Drawing.Color.Black;
             this.Pdf_listado_pol_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // Eliminar_btn
-            // 
-            this.Eliminar_btn.Active = false;
-            this.Eliminar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Eliminar_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Eliminar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Eliminar_btn.BorderRadius = 0;
-            this.Eliminar_btn.ButtonText = "Eliminar póliza";
-            this.Eliminar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Eliminar_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Eliminar_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Eliminar_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Eliminar_btn.Iconimage")));
-            this.Eliminar_btn.Iconimage_right = null;
-            this.Eliminar_btn.Iconimage_right_Selected = null;
-            this.Eliminar_btn.Iconimage_Selected = null;
-            this.Eliminar_btn.IconMarginLeft = 0;
-            this.Eliminar_btn.IconMarginRight = 0;
-            this.Eliminar_btn.IconRightVisible = false;
-            this.Eliminar_btn.IconRightZoom = 0D;
-            this.Eliminar_btn.IconVisible = false;
-            this.Eliminar_btn.IconZoom = 40D;
-            this.Eliminar_btn.IsTab = false;
-            this.Eliminar_btn.Location = new System.Drawing.Point(0, 268);
-            this.Eliminar_btn.Name = "Eliminar_btn";
-            this.Eliminar_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Eliminar_btn.OnHovercolor = System.Drawing.Color.Gainsboro;
-            this.Eliminar_btn.OnHoverTextColor = System.Drawing.Color.Black;
-            this.Eliminar_btn.selected = false;
-            this.Eliminar_btn.Size = new System.Drawing.Size(278, 58);
-            this.Eliminar_btn.TabIndex = 2;
-            this.Eliminar_btn.Text = "Eliminar póliza";
-            this.Eliminar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Eliminar_btn.Textcolor = System.Drawing.Color.Black;
-            this.Eliminar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // Editar_btn
-            // 
-            this.Editar_btn.Active = false;
-            this.Editar_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Editar_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Editar_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Editar_btn.BorderRadius = 0;
-            this.Editar_btn.ButtonText = "Editar póliza";
-            this.Editar_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Editar_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Editar_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Editar_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Editar_btn.Iconimage")));
-            this.Editar_btn.Iconimage_right = null;
-            this.Editar_btn.Iconimage_right_Selected = null;
-            this.Editar_btn.Iconimage_Selected = null;
-            this.Editar_btn.IconMarginLeft = 0;
-            this.Editar_btn.IconMarginRight = 0;
-            this.Editar_btn.IconRightVisible = false;
-            this.Editar_btn.IconRightZoom = 0D;
-            this.Editar_btn.IconVisible = false;
-            this.Editar_btn.IconZoom = 40D;
-            this.Editar_btn.IsTab = false;
-            this.Editar_btn.Location = new System.Drawing.Point(0, 204);
-            this.Editar_btn.Name = "Editar_btn";
-            this.Editar_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Editar_btn.OnHovercolor = System.Drawing.Color.Gainsboro;
-            this.Editar_btn.OnHoverTextColor = System.Drawing.Color.Black;
-            this.Editar_btn.selected = false;
-            this.Editar_btn.Size = new System.Drawing.Size(278, 58);
-            this.Editar_btn.TabIndex = 1;
-            this.Editar_btn.Text = "Editar póliza";
-            this.Editar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Editar_btn.Textcolor = System.Drawing.Color.Black;
-            this.Editar_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // Añadir_btn
-            // 
-            this.Añadir_btn.Active = false;
-            this.Añadir_btn.Activecolor = System.Drawing.SystemColors.ControlDark;
-            this.Añadir_btn.BackColor = System.Drawing.SystemColors.Control;
-            this.Añadir_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Añadir_btn.BorderRadius = 0;
-            this.Añadir_btn.ButtonText = "Añadir póliza";
-            this.Añadir_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Añadir_btn.DisabledColor = System.Drawing.Color.Gray;
-            this.Añadir_btn.Iconcolor = System.Drawing.Color.Transparent;
-            this.Añadir_btn.Iconimage = ((System.Drawing.Image)(resources.GetObject("Añadir_btn.Iconimage")));
-            this.Añadir_btn.Iconimage_right = null;
-            this.Añadir_btn.Iconimage_right_Selected = null;
-            this.Añadir_btn.Iconimage_Selected = null;
-            this.Añadir_btn.IconMarginLeft = 0;
-            this.Añadir_btn.IconMarginRight = 0;
-            this.Añadir_btn.IconRightVisible = false;
-            this.Añadir_btn.IconRightZoom = 0D;
-            this.Añadir_btn.IconVisible = false;
-            this.Añadir_btn.IconZoom = 40D;
-            this.Añadir_btn.IsTab = false;
-            this.Añadir_btn.Location = new System.Drawing.Point(0, 140);
-            this.Añadir_btn.Name = "Añadir_btn";
-            this.Añadir_btn.Normalcolor = System.Drawing.SystemColors.Control;
-            this.Añadir_btn.OnHovercolor = System.Drawing.Color.Gainsboro;
-            this.Añadir_btn.OnHoverTextColor = System.Drawing.Color.Black;
-            this.Añadir_btn.selected = false;
-            this.Añadir_btn.Size = new System.Drawing.Size(278, 58);
-            this.Añadir_btn.TabIndex = 0;
-            this.Añadir_btn.Text = "Añadir póliza";
-            this.Añadir_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Añadir_btn.Textcolor = System.Drawing.Color.Black;
-            this.Añadir_btn.TextFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
             // Tomadores_page
             // 
+            this.Tomadores_page.BackColor = System.Drawing.SystemColors.Control;
             this.Tomadores_page.Controls.Add(this.pictureBox2);
             this.Tomadores_page.Controls.Add(this.label1);
             this.Tomadores_page.Controls.Add(this.PDF_tom_btn);
@@ -444,7 +334,6 @@
             this.Tomadores_page.Size = new System.Drawing.Size(278, 674);
             this.Tomadores_page.TabIndex = 2;
             this.Tomadores_page.Text = "2";
-            this.Tomadores_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -503,6 +392,7 @@
             // 
             // Beneficiaros_page
             // 
+            this.Beneficiaros_page.BackColor = System.Drawing.SystemColors.Control;
             this.Beneficiaros_page.Controls.Add(this.pictureBox3);
             this.Beneficiaros_page.Controls.Add(this.label2);
             this.Beneficiaros_page.Controls.Add(this.PDF_Ben_listado);
@@ -512,7 +402,6 @@
             this.Beneficiaros_page.Size = new System.Drawing.Size(278, 674);
             this.Beneficiaros_page.TabIndex = 3;
             this.Beneficiaros_page.Text = "3";
-            this.Beneficiaros_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox3
             // 
@@ -571,6 +460,7 @@
             // 
             // Vehiculos_page
             // 
+            this.Vehiculos_page.BackColor = System.Drawing.SystemColors.Control;
             this.Vehiculos_page.Controls.Add(this.pictureBox4);
             this.Vehiculos_page.Controls.Add(this.label3);
             this.Vehiculos_page.Controls.Add(this.PDF_Veh_listado);
@@ -580,7 +470,6 @@
             this.Vehiculos_page.Size = new System.Drawing.Size(278, 674);
             this.Vehiculos_page.TabIndex = 4;
             this.Vehiculos_page.Text = "4";
-            this.Vehiculos_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -639,6 +528,7 @@
             // 
             // Vigencias_page
             // 
+            this.Vigencias_page.BackColor = System.Drawing.SystemColors.Control;
             this.Vigencias_page.Controls.Add(this.pictureBox6);
             this.Vigencias_page.Controls.Add(this.label4);
             this.Vigencias_page.Controls.Add(this.PDF_Vig_Pol_listado);
@@ -648,7 +538,6 @@
             this.Vigencias_page.Size = new System.Drawing.Size(278, 674);
             this.Vigencias_page.TabIndex = 5;
             this.Vigencias_page.Text = "5";
-            this.Vigencias_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox6
             // 
@@ -707,6 +596,7 @@
             // 
             // Soat_page
             // 
+            this.Soat_page.BackColor = System.Drawing.SystemColors.Control;
             this.Soat_page.Controls.Add(this.pictureBox7);
             this.Soat_page.Controls.Add(this.label5);
             this.Soat_page.Controls.Add(this.PDF_Vig_Soat_listado);
@@ -716,7 +606,6 @@
             this.Soat_page.Size = new System.Drawing.Size(278, 674);
             this.Soat_page.TabIndex = 6;
             this.Soat_page.Text = "6";
-            this.Soat_page.UseVisualStyleBackColor = true;
             // 
             // pictureBox7
             // 
@@ -876,9 +765,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label Ttl_listado;
         private Bunifu.Framework.UI.BunifuFlatButton Pdf_listado_pol_btn;
-        private Bunifu.Framework.UI.BunifuFlatButton Eliminar_btn;
-        private Bunifu.Framework.UI.BunifuFlatButton Editar_btn;
-        private Bunifu.Framework.UI.BunifuFlatButton Añadir_btn;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuFlatButton PDF_tom_btn;

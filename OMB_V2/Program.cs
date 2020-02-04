@@ -16,7 +16,7 @@ namespace OMB_V2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Añadir_Editar_Eliminar_Formulario());
+            Application.Run(new Forms.Menu_principal());
         }
     }
 }
