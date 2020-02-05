@@ -44,10 +44,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Tip_Doc_Tom = new Bunifu.Framework.UI.BunifuDropdown();
             this.Beneficiario_page = new System.Windows.Forms.TabPage();
-            this.Poliza_page = new System.Windows.Forms.TabPage();
-            this.Vehiculo_page = new System.Windows.Forms.TabPage();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Añadir_ben_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label2 = new System.Windows.Forms.Label();
             this.Fecha_ben = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -59,6 +55,10 @@
             this.Documento_ben_txb = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Doc_Tip_Ben = new Bunifu.Framework.UI.BunifuDropdown();
+            this.Poliza_page = new System.Windows.Forms.TabPage();
+            this.Vehiculo_page = new System.Windows.Forms.TabPage();
+            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Control_tab.SuspendLayout();
             this.Tomador_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -330,40 +330,6 @@
             this.Beneficiario_page.TabIndex = 1;
             this.Beneficiario_page.Text = "Beneficiario";
             // 
-            // Poliza_page
-            // 
-            this.Poliza_page.Location = new System.Drawing.Point(4, 22);
-            this.Poliza_page.Name = "Poliza_page";
-            this.Poliza_page.Size = new System.Drawing.Size(538, 671);
-            this.Poliza_page.TabIndex = 2;
-            this.Poliza_page.Text = "Poliza";
-            this.Poliza_page.UseVisualStyleBackColor = true;
-            // 
-            // Vehiculo_page
-            // 
-            this.Vehiculo_page.Location = new System.Drawing.Point(4, 22);
-            this.Vehiculo_page.Name = "Vehiculo_page";
-            this.Vehiculo_page.Size = new System.Drawing.Size(538, 671);
-            this.Vehiculo_page.TabIndex = 3;
-            this.Vehiculo_page.Text = "Vehiculo";
-            this.Vehiculo_page.UseVisualStyleBackColor = true;
-            // 
-            // materialTabSelector1
-            // 
-            this.materialTabSelector1.BaseTabControl = this.Control_tab;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(-10, 55);
-            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(559, 57);
-            this.materialTabSelector1.TabIndex = 2;
-            this.materialTabSelector1.Text = "Tab_selector";
-            // 
-            // Forma
-            // 
-            this.Forma.ElipseRadius = 20;
-            this.Forma.TargetControl = this;
-            // 
             // Añadir_ben_btn
             // 
             this.Añadir_ben_btn.AutoEllipsis = true;
@@ -572,6 +538,40 @@
             this.Doc_Tip_Ben.Size = new System.Drawing.Size(496, 42);
             this.Doc_Tip_Ben.TabIndex = 13;
             // 
+            // Poliza_page
+            // 
+            this.Poliza_page.Location = new System.Drawing.Point(4, 22);
+            this.Poliza_page.Name = "Poliza_page";
+            this.Poliza_page.Size = new System.Drawing.Size(538, 671);
+            this.Poliza_page.TabIndex = 2;
+            this.Poliza_page.Text = "Poliza";
+            this.Poliza_page.UseVisualStyleBackColor = true;
+            // 
+            // Vehiculo_page
+            // 
+            this.Vehiculo_page.Location = new System.Drawing.Point(4, 22);
+            this.Vehiculo_page.Name = "Vehiculo_page";
+            this.Vehiculo_page.Size = new System.Drawing.Size(538, 671);
+            this.Vehiculo_page.TabIndex = 3;
+            this.Vehiculo_page.Text = "Vehiculo";
+            this.Vehiculo_page.UseVisualStyleBackColor = true;
+            // 
+            // materialTabSelector1
+            // 
+            this.materialTabSelector1.BaseTabControl = this.Control_tab;
+            this.materialTabSelector1.Depth = 0;
+            this.materialTabSelector1.Location = new System.Drawing.Point(-10, 55);
+            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabSelector1.Name = "materialTabSelector1";
+            this.materialTabSelector1.Size = new System.Drawing.Size(559, 57);
+            this.materialTabSelector1.TabIndex = 2;
+            this.materialTabSelector1.Text = "Tab_selector";
+            // 
+            // Forma
+            // 
+            this.Forma.ElipseRadius = 20;
+            this.Forma.TargetControl = this;
+            // 
             // Añadir_Editar_Eliminar_Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -586,6 +586,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Añadir";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Añadir_Editar_Eliminar_Formulario_Load);
             this.Control_tab.ResumeLayout(false);
             this.Tomador_page.ResumeLayout(false);
             this.Tomador_page.PerformLayout();
@@ -605,17 +606,8 @@
         private System.Windows.Forms.TabPage Poliza_page;
         private System.Windows.Forms.TabPage Vehiculo_page;
         private Bunifu.Framework.UI.BunifuElipse Forma;
-        private Bunifu.Framework.UI.BunifuDropdown Tip_Doc_Tom;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Documento_tom_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Nombres_tom_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Apellidos_tom_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Direccion_tom_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Email_tom_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Telefono_tom_txb;
-        private Bunifu.Framework.UI.BunifuDatepicker Fecha_tom;
         private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialRaisedButton Añadir_tom_btn;
         private MaterialSkin.Controls.MaterialRaisedButton Añadir_ben_btn;
         private System.Windows.Forms.Label label2;
         private Bunifu.Framework.UI.BunifuDatepicker Fecha_ben;
@@ -627,5 +619,14 @@
         private Bunifu.Framework.UI.BunifuMaterialTextbox Documento_ben_txb;
         private System.Windows.Forms.PictureBox pictureBox2;
         private Bunifu.Framework.UI.BunifuDropdown Doc_Tip_Ben;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Documento_tom_txb;
+        public MaterialSkin.Controls.MaterialRaisedButton Añadir_tom_btn;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Nombres_tom_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Apellidos_tom_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Direccion_tom_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Email_tom_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Telefono_tom_txb;
+        public Bunifu.Framework.UI.BunifuDatepicker Fecha_tom;
+        public Bunifu.Framework.UI.BunifuDropdown Tip_Doc_Tom;
     }
 }

@@ -15,7 +15,7 @@ namespace OMB_V2.Forms
 {
     public partial class Añadir_Editar_Eliminar_Formulario : MaterialForm
     {
-        public Añadir_Editar_Eliminar_Formulario(int ? Cedula_tomador)
+        public Añadir_Editar_Eliminar_Formulario(long ? Cedula_tomador)
         {
             InitializeComponent();
             MaterialSkinManager Tema = MaterialSkinManager.Instance;
@@ -27,7 +27,10 @@ namespace OMB_V2.Forms
                 Primary.Grey900, Accent.LightBlue400, TextShade.WHITE);
             this.Cedula_tomador = Cedula_tomador;
         }
-        private int? Cedula_tomador;
+        // Long receptor
+        private long? Cedula_tomador;
+        // Metodos
+        Models.Metodos_bases_de_datos.Metodos_DB Metodos = new Models.Metodos_bases_de_datos.Metodos_DB();
         private void Añadir_tom_btn_Click(object sender, EventArgs e)
         {
             // FORMATO DE FECHA
@@ -115,9 +118,35 @@ namespace OMB_V2.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Añadir_Editar_Eliminar_Formulario_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(Cedula_tomador.ToString());
+            if (Cedula_tomador != null)
+            {
+                Metodos.Llenar_Tomador_Edit(Cedula_tomador, Tip_Doc_Tom, Documento_tom_txb, Nombres_tom_txb,Apellidos_tom_txb,Direccion_tom_txb,Telefono_tom_txb,Email_tom_txb,Fecha_tom);
+                if (Documento_tom_txb.Text != "")
+                {
+                    if (MessageBox.Show("¿El registro pertenece al mismo cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                    }
+                    else
+                    {
+                        Tip_Doc_Tom.selectedIndex = 0;
+                        Documento_tom_txb.Text = "";
+                        Nombres_tom_txb.Text = "";
+                        Apellidos_tom_txb.Text = "";
+                        Direccion_tom_txb.Text = "";
+                        Telefono_tom_txb.Text = "";
+                        Email_tom_txb.Text = "";
+                        Fecha_tom.Value = DateTime.Now;
+                        Cedula_tomador = null;
+                    }
+                    if (Documento_tom_txb.Text != "") 
+                    {
+                        Documento_tom_txb.Text = "";
+                    }
+                }
+            }
         }
     }
 }

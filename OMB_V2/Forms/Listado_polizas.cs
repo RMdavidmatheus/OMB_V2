@@ -16,14 +16,14 @@ namespace OMB_V2.Forms
         {
             InitializeComponent();
         }
-        private int? Cedula_Parametro;
+        private long? Cedula_Parametro;
         // Metodos get de llaves primarias
         #region
-        private int? Get_Cedula_Tomador() 
+        private long? Get_Cedula_Tomador() 
         {
             try
             {
-               return int.Parse(Dtg_Listado_polizas.Rows[Dtg_Listado_polizas.CurrentRow.Index].Cells[4].Value.ToString());
+               return long.Parse(Dtg_Listado_polizas.Rows[Dtg_Listado_polizas.CurrentRow.Index].Cells[4].Value.ToString());
             }
             catch (Exception)
             {
@@ -48,12 +48,32 @@ namespace OMB_V2.Forms
             Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro);
             Añadir.Text = "Añadir documento";
             Añadir.ShowDialog();
+            if (Añadir.Documento_tom_txb.Text != "")
+            {
+                if (MessageBox.Show("¿El registro pertenece al mismo cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                }
+                else
+                {
+                    Añadir.Tip_Doc_Tom.selectedIndex = 0;
+                    Añadir.Documento_tom_txb.Text = "";
+                    Añadir.Nombres_tom_txb.Text = "";
+                    Añadir.Apellidos_tom_txb.Text = "";
+                    Añadir.Direccion_tom_txb.Text = "";
+                    Añadir.Telefono_tom_txb.Text = "";
+                    Añadir.Email_tom_txb.Text = "";
+                    Añadir.Fecha_tom.Value = DateTime.Now;
+                }
+            }
         }
 
         private void Editar_btn_Click(object sender, EventArgs e)
         {
             Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro);
             Añadir.Text = "Editar documento";
+            Añadir.Documento_tom_txb.Enabled = false;
+            Añadir.Añadir_tom_btn.Visible = false;
             Añadir.ShowDialog();
         }
     }

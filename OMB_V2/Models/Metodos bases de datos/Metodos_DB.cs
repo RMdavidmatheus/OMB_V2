@@ -64,6 +64,37 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 Datagrid_receptor.DataSource = Listado_Vig_Soat.ToList();
             }
         }
+        // Llenar Formularios para editar
+        public void Llenar_Tomador_Edit(long? Cedula,Bunifu.Framework.UI.BunifuDropdown Tipo_doc ,Bunifu.Framework.UI.BunifuMaterialTextbox Txb_cedula, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_nombres,
+            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_apellidos, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_direccion,
+            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_telefono, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
+        {
+            DB_Entities_OMB db = new DB_Entities_OMB();
+            var Tipo_documento = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Tip_Doc;
+            var Nombres = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Nombres;
+            var Apellidos = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Apellidos;
+            var Direccion = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Direccion;
+            var Telefono = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Telefono;
+            var Email = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Email;
+            var Fecha_Nacimiento = from tom in db.Tomador where tom.Tom_Documento == Cedula select tom.Tom_Fecha_Nacimiento;
 
+
+            if (Nombres.Count() != 0 || Apellidos.Count() != 0 || Direccion.Count() != 0 ||
+                Telefono.Count() != 0 || Email.Count() != 0 || Fecha_Nacimiento.Count() != 0)
+            {
+                Tipo_doc.SelectedItem(Tipo_documento.First());
+                Txb_cedula.Text = Cedula.ToString();
+                Txb_nombres.Text = Nombres.First();
+                Txb_apellidos.Text = Apellidos.First();
+                Txb_direccion.Text = Direccion.First();
+                Txb_telefono.Text = Telefono.First().ToString();
+                Txb_email.Text = Email.First();
+                Fecha_nacimiento.Value = Fecha_Nacimiento.First();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos en los registros");
+            }
+        }
     }
 }
