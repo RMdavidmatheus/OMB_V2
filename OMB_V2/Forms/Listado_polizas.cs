@@ -47,25 +47,8 @@ namespace OMB_V2.Forms
         {
             Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro);
             Añadir.Text = "Añadir documento";
+            Añadir.Editar_tom.Visible = false;
             Añadir.ShowDialog();
-            if (Añadir.Documento_tom_txb.Text != "")
-            {
-                if (MessageBox.Show("¿El registro pertenece al mismo cliente?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                }
-                else
-                {
-                    Añadir.Tip_Doc_Tom.selectedIndex = 0;
-                    Añadir.Documento_tom_txb.Text = "";
-                    Añadir.Nombres_tom_txb.Text = "";
-                    Añadir.Apellidos_tom_txb.Text = "";
-                    Añadir.Direccion_tom_txb.Text = "";
-                    Añadir.Telefono_tom_txb.Text = "";
-                    Añadir.Email_tom_txb.Text = "";
-                    Añadir.Fecha_tom.Value = DateTime.Now;
-                }
-            }
         }
 
         private void Editar_btn_Click(object sender, EventArgs e)

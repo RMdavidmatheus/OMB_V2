@@ -59,6 +59,7 @@
             this.Vehiculo_page = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Editar_tom = new MaterialSkin.Controls.MaterialRaisedButton();
             this.Control_tab.SuspendLayout();
             this.Tomador_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,6 +95,7 @@
             this.Tomador_page.Controls.Add(this.Documento_tom_txb);
             this.Tomador_page.Controls.Add(this.pictureBox1);
             this.Tomador_page.Controls.Add(this.Tip_Doc_Tom);
+            this.Tomador_page.Controls.Add(this.Editar_tom);
             this.Tomador_page.Location = new System.Drawing.Point(4, 22);
             this.Tomador_page.Name = "Tomador_page";
             this.Tomador_page.Padding = new System.Windows.Forms.Padding(3);
@@ -572,6 +574,22 @@
             this.Forma.ElipseRadius = 20;
             this.Forma.TargetControl = this;
             // 
+            // Editar_tom
+            // 
+            this.Editar_tom.AutoEllipsis = true;
+            this.Editar_tom.Depth = 0;
+            this.Editar_tom.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Editar_tom.Image = ((System.Drawing.Image)(resources.GetObject("Editar_tom.Image")));
+            this.Editar_tom.Location = new System.Drawing.Point(56, 607);
+            this.Editar_tom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Editar_tom.Name = "Editar_tom";
+            this.Editar_tom.Primary = true;
+            this.Editar_tom.Size = new System.Drawing.Size(421, 52);
+            this.Editar_tom.TabIndex = 13;
+            this.Editar_tom.Text = "Editar";
+            this.Editar_tom.UseVisualStyleBackColor = true;
+            this.Editar_tom.Click += new System.EventHandler(this.Editar_tom_Click);
+            // 
             // Añadir_Editar_Eliminar_Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,7 +603,6 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Añadir";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Añadir_Editar_Eliminar_Formulario_Load);
             this.Control_tab.ResumeLayout(false);
             this.Tomador_page.ResumeLayout(false);
@@ -628,5 +645,6 @@
         public Bunifu.Framework.UI.BunifuMaterialTextbox Telefono_tom_txb;
         public Bunifu.Framework.UI.BunifuDatepicker Fecha_tom;
         public Bunifu.Framework.UI.BunifuDropdown Tip_Doc_Tom;
+        public MaterialSkin.Controls.MaterialRaisedButton Editar_tom;
     }
 }
