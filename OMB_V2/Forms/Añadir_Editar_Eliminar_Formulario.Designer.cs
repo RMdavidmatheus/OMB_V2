@@ -60,6 +60,7 @@
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Editar_tom = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.Editar_ben_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.Control_tab.SuspendLayout();
             this.Tomador_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -325,6 +326,7 @@
             this.Beneficiario_page.Controls.Add(this.Documento_ben_txb);
             this.Beneficiario_page.Controls.Add(this.pictureBox2);
             this.Beneficiario_page.Controls.Add(this.Doc_Tip_Ben);
+            this.Beneficiario_page.Controls.Add(this.Editar_ben_btn);
             this.Beneficiario_page.Location = new System.Drawing.Point(4, 22);
             this.Beneficiario_page.Name = "Beneficiario_page";
             this.Beneficiario_page.Padding = new System.Windows.Forms.Padding(3);
@@ -590,6 +592,22 @@
             this.Editar_tom.UseVisualStyleBackColor = true;
             this.Editar_tom.Click += new System.EventHandler(this.Editar_tom_Click);
             // 
+            // Editar_ben_btn
+            // 
+            this.Editar_ben_btn.AutoEllipsis = true;
+            this.Editar_ben_btn.Depth = 0;
+            this.Editar_ben_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Editar_ben_btn.Image = ((System.Drawing.Image)(resources.GetObject("Editar_ben_btn.Image")));
+            this.Editar_ben_btn.Location = new System.Drawing.Point(56, 607);
+            this.Editar_ben_btn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Editar_ben_btn.Name = "Editar_ben_btn";
+            this.Editar_ben_btn.Primary = true;
+            this.Editar_ben_btn.Size = new System.Drawing.Size(421, 52);
+            this.Editar_ben_btn.TabIndex = 24;
+            this.Editar_ben_btn.Text = "Editar";
+            this.Editar_ben_btn.UseVisualStyleBackColor = true;
+            this.Editar_ben_btn.Click += new System.EventHandler(this.Editar_ben_btn_Click);
+            // 
             // Añadir_Editar_Eliminar_Formulario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,17 +643,7 @@
         private Bunifu.Framework.UI.BunifuElipse Forma;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialRaisedButton Añadir_ben_btn;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.Framework.UI.BunifuDatepicker Fecha_ben;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Email_ben_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Telefono_ben_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Direccion_ben_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Apellidos_ben_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Nombres_ben_txb;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox Documento_ben_txb;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Bunifu.Framework.UI.BunifuDropdown Doc_Tip_Ben;
         public Bunifu.Framework.UI.BunifuMaterialTextbox Documento_tom_txb;
         public MaterialSkin.Controls.MaterialRaisedButton Añadir_tom_btn;
         public Bunifu.Framework.UI.BunifuMaterialTextbox Nombres_tom_txb;
@@ -646,5 +654,16 @@
         public Bunifu.Framework.UI.BunifuDatepicker Fecha_tom;
         public Bunifu.Framework.UI.BunifuDropdown Tip_Doc_Tom;
         public MaterialSkin.Controls.MaterialRaisedButton Editar_tom;
+        public MaterialSkin.Controls.MaterialRaisedButton Añadir_ben_btn;
+        public System.Windows.Forms.Label label2;
+        public Bunifu.Framework.UI.BunifuDatepicker Fecha_ben;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Email_ben_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Telefono_ben_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Direccion_ben_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Apellidos_ben_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Nombres_ben_txb;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox Documento_ben_txb;
+        public Bunifu.Framework.UI.BunifuDropdown Doc_Tip_Ben;
+        public MaterialSkin.Controls.MaterialRaisedButton Editar_ben_btn;
     }
 }

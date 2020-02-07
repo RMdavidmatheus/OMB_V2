@@ -16,7 +16,7 @@ namespace OMB_V2.Forms
         {
             InitializeComponent();
         }
-        private long? Cedula_Parametro;
+        private long? Cedula_Parametro_tom, Cedula_Parametro_ben;
         // Metodos get de llaves primarias
         #region
         private long? Get_Cedula_Tomador() 
@@ -24,6 +24,17 @@ namespace OMB_V2.Forms
             try
             {
                return long.Parse(Dtg_Listado_polizas.Rows[Dtg_Listado_polizas.CurrentRow.Index].Cells[4].Value.ToString());
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        private long? Get_Cedula_Beneficiario()
+        {
+            try
+            {
+                return long.Parse(Dtg_Listado_polizas.Rows[Dtg_Listado_polizas.CurrentRow.Index].Cells[7].Value.ToString());
             }
             catch (Exception)
             {
@@ -40,23 +51,28 @@ namespace OMB_V2.Forms
         // Evento Click en celda
         private void Dtg_Listado_polizas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Cedula_Parametro = Get_Cedula_Tomador();
+            Cedula_Parametro_tom = Get_Cedula_Tomador();
+            Cedula_Parametro_ben = Get_Cedula_Beneficiario();
+
         }
 
         private void Añadir_btn_Click(object sender, EventArgs e)
         {
-            Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro);
+            Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro_tom,Cedula_Parametro_ben);
             Añadir.Text = "Añadir documento";
             Añadir.Editar_tom.Visible = false;
+            Añadir.Editar_ben_btn.Visible = false;
             Añadir.ShowDialog();
         }
 
         private void Editar_btn_Click(object sender, EventArgs e)
         {
-            Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro);
+            Añadir_Editar_Eliminar_Formulario Añadir = new Añadir_Editar_Eliminar_Formulario(Cedula_Parametro_tom, Cedula_Parametro_ben);
             Añadir.Text = "Editar documento";
             Añadir.Documento_tom_txb.Enabled = false;
+            Añadir.Documento_ben_txb.Enabled = false;
             Añadir.Añadir_tom_btn.Visible = false;
+            Añadir.Añadir_ben_btn.Visible = false;
             Añadir.ShowDialog();
         }
     }
