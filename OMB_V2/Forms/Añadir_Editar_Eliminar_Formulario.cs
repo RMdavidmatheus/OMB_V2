@@ -15,7 +15,8 @@ namespace OMB_V2.Forms
 {
     public partial class Añadir_Editar_Eliminar_Formulario : MaterialForm
     {
-        public Añadir_Editar_Eliminar_Formulario(long? Cedula_tomador = null, long? Cedula_beneficiario = null)
+        public Añadir_Editar_Eliminar_Formulario(long? Cedula_tomador = null, long? Cedula_beneficiario = null, long? Numero_poliza= null,
+            int? Aseguradora_ID = null, int? Tipo_poliza_ID = null)
         {
             InitializeComponent();
             MaterialSkinManager Tema = MaterialSkinManager.Instance;
@@ -27,9 +28,15 @@ namespace OMB_V2.Forms
                 Primary.Grey900, Accent.LightBlue400, TextShade.WHITE);
             this.Cedula_tomador = Cedula_tomador;
             this.Cedula_beneficiario = Cedula_beneficiario;
+            this.Numero_Poliza = Numero_poliza;
+            this.Aseguradora_ID = Aseguradora_ID;
+            this.Tipo_poliza_ID = Tipo_poliza_ID;
         }
         // Long receptor
-        private long? Cedula_tomador, Cedula_beneficiario;
+        private long? Cedula_tomador, Cedula_beneficiario, Numero_Poliza;
+        // Int Receptor
+        private int? Aseguradora_ID, Tipo_poliza_ID;
+        private double Numero_prima;
         // Metodos
         Models.Metodos_bases_de_datos.Metodos_DB Metodos = new Models.Metodos_bases_de_datos.Metodos_DB();
 
@@ -39,12 +46,80 @@ namespace OMB_V2.Forms
             // AÑADIENDO DATOS DESDE EL METODO
             Metodos.Añadir_Editar_Tom(Cedula_tomador, Tip_Doc_Tom, Documento_tom_txb, Nombres_tom_txb, Apellidos_tom_txb,
                  Direccion_tom_txb, Telefono_tom_txb, Email_tom_txb, Fecha_tom);
+            Documento_tom_txb.Enabled = false;
+            Control_tab.SelectedTab = Beneficiario_page;
         }
         //AÑADIR BEN
         private void Añadir_ben_btn_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Cedula_beneficiario.ToString());
+            // Metodo para agregar o editar beneficiario
+            Metodos.Añadir_Editar_Ben(Cedula_beneficiario, Doc_Tip_Ben, Documento_ben_txb, Nombres_ben_txb, Apellidos_ben_txb,
+                Direccion_ben_txb, Telefono_ben_txb, Email_ben_txb, Fecha_ben);
+            Documento_ben_txb.Enabled = false;
+            Control_tab.SelectedTab = Poliza_page;
         }
+
+        private void Valor_prima_pol_txb_KeyUp(object sender, KeyEventArgs e)
+        {
+            // FORMATO AL ESCRIBIR
+            if (double.TryParse(Valor_prima_pol_txb.Text, out Numero_prima))
+            {
+                Valor_prima_pol_txb.Text = Numero_prima.ToString("N0");
+                Valor_prima_pol_txb.SelectionStart = Valor_prima_pol_txb.TextLength;
+            }
+        }
+
+        private void Valor_prima_pol_txb_Load(object sender, EventArgs e)
+        {
+            // SI TRAE UN VALOR DESDE LA BASE LE DARA FORMATO
+            if (Valor_prima_pol_txb.Text != "")
+            {
+                if (double.TryParse(Valor_prima_pol_txb.Text, out Numero_prima))
+                {
+                    Valor_prima_pol_txb.Text = Numero_prima.ToString("N0");
+                    Valor_prima_pol_txb.SelectionStart = Valor_prima_pol_txb.TextLength;
+                }
+            }
+        }
+        // EVENTO QUE NOS CAMBIA EL PARENT DEL PAGE VEHICULO
+        private void Tipo_de_poliza_dropdown_onItemSelected(object sender, EventArgs e)
+        {
+            if (Tipo_de_poliza_dropdown.selectedValue == "AUTOS")
+            {
+                Vehiculo_page.Parent = Control_tab;
+            }
+            else
+            {
+                Vehiculo_page.Parent = null;
+            }
+        }
+
+        private void Añadir_pol_btn_Click(object sender, EventArgs e)
+        {
+            // INSERTAR
+            Metodos.Añadir_Editar_Pol(Numero_Poliza,Aseguradoras_dropdown,Tipo_de_poliza_dropdown,Numero_poliza_txb,Fecha_inicial,Fecha_final,Valor_prima_pol_txb,Documento_tom_txb,Documento_ben_txb);
+            if (Aseguradoras_dropdown.selectedValue == "AUTOS")
+            {
+                Numero_poliza_txb.Enabled = false;
+                Control_tab.SelectedTab = Vehiculo_page;
+            }
+        }
+
+        private void Editar_pol_btn_Click(object sender, EventArgs e)
+        {
+            // EDITAR
+            Documento_ben_txb.Enabled = false;
+            Documento_tom_txb.Enabled = false;
+            Numero_poliza_txb.Enabled = false;
+            Aseguradoras_dropdown.Enabled = false;
+            Tipo_de_poliza_dropdown.Enabled = false;
+            Metodos.Añadir_Editar_Pol(Numero_Poliza, Aseguradoras_dropdown, Tipo_de_poliza_dropdown, Numero_poliza_txb, Fecha_inicial, Fecha_final, Valor_prima_pol_txb, Documento_tom_txb, Documento_ben_txb);
+            if (Aseguradoras_dropdown.selectedValue == "AUTOS")
+            {
+                Control_tab.SelectedTab = Vehiculo_page;
+            }
+        }
+
         // LOAD DEL FORMULARIO
         private void Añadir_Editar_Eliminar_Formulario_Load(object sender, EventArgs e)
         {
@@ -57,6 +132,8 @@ namespace OMB_V2.Forms
                     Metodos.Llenar_Tomador_Edit(Cedula_tomador, Tip_Doc_Tom, Documento_tom_txb, Nombres_tom_txb, Apellidos_tom_txb, Direccion_tom_txb, Telefono_tom_txb, Email_tom_txb, Fecha_tom);
                     Metodos.Llenar_Beneficiario_Edit(Cedula_beneficiario, Doc_Tip_Ben, Documento_ben_txb, Nombres_ben_txb, Apellidos_ben_txb,
                         Direccion_ben_txb, Telefono_ben_txb, Email_ben_txb, Fecha_ben);
+                    Metodos.Llenar_Poliza_Edit(Numero_Poliza,Aseguradoras_dropdown,Tipo_de_poliza_dropdown, Numero_poliza_txb,
+                        Fecha_inicial,Fecha_final,Valor_prima_pol_txb);
                 }
                 else
                 {
@@ -95,13 +172,20 @@ namespace OMB_V2.Forms
 
         private void Editar_ben_btn_Click(object sender, EventArgs e)
         {
-            //
+            // Metodo para editar beneficiario
+            Metodos.Añadir_Editar_Ben(Cedula_beneficiario, Doc_Tip_Ben, Documento_ben_txb, Nombres_ben_txb, Apellidos_ben_txb,
+                Direccion_ben_txb, Telefono_ben_txb, Email_ben_txb, Fecha_ben);
+            Documento_ben_txb.Enabled = false;
+            Control_tab.SelectedTab = Poliza_page;
         }
 
         private void Editar_tom_Click(object sender, EventArgs e)
         {
+            // Iniciando metodo
             Metodos.Añadir_Editar_Tom(Cedula_tomador,Tip_Doc_Tom,Documento_tom_txb,Nombres_tom_txb,Apellidos_tom_txb,
                 Direccion_tom_txb, Telefono_tom_txb, Email_tom_txb,Fecha_tom);
+            Documento_tom_txb.Enabled = false;
+            Control_tab.SelectedTab = Beneficiario_page;
         }
     }
 }

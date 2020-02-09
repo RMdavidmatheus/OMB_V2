@@ -12,6 +12,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
     {
         private Tomador tom;
         private Beneficiario ben;
+        private Poliza Pol;
         // Listar Polizas
         public void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
         {
@@ -67,9 +68,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // Llenar Formularios para editar tomador
-        public void Llenar_Tomador_Edit(long? Cedula,Bunifu.Framework.UI.BunifuDropdown Tipo_doc ,Bunifu.Framework.UI.BunifuMaterialTextbox Txb_cedula, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_nombres,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_apellidos, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_direccion,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_telefono, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
+        public void Llenar_Tomador_Edit(long? Cedula,Bunifu.Framework.UI.BunifuDropdown Tipo_doc , Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
             Tomador tom_tabla = new Tomador();
@@ -110,9 +111,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // Llenar Formularios para editar beneficiario
-        public void Llenar_Beneficiario_Edit(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_cedula, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_nombres,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_apellidos, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_direccion,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_telefono, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
+        public void Llenar_Beneficiario_Edit(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
             Beneficiario ben_tabla = new Beneficiario();
@@ -152,10 +153,32 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 MessageBox.Show("No hay datos en los registros");
             }
         }
+        // Llenar Poliza
+        public void Llenar_Poliza_Edit(long? Numero_Poliza, Bunifu.Framework.UI.BunifuDropdown Aseguradora_drop, Bunifu.Framework.UI.BunifuDropdown Tipo_poliza_drop, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Numero_Poliza_txb,Bunifu.Framework.UI.BunifuDatepicker Fecha_inicial,
+            Bunifu.Framework.UI.BunifuDatepicker Fecha_final, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_txb)
+        {
+            DB_Entities_OMB db = new DB_Entities_OMB();
+            Poliza Pol_tabla = new Poliza();
+            Pol_tabla = db.Poliza.Find(Numero_Poliza);
+
+            if (Pol_tabla.Pol_Numero_Poliza == Numero_Poliza)
+            {
+                Aseguradora_drop.selectedIndex = Pol_tabla.Aseguradora_ID-1;
+                Tipo_poliza_drop.selectedIndex = Pol_tabla.Tipo_Poliza_ID-1;
+                Numero_Poliza_txb.Text = Pol_tabla.Pol_Numero_Poliza.ToString();
+                Fecha_inicial.Value = Pol_tabla.Pol_Vigencia_Inicial;
+                Fecha_final.Value = Pol_tabla.Pol_Vigencia_Final;
+                Valor_txb.Text = Pol_tabla.Pol_Valor_Prima.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos en los registros");
+            }
+        }
         // METODO PARA AÑADIR U EDITAR REGISTROS
-        public void Añadir_Editar_Tom(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_cedula, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_nombres,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_apellidos, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_direccion,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_telefono, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
+        public void Añadir_Editar_Tom(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
@@ -204,9 +227,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 db.SaveChanges();
             }
         }
-        public void Añadir_Editar_Ben(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_cedula, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_nombres,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_apellidos, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_direccion,
-            Bunifu.Framework.UI.BunifuMaterialTextbox Txb_telefono, Bunifu.Framework.UI.BunifuMaterialTextbox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
+        public void Añadir_Editar_Ben(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
@@ -245,10 +268,62 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                     ben.Ben_Email = Txb_email.Text;
                     ben.Ben_Fecha_Nacimiento = Fecha_nacimiento.Value;
                     ben.Fecha_Creacion = DateTime.Now;
+                    // Si la cedula es distinto a nulo hara la edicion del registro
                     if (Cedula != null)
                     {
                         db.Beneficiario.Add(ben);
                         db.Entry(ben).State = System.Data.Entity.EntityState.Modified;
+                        MessageBox.Show("Edición de registros completada");
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+        public void Añadir_Editar_Pol(long? Numero_poliza, Bunifu.Framework.UI.BunifuDropdown Aseguradora, Bunifu.Framework.UI.BunifuDropdown Tipo_de_poliza, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_num_pol,
+            Bunifu.Framework.UI.BunifuDatepicker Fecha_inicio, Bunifu.Framework.UI.BunifuDatepicker Fecha_Final, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_prima, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Documento_tom, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Documento_ben)
+        {
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
+            {
+
+                // SI LA CEDULA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
+                if (Numero_poliza == null)
+                {
+                    Pol = new Poliza();
+                    Pol.Pol_Numero_Poliza = long.Parse(Txb_num_pol.Text);
+                    Pol.Tipo_Poliza_ID = Tipo_de_poliza.selectedIndex + 1;
+                    Pol.Aseguradora_ID = Aseguradora.selectedIndex + 1;
+                    Pol.Tomador_Documento = long.Parse(Documento_tom.Text);
+                    Pol.Beneficiario_Documento = long.Parse(Documento_ben.Text);
+                    Pol.Pol_Vigencia_Inicial = Fecha_inicio.Value;
+                    Pol.Pol_Vigencia_Final = Fecha_Final.Value;
+                    Pol.Pol_Valor_Prima = Decimal.Parse(Valor_prima.Text);
+                    Pol.Pol_Estado = "ACTIVO";
+
+                }
+                // SI LA CEDULA ES NULA AGREGARA LOS REGISTROS
+                if (Numero_poliza == null)
+                {
+                    db.Poliza.Add(Pol);
+                    MessageBox.Show("Registros agregados");
+                }
+                else
+                {
+                    // SI LA CEDULA NO ES NULA NOS EDITARA LOS REGISTROS
+                    Pol = new Poliza();
+                    Pol.Pol_Numero_Poliza = long.Parse(Txb_num_pol.Text);
+                    Pol.Tipo_Poliza_ID = Tipo_de_poliza.selectedIndex + 1;
+                    Pol.Aseguradora_ID = Aseguradora.selectedIndex + 1;
+                    Pol.Tomador_Documento = long.Parse(Documento_tom.Text);
+                    Pol.Beneficiario_Documento = long.Parse(Documento_ben.Text);
+                    Pol.Pol_Vigencia_Inicial = Fecha_inicio.Value;
+                    Pol.Pol_Vigencia_Final = Fecha_Final.Value;
+                    Pol.Pol_Valor_Prima = Decimal.Parse(Valor_prima.Text);
+                    Pol.Pol_Estado = "ACTIVO";
+                    // Si la cedula es distinto a nulo hara la edicion del registro
+                    if (Numero_poliza != null)
+                    {
+                        db.Poliza.Add(Pol);
+                        db.Entry(Pol).State = System.Data.Entity.EntityState.Modified;
                         MessageBox.Show("Edición de registros completada");
                     }
                 }
