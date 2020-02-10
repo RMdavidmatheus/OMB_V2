@@ -78,11 +78,11 @@
             this.Servicio_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Fasecolda_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Modelo_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.Añadir_veh_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label5 = new System.Windows.Forms.Label();
             this.Fecha_soat = new Bunifu.Framework.UI.BunifuDatepicker();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.Editar_veh_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.Placa_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Control_tab.SuspendLayout();
             this.Tomador_page.SuspendLayout();
@@ -521,7 +521,7 @@
             this.Email_ben_txb.IconPadding = 10;
             this.Email_ben_txb.IconRight = null;
             this.Email_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Email_ben_txb.Location = new System.Drawing.Point(18, 480);
+            this.Email_ben_txb.Location = new System.Drawing.Point(18, 481);
             this.Email_ben_txb.MaxLength = 32767;
             this.Email_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Email_ben_txb.Modified = false;
@@ -564,7 +564,7 @@
             this.Telefono_ben_txb.IconPadding = 10;
             this.Telefono_ben_txb.IconRight = null;
             this.Telefono_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Telefono_ben_txb.Location = new System.Drawing.Point(18, 433);
+            this.Telefono_ben_txb.Location = new System.Drawing.Point(18, 434);
             this.Telefono_ben_txb.MaxLength = 32767;
             this.Telefono_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Telefono_ben_txb.Modified = false;
@@ -607,7 +607,7 @@
             this.Direccion_ben_txb.IconPadding = 10;
             this.Direccion_ben_txb.IconRight = null;
             this.Direccion_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Direccion_ben_txb.Location = new System.Drawing.Point(18, 385);
+            this.Direccion_ben_txb.Location = new System.Drawing.Point(18, 386);
             this.Direccion_ben_txb.MaxLength = 32767;
             this.Direccion_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Direccion_ben_txb.Modified = false;
@@ -650,7 +650,7 @@
             this.Apellidos_ben_txb.IconPadding = 10;
             this.Apellidos_ben_txb.IconRight = null;
             this.Apellidos_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Apellidos_ben_txb.Location = new System.Drawing.Point(18, 337);
+            this.Apellidos_ben_txb.Location = new System.Drawing.Point(18, 338);
             this.Apellidos_ben_txb.MaxLength = 32767;
             this.Apellidos_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Apellidos_ben_txb.Modified = false;
@@ -693,7 +693,7 @@
             this.Nombres_ben_txb.IconPadding = 10;
             this.Nombres_ben_txb.IconRight = null;
             this.Nombres_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Nombres_ben_txb.Location = new System.Drawing.Point(18, 289);
+            this.Nombres_ben_txb.Location = new System.Drawing.Point(18, 290);
             this.Nombres_ben_txb.MaxLength = 32767;
             this.Nombres_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Nombres_ben_txb.Modified = false;
@@ -736,7 +736,7 @@
             this.Documento_ben_txb.IconPadding = 10;
             this.Documento_ben_txb.IconRight = null;
             this.Documento_ben_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Documento_ben_txb.Location = new System.Drawing.Point(18, 241);
+            this.Documento_ben_txb.Location = new System.Drawing.Point(18, 242);
             this.Documento_ben_txb.MaxLength = 32767;
             this.Documento_ben_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Documento_ben_txb.Modified = false;
@@ -761,7 +761,7 @@
             this.Añadir_ben_btn.Depth = 0;
             this.Añadir_ben_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Añadir_ben_btn.Image = ((System.Drawing.Image)(resources.GetObject("Añadir_ben_btn.Image")));
-            this.Añadir_ben_btn.Location = new System.Drawing.Point(56, 607);
+            this.Añadir_ben_btn.Location = new System.Drawing.Point(56, 608);
             this.Añadir_ben_btn.MouseState = MaterialSkin.MouseState.HOVER;
             this.Añadir_ben_btn.Name = "Añadir_ben_btn";
             this.Añadir_ben_btn.Primary = true;
@@ -775,7 +775,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(267, 530);
+            this.label2.Location = new System.Drawing.Point(267, 531);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(250, 37);
             this.label2.TabIndex = 22;
@@ -788,7 +788,7 @@
             this.Fecha_ben.ForeColor = System.Drawing.Color.White;
             this.Fecha_ben.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Fecha_ben.FormatCustom = "";
-            this.Fecha_ben.Location = new System.Drawing.Point(18, 528);
+            this.Fecha_ben.Location = new System.Drawing.Point(18, 529);
             this.Fecha_ben.Name = "Fecha_ben";
             this.Fecha_ben.Size = new System.Drawing.Size(244, 42);
             this.Fecha_ben.TabIndex = 21;
@@ -797,7 +797,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(167, 14);
+            this.pictureBox2.Location = new System.Drawing.Point(167, 15);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(207, 168);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -817,7 +817,7 @@
         "TARJETA DE IDENTIDAD",
         "REGISTRO CIVIL",
         "CEDULA EXTRANJERA"};
-            this.Doc_Tip_Ben.Location = new System.Drawing.Point(18, 192);
+            this.Doc_Tip_Ben.Location = new System.Drawing.Point(18, 193);
             this.Doc_Tip_Ben.Name = "Doc_Tip_Ben";
             this.Doc_Tip_Ben.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.Doc_Tip_Ben.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
@@ -831,7 +831,7 @@
             this.Editar_ben_btn.Depth = 0;
             this.Editar_ben_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Editar_ben_btn.Image = ((System.Drawing.Image)(resources.GetObject("Editar_ben_btn.Image")));
-            this.Editar_ben_btn.Location = new System.Drawing.Point(56, 607);
+            this.Editar_ben_btn.Location = new System.Drawing.Point(56, 608);
             this.Editar_ben_btn.MouseState = MaterialSkin.MouseState.HOVER;
             this.Editar_ben_btn.Name = "Editar_ben_btn";
             this.Editar_ben_btn.Primary = true;
@@ -1107,11 +1107,11 @@
             this.Vehiculo_page.Controls.Add(this.Servicio_txb);
             this.Vehiculo_page.Controls.Add(this.Fasecolda_txb);
             this.Vehiculo_page.Controls.Add(this.Modelo_txb);
-            this.Vehiculo_page.Controls.Add(this.materialRaisedButton1);
+            this.Vehiculo_page.Controls.Add(this.Añadir_veh_btn);
             this.Vehiculo_page.Controls.Add(this.label5);
             this.Vehiculo_page.Controls.Add(this.Fecha_soat);
             this.Vehiculo_page.Controls.Add(this.pictureBox4);
-            this.Vehiculo_page.Controls.Add(this.materialRaisedButton2);
+            this.Vehiculo_page.Controls.Add(this.Editar_veh_btn);
             this.Vehiculo_page.Location = new System.Drawing.Point(4, 22);
             this.Vehiculo_page.Name = "Vehiculo_page";
             this.Vehiculo_page.Size = new System.Drawing.Size(538, 671);
@@ -1176,6 +1176,8 @@
             this.Valor_auto_txb.TextMarginLeft = 5;
             this.Valor_auto_txb.TextPlaceholder = "Valor del vehiculo";
             this.Valor_auto_txb.UseSystemPasswordChar = false;
+            this.Valor_auto_txb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Valor_auto_txb_KeyUp);
+            this.Valor_auto_txb.Load += new System.EventHandler(this.Valor_auto_txb_Load);
             // 
             // Marca_txb
             // 
@@ -1392,20 +1394,21 @@
             this.Modelo_txb.TextPlaceholder = "Modelo";
             this.Modelo_txb.UseSystemPasswordChar = false;
             // 
-            // materialRaisedButton1
+            // Añadir_veh_btn
             // 
-            this.materialRaisedButton1.AutoEllipsis = true;
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialRaisedButton1.Image = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton1.Image")));
-            this.materialRaisedButton1.Location = new System.Drawing.Point(56, 549);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(421, 52);
-            this.materialRaisedButton1.TabIndex = 58;
-            this.materialRaisedButton1.Text = "Añadir";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.Añadir_veh_btn.AutoEllipsis = true;
+            this.Añadir_veh_btn.Depth = 0;
+            this.Añadir_veh_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Añadir_veh_btn.Image = ((System.Drawing.Image)(resources.GetObject("Añadir_veh_btn.Image")));
+            this.Añadir_veh_btn.Location = new System.Drawing.Point(56, 549);
+            this.Añadir_veh_btn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Añadir_veh_btn.Name = "Añadir_veh_btn";
+            this.Añadir_veh_btn.Primary = true;
+            this.Añadir_veh_btn.Size = new System.Drawing.Size(421, 52);
+            this.Añadir_veh_btn.TabIndex = 58;
+            this.Añadir_veh_btn.Text = "Añadir";
+            this.Añadir_veh_btn.UseVisualStyleBackColor = true;
+            this.Añadir_veh_btn.Click += new System.EventHandler(this.Añadir_veh_btn_Click);
             // 
             // label5
             // 
@@ -1440,20 +1443,21 @@
             this.pictureBox4.TabIndex = 55;
             this.pictureBox4.TabStop = false;
             // 
-            // materialRaisedButton2
+            // Editar_veh_btn
             // 
-            this.materialRaisedButton2.AutoEllipsis = true;
-            this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.materialRaisedButton2.Image = ((System.Drawing.Image)(resources.GetObject("materialRaisedButton2.Image")));
-            this.materialRaisedButton2.Location = new System.Drawing.Point(56, 607);
-            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton2.Name = "materialRaisedButton2";
-            this.materialRaisedButton2.Primary = true;
-            this.materialRaisedButton2.Size = new System.Drawing.Size(421, 52);
-            this.materialRaisedButton2.TabIndex = 59;
-            this.materialRaisedButton2.Text = "Editar";
-            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.Editar_veh_btn.AutoEllipsis = true;
+            this.Editar_veh_btn.Depth = 0;
+            this.Editar_veh_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Editar_veh_btn.Image = ((System.Drawing.Image)(resources.GetObject("Editar_veh_btn.Image")));
+            this.Editar_veh_btn.Location = new System.Drawing.Point(56, 607);
+            this.Editar_veh_btn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Editar_veh_btn.Name = "Editar_veh_btn";
+            this.Editar_veh_btn.Primary = true;
+            this.Editar_veh_btn.Size = new System.Drawing.Size(421, 52);
+            this.Editar_veh_btn.TabIndex = 59;
+            this.Editar_veh_btn.Text = "Editar";
+            this.Editar_veh_btn.UseVisualStyleBackColor = true;
+            this.Editar_veh_btn.Click += new System.EventHandler(this.Editar_veh_btn_Click);
             // 
             // Placa_txb
             // 
@@ -1579,10 +1583,10 @@
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Servicio_txb;
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Fasecolda_txb;
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Modelo_txb;
-        public MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        public MaterialSkin.Controls.MaterialRaisedButton Añadir_veh_btn;
         private System.Windows.Forms.Label label5;
         public Bunifu.Framework.UI.BunifuDatepicker Fecha_soat;
         private System.Windows.Forms.PictureBox pictureBox4;
-        public MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
+        public MaterialSkin.Controls.MaterialRaisedButton Editar_veh_btn;
     }
 }

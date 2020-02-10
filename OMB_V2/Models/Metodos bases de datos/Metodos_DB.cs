@@ -13,6 +13,8 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         private Tomador tom;
         private Beneficiario ben;
         private Poliza Pol;
+        private Vehiculo Veh;
+        private Polizas_Vehiculos Pol_Vehi;
         // Listar Polizas
         public void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
         {
@@ -89,6 +91,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             {
                 Tipo_doc.SelectedItem(tom_tabla.Tom_Tip_Doc);
                 Txb_cedula.Text = tom_tabla.Tom_Documento.ToString();
+                Txb_cedula.Enabled = false;
                 Txb_nombres.Text = tom_tabla.Tom_Nombres.ToString();
                 Txb_apellidos.Text = tom_tabla.Tom_Apellidos.ToString();
                 Txb_direccion.Text = tom_tabla.Tom_Direccion.ToString();
@@ -132,6 +135,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             {
                 Tipo_doc.SelectedItem(ben_tabla.Ben_Tipo_Doc);
                 Txb_cedula.Text = ben_tabla.Ben_Documento.ToString();
+                Txb_cedula.Enabled = false;
                 Txb_nombres.Text = ben_tabla.Ben_Nombres.ToString();
                 Txb_apellidos.Text = ben_tabla.Ben_Apellidos.ToString();
                 Txb_direccion.Text = ben_tabla.Ben_Direccion.ToString();
@@ -164,11 +168,41 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             if (Pol_tabla.Pol_Numero_Poliza == Numero_Poliza)
             {
                 Aseguradora_drop.selectedIndex = Pol_tabla.Aseguradora_ID-1;
+                Aseguradora_drop.Enabled = false;
                 Tipo_poliza_drop.selectedIndex = Pol_tabla.Tipo_Poliza_ID-1;
+                Tipo_poliza_drop.Enabled = false;
                 Numero_Poliza_txb.Text = Pol_tabla.Pol_Numero_Poliza.ToString();
+                Numero_Poliza_txb.Enabled = false;
                 Fecha_inicial.Value = Pol_tabla.Pol_Vigencia_Inicial;
                 Fecha_final.Value = Pol_tabla.Pol_Vigencia_Final;
                 Valor_txb.Text = Pol_tabla.Pol_Valor_Prima.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos en los registros");
+            }
+        }
+        // Llenar Vehiculo
+        public void Llenar_Vehiculo_Edit(long? Numero_Poliza, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Placa_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Modelo_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Fascolda_txb,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Servicio_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Clase_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Marca_txb,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_txb, Bunifu.Framework.UI.BunifuDatepicker Fecha_Soat)
+        {
+            DB_Entities_OMB db = new DB_Entities_OMB();
+            Vehiculo Tabla_veh = new Vehiculo();
+            var Placa = from veh in db.Polizas_Vehiculos where veh.PolVeh_Numero_Poliza == Numero_Poliza select veh.PolVeh_Veh_Placa;
+            Tabla_veh = db.Vehiculo.Find(Placa.First());
+
+            if ( Tabla_veh.Veh_Placa == Placa.First())
+            {
+                Placa_txb.Text = Tabla_veh.Veh_Placa;
+                Placa_txb.Enabled = false;
+                Modelo_txb.Text = Tabla_veh.Veh_Modelo;
+                Fascolda_txb.Text = Tabla_veh.Veh_Fasecolda.ToString();
+                Servicio_txb.Text = Tabla_veh.Veh_Servicio;
+                Clase_txb.Text = Tabla_veh.Veh_Clase;
+                Marca_txb.Text = Tabla_veh.Veh_Marca;
+                Valor_txb.Text = Tabla_veh.Veh_Valor_Auto.ToString();
+                Fecha_Soat.Value = Tabla_veh.Veh_Vigencia_Soat;
             }
             else
             {
@@ -326,6 +360,74 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                         db.Entry(Pol).State = System.Data.Entity.EntityState.Modified;
                         MessageBox.Show("Edición de registros completada");
                     }
+                }
+                db.SaveChanges();
+            }
+        }
+        public void Añadir_Editar_Veh(long? Numero_poliza, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_num_pol, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Placa_txb,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Modelo_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Fasecolda_txb,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Servicio_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Clase_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Marca_txb,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_auto_txb, Bunifu.Framework.UI.BunifuDatepicker Fecha_soat)
+        {
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
+            {
+                // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
+                if (Numero_poliza == null)
+                {
+                    Veh = new Vehiculo();
+                    Veh.Veh_Placa = Placa_txb.Text;
+                    Veh.Veh_Modelo = Modelo_txb.Text;
+                    Veh.Veh_Fasecolda = Int32.Parse(Fasecolda_txb.Text);
+                    Veh.Veh_Servicio = Servicio_txb.Text;
+                    Veh.Veh_Clase = Clase_txb.Text;
+                    Veh.Veh_Marca = Marca_txb.Text;
+                    Veh.Veh_Valor_Auto = Decimal.Parse(Valor_auto_txb.Text);
+                    Veh.Veh_Vigencia_Soat = Fecha_soat.Value;
+                    Veh.Veh_Soat_Estado = "ACTIVO";
+
+                }
+                // SI LA POLIZA ES NULA AGREGARA LOS REGISTROS
+                if (Numero_poliza == null)
+                {
+                    db.Vehiculo.Add(Veh);
+                    //db_2.Polizas_Vehiculos.Add(Pol_veh);
+                    MessageBox.Show("Registros agregados");
+                }
+                else
+                {
+                    // SI LA POLIZA NO ES NULA NOS EDITARA LOS REGISTROS
+                    Veh = new Vehiculo();
+                    Veh.Veh_Placa = Placa_txb.Text;
+                    Veh.Veh_Modelo = Modelo_txb.Text;
+                    Veh.Veh_Fasecolda = int.Parse(Fasecolda_txb.Text);
+                    Veh.Veh_Servicio = Servicio_txb.Text;
+                    Veh.Veh_Clase = Clase_txb.Text;
+                    Veh.Veh_Marca = Marca_txb.Text;
+                    Veh.Veh_Valor_Auto = Decimal.Parse(Valor_auto_txb.Text);
+                    Veh.Veh_Vigencia_Soat = Fecha_soat.Value;
+                    // Si la poliza es distinto a nulo hara la edicion del registro
+                    if (Numero_poliza != null)
+                    {
+                        db.Vehiculo.Add(Veh);
+                        db.Entry(Veh).State = System.Data.Entity.EntityState.Modified;
+                        MessageBox.Show("Edición de registros completada");
+                    }
+                }
+                db.SaveChanges();
+            }
+            using (DB_Entities_OMB db = new DB_Entities_OMB()) 
+            {
+                // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
+                if (Numero_poliza == null)
+                {
+                    var Placa = from Veh_pol in db.Vehiculo where Veh_pol.Veh_Placa == Placa_txb.Text select Veh_pol.Veh_Placa;
+                    Pol_Vehi = new Polizas_Vehiculos();
+                    Pol_Vehi.PolVeh_Numero_Poliza = long.Parse(Txb_num_pol.Text);
+                    Pol_Vehi.PolVeh_Veh_Placa = Placa.First();
+                    db.Polizas_Vehiculos.Add(Pol_Vehi);
+                    db.Entry(Pol_Vehi).State = System.Data.Entity.EntityState.Modified;
+                    MessageBox.Show("Registros agregados pol_veh");
+
                 }
                 db.SaveChanges();
             }

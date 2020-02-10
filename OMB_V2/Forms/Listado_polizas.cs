@@ -108,7 +108,12 @@ namespace OMB_V2.Forms
             Añadir.Editar_tom.Visible = false;
             Añadir.Editar_ben_btn.Visible = false;
             Añadir.Editar_pol_btn.Visible = false;
+            Añadir.Editar_veh_btn.Visible = false;
             Añadir.ShowDialog();
+            if (Añadir.Visible == false)
+            {
+                Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+            }
         }
 
         private void Editar_btn_Click(object sender, EventArgs e)
@@ -125,7 +130,12 @@ namespace OMB_V2.Forms
             Editar.Añadir_tom_btn.Visible = false;
             Editar.Añadir_ben_btn.Visible = false;
             Editar.Añadir_pol_btn.Visible = false;
+            Editar.Añadir_veh_btn.Visible = false;
             Editar.ShowDialog();
+            if (Editar.Visible == false)
+            {
+                Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+            }
         }
     }
 }
