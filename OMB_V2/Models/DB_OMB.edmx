@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OMB_Seguros_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OMB_SegurosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aseguradora">
           <Key>
             <PropertyRef Name="Aseguradora_ID" />
           </Key>
           <Property Name="Aseguradora_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Aseguradora_Nombre" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Fecha_de_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Fecha_de_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Beneficiario">
           <Key>
@@ -24,8 +24,16 @@
           <Property Name="Ben_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ben_Telefono" Type="bigint" Nullable="false" />
           <Property Name="Ben_Email" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="Ben_Fecha_Nacimiento" Type="date" Nullable="false" />
-          <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Ben_Fecha_Nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pol_veh_entity_framework">
+          <Key>
+            <PropertyRef Name="ID_Poliza_Veh" />
+          </Key>
+          <Property Name="ID_Poliza_Veh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PolizaPol_Numero_Poliza" Type="bigint" Nullable="false" />
+          <Property Name="VehiculoVeh_Placa" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Poliza">
           <Key>
@@ -41,18 +49,6 @@
           <Property Name="Pol_Valor_Prima" Type="money" Nullable="false" />
           <Property Name="Pol_Estado" Type="varchar" MaxLength="10" />
           <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
-        </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Polizas_Vehiculos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="Polizas_Vehiculos">
-          <Key>
-            <PropertyRef Name="PolVeh_Numero_Poliza" />
-            <PropertyRef Name="PolVeh_Veh_Placa" />
-            <PropertyRef Name="Fecha_creacion" />
-          </Key>
-          <Property Name="PolVeh_Numero_Poliza" Type="bigint" Nullable="false" />
-          <Property Name="PolVeh_Veh_Placa" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -70,7 +66,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Polizas_Vehiculos' no tiene 
           </Key>
           <Property Name="ID_Tipo_poliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre_Ramo" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Tomador">
           <Key>
@@ -83,8 +79,8 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Polizas_Vehiculos' no tiene 
           <Property Name="Tom_Direccion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Tom_Telefono" Type="bigint" Nullable="false" />
           <Property Name="Tom_Email" Type="varchar" MaxLength="40" Nullable="false" />
-          <Property Name="Tom_Fecha_Nacimiento" Type="date" Nullable="false" />
-          <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Tom_Fecha_Nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_Creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -94,8 +90,8 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Polizas_Vehiculos' no tiene 
           <Property Name="Contraseña_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Email_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Documento_Usuario" Type="bigint" Nullable="false" />
-          <Property Name="Imagenes_Usuario" Type="image" />
-          <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Imagenes_Usuario" Type="varbinary(max)" />
+          <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehiculo">
           <Key>
@@ -134,6 +130,42 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_V3' no tiene de
           <Property Name="Valor del Auto" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="Vigencia SOAT" Type="date" />
           <Property Name="Estado" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vehiculos_V2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vehiculos_V2">
+          <Key>
+            <PropertyRef Name="Numero poliza" />
+            <PropertyRef Name="Aseguradora" />
+            <PropertyRef Name="Tipo poliza" />
+            <PropertyRef Name="Tipo documento" />
+            <PropertyRef Name="Documento tomador" />
+            <PropertyRef Name="Nombres tomador" />
+            <PropertyRef Name="Tipo documento beneficiario" />
+            <PropertyRef Name="Documento Beneficiario" />
+            <PropertyRef Name="Nombres beneficiario" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Fasecolda" />
+            <PropertyRef Name="Clase" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Servicio" />
+          </Key>
+          <Property Name="Numero poliza" Type="bigint" Nullable="false" />
+          <Property Name="Aseguradora" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tipo poliza" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tipo documento" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Documento tomador" Type="bigint" Nullable="false" />
+          <Property Name="Nombres tomador" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Tipo documento beneficiario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Documento Beneficiario" Type="bigint" Nullable="false" />
+          <Property Name="Nombres beneficiario" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fasecolda" Type="int" Nullable="false" />
+          <Property Name="Clase" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Marca" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Servicio" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Ben_2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -344,7 +376,31 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="create_date" Type="datetime" Nullable="false" />
           <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Poliza_Aseguradora">
+        <Association Name="FK_Pol_veh_entity_framework_Poliza1">
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poliza">
+              <PropertyRef Name="Pol_Numero_Poliza" />
+            </Principal>
+            <Dependent Role="Pol_veh_entity_framework">
+              <PropertyRef Name="PolizaPol_Numero_Poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pol_veh_entity_framework_Vehiculo1">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Veh_Placa" />
+            </Principal>
+            <Dependent Role="Pol_veh_entity_framework">
+              <PropertyRef Name="VehiculoVeh_Placa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Aseguradora1">
           <End Role="Aseguradora" Type="Self.Aseguradora" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -368,7 +424,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Poliza_Tipo_poliza">
+        <Association Name="FK_Poliza_Tipo_poliza1">
           <End Role="Tipo_poliza" Type="Self.Tipo_poliza" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -380,7 +436,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Poliza_Tomador">
+        <Association Name="FK_Poliza_Tomador1">
           <End Role="Tomador" Type="Self.Tomador" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -389,30 +445,6 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Principal>
             <Dependent Role="Poliza">
               <PropertyRef Name="Tomador_Documento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Polizas_Vehiculos_Poliza">
-          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
-          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Poliza">
-              <PropertyRef Name="Pol_Numero_Poliza" />
-            </Principal>
-            <Dependent Role="Polizas_Vehiculos">
-              <PropertyRef Name="PolVeh_Numero_Poliza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Polizas_Vehiculos_Vehiculo">
-          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
-          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vehiculo">
-              <PropertyRef Name="Veh_Placa" />
-            </Principal>
-            <Dependent Role="Polizas_Vehiculos">
-              <PropertyRef Name="PolVeh_Veh_Placa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -447,22 +479,16 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="OMB_Seguros_ModelStoreContainer">
+        <EntityContainer Name="OMB_SegurosModelStoreContainer">
           <EntitySet Name="Aseguradora" EntityType="Self.Aseguradora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pol_veh_entity_framework" EntityType="Self.Pol_veh_entity_framework" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Poliza" EntityType="Self.Poliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tomador" EntityType="Self.Tomador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Polizas_Vehiculos" EntityType="Self.Polizas_Vehiculos" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Polizas_Vehiculos].[PolVeh_Numero_Poliza] AS [PolVeh_Numero_Poliza], 
-    [Polizas_Vehiculos].[PolVeh_Veh_Placa] AS [PolVeh_Veh_Placa], 
-    [Polizas_Vehiculos].[Fecha_creacion] AS [Fecha_creacion]
-    FROM [dbo].[Polizas_Vehiculos] AS [Polizas_Vehiculos]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Reporte_SOAT_V3].[Numero de poliza] AS [Numero de poliza], 
@@ -479,6 +505,25 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
     [Reporte_SOAT_V3].[Vigencia SOAT] AS [Vigencia SOAT], 
     [Reporte_SOAT_V3].[Estado] AS [Estado]
     FROM [dbo].[Reporte_SOAT_V3] AS [Reporte_SOAT_V3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vehiculos_V2].[Numero poliza] AS [Numero poliza], 
+    [Vehiculos_V2].[Aseguradora] AS [Aseguradora], 
+    [Vehiculos_V2].[Tipo poliza] AS [Tipo poliza], 
+    [Vehiculos_V2].[Tipo documento] AS [Tipo documento], 
+    [Vehiculos_V2].[Documento tomador] AS [Documento tomador], 
+    [Vehiculos_V2].[Nombres tomador] AS [Nombres tomador], 
+    [Vehiculos_V2].[Tipo documento beneficiario] AS [Tipo documento beneficiario], 
+    [Vehiculos_V2].[Documento Beneficiario] AS [Documento Beneficiario], 
+    [Vehiculos_V2].[Nombres beneficiario] AS [Nombres beneficiario], 
+    [Vehiculos_V2].[Placa] AS [Placa], 
+    [Vehiculos_V2].[Fasecolda] AS [Fasecolda], 
+    [Vehiculos_V2].[Clase] AS [Clase], 
+    [Vehiculos_V2].[Marca] AS [Marca], 
+    [Vehiculos_V2].[Modelo] AS [Modelo], 
+    [Vehiculos_V2].[Servicio] AS [Servicio]
+    FROM [dbo].[Vehiculos_V2] AS [Vehiculos_V2]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -609,7 +654,15 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
     [database_firewall_rules].[modify_date] AS [modify_date]
     FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_Poliza_Aseguradora" Association="Self.FK_Poliza_Aseguradora">
+          <AssociationSet Name="FK_Pol_veh_entity_framework_Poliza1" Association="Self.FK_Pol_veh_entity_framework_Poliza1">
+            <End Role="Poliza" EntitySet="Poliza" />
+            <End Role="Pol_veh_entity_framework" EntitySet="Pol_veh_entity_framework" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pol_veh_entity_framework_Vehiculo1" Association="Self.FK_Pol_veh_entity_framework_Vehiculo1">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Pol_veh_entity_framework" EntitySet="Pol_veh_entity_framework" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Aseguradora1" Association="Self.FK_Poliza_Aseguradora1">
             <End Role="Aseguradora" EntitySet="Aseguradora" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
@@ -617,35 +670,27 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <End Role="Beneficiario" EntitySet="Beneficiario" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
-          <AssociationSet Name="FK_Poliza_Tipo_poliza" Association="Self.FK_Poliza_Tipo_poliza">
+          <AssociationSet Name="FK_Poliza_Tipo_poliza1" Association="Self.FK_Poliza_Tipo_poliza1">
             <End Role="Tipo_poliza" EntitySet="Tipo_poliza" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
-          <AssociationSet Name="FK_Poliza_Tomador" Association="Self.FK_Poliza_Tomador">
+          <AssociationSet Name="FK_Poliza_Tomador1" Association="Self.FK_Poliza_Tomador1">
             <End Role="Tomador" EntitySet="Tomador" />
             <End Role="Poliza" EntitySet="Poliza" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Polizas_Vehiculos_Poliza" Association="Self.FK_Polizas_Vehiculos_Poliza">
-            <End Role="Poliza" EntitySet="Poliza" />
-            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Polizas_Vehiculos_Vehiculo" Association="Self.FK_Polizas_Vehiculos_Vehiculo">
-            <End Role="Vehiculo" EntitySet="Vehiculo" />
-            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="OMB_Seguros_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="OMB_SegurosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Aseguradora">
           <Key>
             <PropertyRef Name="Aseguradora_ID" />
           </Key>
           <Property Name="Aseguradora_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Aseguradora_Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fecha_de_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Aseguradora" FromRole="Aseguradora" ToRole="Poliza" />
+          <Property Name="Fecha_de_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Aseguradora1" FromRole="Aseguradora" ToRole="Poliza" />
         </EntityType>
         <EntityType Name="Beneficiario">
           <Key>
@@ -658,9 +703,19 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Ben_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ben_Telefono" Type="Int64" Nullable="false" />
           <Property Name="Ben_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Ben_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Name="Ben_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Beneficiario" FromRole="Beneficiario" ToRole="Poliza" />
+        </EntityType>
+        <EntityType Name="Pol_veh_entity_framework">
+          <Key>
+            <PropertyRef Name="ID_Poliza_Veh" />
+          </Key>
+          <Property Name="ID_Poliza_Veh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PolizaPol_Numero_Poliza" Type="Int64" Nullable="false" />
+          <Property Name="VehiculoVeh_Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Pol_veh_entity_framework_Poliza1" FromRole="Pol_veh_entity_framework" ToRole="Poliza" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Pol_veh_entity_framework_Vehiculo1" FromRole="Pol_veh_entity_framework" ToRole="Vehiculo" />
         </EntityType>
         <EntityType Name="Poliza">
           <Key>
@@ -676,11 +731,11 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Pol_Valor_Prima" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Pol_Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Aseguradora" Relationship="Self.FK_Poliza_Aseguradora" FromRole="Poliza" ToRole="Aseguradora" />
+          <NavigationProperty Name="Aseguradora" Relationship="Self.FK_Poliza_Aseguradora1" FromRole="Poliza" ToRole="Aseguradora" />
           <NavigationProperty Name="Beneficiario" Relationship="Self.FK_Poliza_Beneficiario" FromRole="Poliza" ToRole="Beneficiario" />
-          <NavigationProperty Name="Tipo_poliza" Relationship="Self.FK_Poliza_Tipo_poliza" FromRole="Poliza" ToRole="Tipo_poliza" />
-          <NavigationProperty Name="Tomador" Relationship="Self.FK_Poliza_Tomador" FromRole="Poliza" ToRole="Tomador" />
-          <NavigationProperty Name="Polizas_Vehiculos" Relationship="Self.FK_Polizas_Vehiculos_Poliza" FromRole="Poliza" ToRole="Polizas_Vehiculos" />
+          <NavigationProperty Name="Pol_veh_entity_framework" Relationship="Self.FK_Pol_veh_entity_framework_Poliza1" FromRole="Poliza" ToRole="Pol_veh_entity_framework" />
+          <NavigationProperty Name="Tipo_poliza" Relationship="Self.FK_Poliza_Tipo_poliza1" FromRole="Poliza" ToRole="Tipo_poliza" />
+          <NavigationProperty Name="Tomador" Relationship="Self.FK_Poliza_Tomador1" FromRole="Poliza" ToRole="Tomador" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -698,8 +753,8 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           </Key>
           <Property Name="ID_Tipo_poliza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre_Ramo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tipo_poliza" FromRole="Tipo_poliza" ToRole="Poliza" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tipo_poliza1" FromRole="Tipo_poliza" ToRole="Poliza" />
         </EntityType>
         <EntityType Name="Tomador">
           <Key>
@@ -712,9 +767,9 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Tom_Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Tom_Telefono" Type="Int64" Nullable="false" />
           <Property Name="Tom_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Tom_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tomador" FromRole="Tomador" ToRole="Poliza" />
+          <Property Name="Tom_Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tomador1" FromRole="Tomador" ToRole="Poliza" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -725,7 +780,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Email_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Documento_Usuario" Type="Int64" Nullable="false" />
           <Property Name="Imagenes_Usuario" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Vehiculo">
           <Key>
@@ -741,19 +796,28 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Veh_Vigencia_Soat" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Veh_Soat_Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Polizas_Vehiculos" Relationship="Self.FK_Polizas_Vehiculos_Vehiculo" FromRole="Vehiculo" ToRole="Polizas_Vehiculos" />
+          <NavigationProperty Name="Pol_veh_entity_framework" Relationship="Self.FK_Pol_veh_entity_framework_Vehiculo1" FromRole="Vehiculo" ToRole="Pol_veh_entity_framework" />
         </EntityType>
-        <EntityType Name="Polizas_Vehiculos">
+        <EntityType Name="Reporte_SOAT_V3">
           <Key>
-            <PropertyRef Name="PolVeh_Numero_Poliza" />
-            <PropertyRef Name="PolVeh_Veh_Placa" />
-            <PropertyRef Name="Fecha_creacion" />
+            <PropertyRef Name="Numero_de_poliza" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Valor_del_Auto" />
           </Key>
-          <Property Name="PolVeh_Numero_Poliza" Type="Int64" Nullable="false" />
-          <Property Name="PolVeh_Veh_Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
-          <NavigationProperty Name="Poliza" Relationship="Self.FK_Polizas_Vehiculos_Poliza" FromRole="Polizas_Vehiculos" ToRole="Poliza" />
-          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Polizas_Vehiculos_Vehiculo" FromRole="Polizas_Vehiculos" ToRole="Vehiculo" />
+          <Property Name="Numero_de_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_de_Documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Documento" Type="Int64" />
+          <Property Name="Nombres" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fasecolda" Type="Int32" />
+          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_del_Auto" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
+          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Vista_Ben_2">
           <Key>
@@ -944,7 +1008,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <Association Name="FK_Poliza_Aseguradora">
+        <Association Name="FK_Poliza_Aseguradora1">
           <End Role="Aseguradora" Type="Self.Aseguradora" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -968,7 +1032,31 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Poliza_Tipo_poliza">
+        <Association Name="FK_Pol_veh_entity_framework_Poliza1">
+          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poliza">
+              <PropertyRef Name="Pol_Numero_Poliza" />
+            </Principal>
+            <Dependent Role="Pol_veh_entity_framework">
+              <PropertyRef Name="PolizaPol_Numero_Poliza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pol_veh_entity_framework_Vehiculo1">
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculo">
+              <PropertyRef Name="Veh_Placa" />
+            </Principal>
+            <Dependent Role="Pol_veh_entity_framework">
+              <PropertyRef Name="VehiculoVeh_Placa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poliza_Tipo_poliza1">
           <End Role="Tipo_poliza" Type="Self.Tipo_poliza" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -980,7 +1068,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Poliza_Tomador">
+        <Association Name="FK_Poliza_Tomador1">
           <End Role="Tomador" Type="Self.Tomador" Multiplicity="1" />
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="*" />
           <ReferentialConstraint>
@@ -992,40 +1080,17 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Polizas_Vehiculos_Poliza">
-          <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
-          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Poliza">
-              <PropertyRef Name="Pol_Numero_Poliza" />
-            </Principal>
-            <Dependent Role="Polizas_Vehiculos">
-              <PropertyRef Name="PolVeh_Numero_Poliza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Polizas_Vehiculos_Vehiculo">
-          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
-          <End Role="Polizas_Vehiculos" Type="Self.Polizas_Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vehiculo">
-              <PropertyRef Name="Veh_Placa" />
-            </Principal>
-            <Dependent Role="Polizas_Vehiculos">
-              <PropertyRef Name="PolVeh_Veh_Placa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DB_Entities_OMB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aseguradora" EntityType="Self.Aseguradora" />
           <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" />
+          <EntitySet Name="Pol_veh_entity_framework" EntityType="Self.Pol_veh_entity_framework" />
           <EntitySet Name="Poliza" EntityType="Self.Poliza" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" />
           <EntitySet Name="Tomador" EntityType="Self.Tomador" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
-          <EntitySet Name="Polizas_Vehiculos" EntityType="Self.Polizas_Vehiculos" />
+          <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" />
           <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" />
           <EntitySet Name="Vista_Beneficiario" EntityType="Self.Vista_Beneficiario" />
           <EntitySet Name="Vista_Listado_Polizas" EntityType="Self.Vista_Listado_Polizas" />
@@ -1036,7 +1101,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Vista_Vehiculos" EntityType="Self.Vista_Vehiculos" />
           <EntitySet Name="Vista_Vig_Pol_2" EntityType="Self.Vista_Vig_Pol_2" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
-          <AssociationSet Name="FK_Poliza_Aseguradora" Association="Self.FK_Poliza_Aseguradora">
+          <AssociationSet Name="FK_Poliza_Aseguradora1" Association="Self.FK_Poliza_Aseguradora1">
             <End Role="Aseguradora" EntitySet="Aseguradora" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
@@ -1044,21 +1109,21 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <End Role="Beneficiario" EntitySet="Beneficiario" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
-          <AssociationSet Name="FK_Poliza_Tipo_poliza" Association="Self.FK_Poliza_Tipo_poliza">
+          <AssociationSet Name="FK_Pol_veh_entity_framework_Poliza1" Association="Self.FK_Pol_veh_entity_framework_Poliza1">
+            <End Role="Poliza" EntitySet="Poliza" />
+            <End Role="Pol_veh_entity_framework" EntitySet="Pol_veh_entity_framework" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pol_veh_entity_framework_Vehiculo1" Association="Self.FK_Pol_veh_entity_framework_Vehiculo1">
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+            <End Role="Pol_veh_entity_framework" EntitySet="Pol_veh_entity_framework" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poliza_Tipo_poliza1" Association="Self.FK_Poliza_Tipo_poliza1">
             <End Role="Tipo_poliza" EntitySet="Tipo_poliza" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
-          <AssociationSet Name="FK_Poliza_Tomador" Association="Self.FK_Poliza_Tomador">
+          <AssociationSet Name="FK_Poliza_Tomador1" Association="Self.FK_Poliza_Tomador1">
             <End Role="Tomador" EntitySet="Tomador" />
             <End Role="Poliza" EntitySet="Poliza" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Polizas_Vehiculos_Poliza" Association="Self.FK_Polizas_Vehiculos_Poliza">
-            <End Role="Poliza" EntitySet="Poliza" />
-            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Polizas_Vehiculos_Vehiculo" Association="Self.FK_Polizas_Vehiculos_Vehiculo">
-            <End Role="Vehiculo" EntitySet="Vehiculo" />
-            <End Role="Polizas_Vehiculos" EntitySet="Polizas_Vehiculos" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1076,11 +1141,11 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OMB_Seguros_Model.sp_helpdiagramdefinition_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OMB_SegurosModel.sp_helpdiagramdefinition_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OMB_Seguros_Model.sp_helpdiagrams_Result)">
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OMB_SegurosModel.sp_helpdiagrams_Result)">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1090,7 +1155,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Reporte_SOAT_V3" EntityType="OMB_Seguros_Model.Reporte_SOAT_V3" />
+          <EntitySet Name="Vehiculos_V2" EntityType="OMB_SegurosModel.Vehiculos_V2" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1103,35 +1168,48 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Reporte_SOAT_V3">
+        <EntityType Name="Vehiculos_V2">
           <Key>
-            <PropertyRef Name="Numero_de_poliza" />
-            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Numero_poliza" />
+            <PropertyRef Name="Aseguradora" />
+            <PropertyRef Name="Tipo_poliza" />
+            <PropertyRef Name="Tipo_documento" />
+            <PropertyRef Name="Documento_tomador" />
+            <PropertyRef Name="Nombres_tomador" />
+            <PropertyRef Name="Tipo_documento_beneficiario" />
+            <PropertyRef Name="Documento_Beneficiario" />
+            <PropertyRef Name="Nombres_beneficiario" />
             <PropertyRef Name="Placa" />
-            <PropertyRef Name="Valor_del_Auto" />
+            <PropertyRef Name="Fasecolda" />
+            <PropertyRef Name="Clase" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Servicio" />
           </Key>
-          <Property Name="Numero_de_poliza" Type="Int64" Nullable="false" />
-          <Property Name="Tipo_de_Documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Documento" Type="Int64" />
-          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="Numero_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Aseguradora" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_poliza" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_documento" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Documento_tomador" Type="Int64" Nullable="false" />
+          <Property Name="Nombres_tomador" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo_documento_beneficiario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Documento_Beneficiario" Type="Int64" Nullable="false" />
+          <Property Name="Nombres_beneficiario" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
           <Property Name="Placa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Fasecolda" Type="Int32" />
-          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Valor_del_Auto" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fasecolda" Type="Int32" Nullable="false" />
+          <Property Name="Clase" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Servicio" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="OMB_Seguros_ModelStoreContainer" CdmEntityContainer="DB_Entities_OMB">
+        <EntityContainerMapping StorageEntityContainer="OMB_SegurosModelStoreContainer" CdmEntityContainer="DB_Entities_OMB">
           <EntitySetMapping Name="Aseguradora">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Aseguradora">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Aseguradora">
               <MappingFragment StoreEntitySet="Aseguradora">
                 <ScalarProperty Name="Aseguradora_ID" ColumnName="Aseguradora_ID" />
                 <ScalarProperty Name="Aseguradora_Nombre" ColumnName="Aseguradora_Nombre" />
@@ -1140,7 +1218,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Beneficiario">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Beneficiario">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Beneficiario">
               <MappingFragment StoreEntitySet="Beneficiario">
                 <ScalarProperty Name="Ben_Documento" ColumnName="Ben_Documento" />
                 <ScalarProperty Name="Ben_Tipo_Doc" ColumnName="Ben_Tipo_Doc" />
@@ -1154,8 +1232,17 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Pol_veh_entity_framework">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Pol_veh_entity_framework">
+              <MappingFragment StoreEntitySet="Pol_veh_entity_framework">
+                <ScalarProperty Name="ID_Poliza_Veh" ColumnName="ID_Poliza_Veh" />
+                <ScalarProperty Name="PolizaPol_Numero_Poliza" ColumnName="PolizaPol_Numero_Poliza" />
+                <ScalarProperty Name="VehiculoVeh_Placa" ColumnName="VehiculoVeh_Placa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Poliza">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Poliza">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Poliza">
               <MappingFragment StoreEntitySet="Poliza">
                 <ScalarProperty Name="Pol_Numero_Poliza" ColumnName="Pol_Numero_Poliza" />
                 <ScalarProperty Name="Tipo_Poliza_ID" ColumnName="Tipo_Poliza_ID" />
@@ -1171,7 +1258,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.sysdiagrams">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1182,7 +1269,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tipo_poliza">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Tipo_poliza">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Tipo_poliza">
               <MappingFragment StoreEntitySet="Tipo_poliza">
                 <ScalarProperty Name="ID_Tipo_poliza" ColumnName="ID_Tipo_poliza" />
                 <ScalarProperty Name="Nombre_Ramo" ColumnName="Nombre_Ramo" />
@@ -1191,7 +1278,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tomador">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Tomador">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Tomador">
               <MappingFragment StoreEntitySet="Tomador">
                 <ScalarProperty Name="Tom_Documento" ColumnName="Tom_Documento" />
                 <ScalarProperty Name="Tom_Tip_Doc" ColumnName="Tom_Tip_Doc" />
@@ -1206,7 +1293,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Usuarios">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
                 <ScalarProperty Name="Contraseña_Usuario" ColumnName="Contraseña_Usuario" />
@@ -1218,7 +1305,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vehiculo">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vehiculo">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vehiculo">
               <MappingFragment StoreEntitySet="Vehiculo">
                 <ScalarProperty Name="Veh_Placa" ColumnName="Veh_Placa" />
                 <ScalarProperty Name="Veh_Modelo" ColumnName="Veh_Modelo" />
@@ -1233,17 +1320,27 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Polizas_Vehiculos">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Polizas_Vehiculos">
-              <MappingFragment StoreEntitySet="Polizas_Vehiculos">
-                <ScalarProperty Name="PolVeh_Numero_Poliza" ColumnName="PolVeh_Numero_Poliza" />
-                <ScalarProperty Name="PolVeh_Veh_Placa" ColumnName="PolVeh_Veh_Placa" />
-                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+          <EntitySetMapping Name="Reporte_SOAT_V3">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Reporte_SOAT_V3">
+              <MappingFragment StoreEntitySet="Reporte_SOAT_V3">
+                <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
+                <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
+                <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Ben_2">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Ben_2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Ben_2">
               <MappingFragment StoreEntitySet="Vista_Ben_2">
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
                 <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
@@ -1256,7 +1353,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Beneficiario">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Beneficiario">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Beneficiario">
               <MappingFragment StoreEntitySet="Vista_Beneficiario">
                 <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
@@ -1269,7 +1366,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Listado_Polizas">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Listado_Polizas">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Listado_Polizas">
               <MappingFragment StoreEntitySet="Vista_Listado_Polizas">
                 <ScalarProperty Name="Numero_de_Poliza" ColumnName="Numero de Poliza" />
                 <ScalarProperty Name="Ramo" ColumnName="Ramo" />
@@ -1288,7 +1385,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_reporte_soat">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_reporte_soat">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_reporte_soat">
               <MappingFragment StoreEntitySet="Vista_reporte_soat">
                 <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
                 <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
@@ -1307,7 +1404,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_reporte_vigencias">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_reporte_vigencias">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_reporte_vigencias">
               <MappingFragment StoreEntitySet="Vista_reporte_vigencias">
                 <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
                 <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
@@ -1322,7 +1419,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Tom_2">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Tom_2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Tom_2">
               <MappingFragment StoreEntitySet="Vista_Tom_2">
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
                 <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
@@ -1335,7 +1432,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Tomador">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Tomador">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Tomador">
               <MappingFragment StoreEntitySet="Vista_Tomador">
                 <ScalarProperty Name="Tipo_de_documento" ColumnName="Tipo de documento" />
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
@@ -1348,7 +1445,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Vehiculos">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Vehiculos">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Vehiculos">
               <MappingFragment StoreEntitySet="Vista_Vehiculos">
                 <ScalarProperty Name="Numero_de_Poliza" ColumnName="Numero de Poliza" />
                 <ScalarProperty Name="Aseguradora" ColumnName="Aseguradora" />
@@ -1366,7 +1463,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vista_Vig_Pol_2">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Vista_Vig_Pol_2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_Vig_Pol_2">
               <MappingFragment StoreEntitySet="Vista_Vig_Pol_2">
                 <ScalarProperty Name="Numero_Poliza" ColumnName="Numero Poliza" />
                 <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
@@ -1380,7 +1477,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="database_firewall_rules">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.database_firewall_rules">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.database_firewall_rules">
               <MappingFragment StoreEntitySet="database_firewall_rules">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -1391,20 +1488,20 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="OMB_Seguros_Model.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="OMB_Seguros_Model.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="OMB_Seguros_Model.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="OMB_Seguros_Model.Store.sp_helpdiagramdefinition">
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="OMB_SegurosModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="OMB_SegurosModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="OMB_SegurosModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="OMB_SegurosModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="OMB_Seguros_Model.sp_helpdiagramdefinition_Result">
+              <ComplexTypeMapping TypeName="OMB_SegurosModel.sp_helpdiagramdefinition_Result">
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="OMB_Seguros_Model.Store.sp_helpdiagrams">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="OMB_SegurosModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="OMB_Seguros_Model.sp_helpdiagrams_Result">
+              <ComplexTypeMapping TypeName="OMB_SegurosModel.sp_helpdiagrams_Result">
                 <ScalarProperty Name="Database" ColumnName="Database" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -1413,24 +1510,26 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OMB_Seguros_Model.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OMB_Seguros_Model.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Reporte_SOAT_V3">
-            <EntityTypeMapping TypeName="OMB_Seguros_Model.Reporte_SOAT_V3">
-              <MappingFragment StoreEntitySet="Reporte_SOAT_V3">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
-                <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
-                <ScalarProperty Name="Marca" ColumnName="Marca" />
-                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
-                <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OMB_SegurosModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OMB_SegurosModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Vehiculos_V2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vehiculos_V2">
+              <MappingFragment StoreEntitySet="Vehiculos_V2">
                 <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
                 <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
                 <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
-                <ScalarProperty Name="Documento" ColumnName="Documento" />
-                <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
-                <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
+                <ScalarProperty Name="Nombres_beneficiario" ColumnName="Nombres beneficiario" />
+                <ScalarProperty Name="Documento_Beneficiario" ColumnName="Documento Beneficiario" />
+                <ScalarProperty Name="Tipo_documento_beneficiario" ColumnName="Tipo documento beneficiario" />
+                <ScalarProperty Name="Nombres_tomador" ColumnName="Nombres tomador" />
+                <ScalarProperty Name="Documento_tomador" ColumnName="Documento tomador" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Tipo_poliza" ColumnName="Tipo poliza" />
+                <ScalarProperty Name="Aseguradora" ColumnName="Aseguradora" />
+                <ScalarProperty Name="Numero_poliza" ColumnName="Numero poliza" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

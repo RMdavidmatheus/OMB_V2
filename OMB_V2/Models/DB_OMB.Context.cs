@@ -29,13 +29,14 @@ namespace OMB_V2.Models
     
         public virtual DbSet<Aseguradora> Aseguradora { get; set; }
         public virtual DbSet<Beneficiario> Beneficiario { get; set; }
+        public virtual DbSet<Pol_veh_entity_framework> Pol_veh_entity_framework { get; set; }
         public virtual DbSet<Poliza> Poliza { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_poliza> Tipo_poliza { get; set; }
         public virtual DbSet<Tomador> Tomador { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Vehiculo> Vehiculo { get; set; }
-        public virtual DbSet<Polizas_Vehiculos> Polizas_Vehiculos { get; set; }
+        public virtual DbSet<Reporte_SOAT_V3> Reporte_SOAT_V3 { get; set; }
         public virtual DbSet<Vista_Ben_2> Vista_Ben_2 { get; set; }
         public virtual DbSet<Vista_Beneficiario> Vista_Beneficiario { get; set; }
         public virtual DbSet<Vista_Listado_Polizas> Vista_Listado_Polizas { get; set; }
@@ -46,7 +47,7 @@ namespace OMB_V2.Models
         public virtual DbSet<Vista_Vehiculos> Vista_Vehiculos { get; set; }
         public virtual DbSet<Vista_Vig_Pol_2> Vista_Vig_Pol_2 { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
-        public virtual DbSet<Reporte_SOAT_V3> Reporte_SOAT_V3 { get; set; }
+        public virtual DbSet<Vehiculos_V2> Vehiculos_V2 { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

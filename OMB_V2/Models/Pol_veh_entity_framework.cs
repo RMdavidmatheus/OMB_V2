@@ -12,11 +12,11 @@ namespace OMB_V2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Polizas_Vehiculos
+    public partial class Pol_veh_entity_framework
     {
-        public long PolVeh_Numero_Poliza { get; set; }
-        public string PolVeh_Veh_Placa { get; set; }
-        public System.DateTime Fecha_creacion { get; set; }
+        public int ID_Poliza_Veh { get; set; }
+        public long PolizaPol_Numero_Poliza { get; set; }
+        public string VehiculoVeh_Placa { get; set; }
     
         public virtual Poliza Poliza { get; set; }
         public virtual Vehiculo Vehiculo { get; set; }

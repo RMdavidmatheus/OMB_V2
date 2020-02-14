@@ -17,7 +17,7 @@ namespace OMB_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Poliza()
         {
-            this.Polizas_Vehiculos = new HashSet<Polizas_Vehiculos>();
+            this.Pol_veh_entity_framework = new HashSet<Pol_veh_entity_framework>();
         }
     
         public long Pol_Numero_Poliza { get; set; }
@@ -33,9 +33,9 @@ namespace OMB_V2.Models
     
         public virtual Aseguradora Aseguradora { get; set; }
         public virtual Beneficiario Beneficiario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pol_veh_entity_framework> Pol_veh_entity_framework { get; set; }
         public virtual Tipo_poliza Tipo_poliza { get; set; }
         public virtual Tomador Tomador { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Polizas_Vehiculos> Polizas_Vehiculos { get; set; }
     }
 }

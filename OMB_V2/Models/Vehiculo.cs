@@ -17,7 +17,7 @@ namespace OMB_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Vehiculo()
         {
-            this.Polizas_Vehiculos = new HashSet<Polizas_Vehiculos>();
+            this.Pol_veh_entity_framework = new HashSet<Pol_veh_entity_framework>();
         }
     
         public string Veh_Placa { get; set; }
@@ -32,6 +32,6 @@ namespace OMB_V2.Models
         public System.DateTime Fecha_creacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Polizas_Vehiculos> Polizas_Vehiculos { get; set; }
+        public virtual ICollection<Pol_veh_entity_framework> Pol_veh_entity_framework { get; set; }
     }
 }

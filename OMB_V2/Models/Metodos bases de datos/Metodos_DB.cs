@@ -14,7 +14,6 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         private Beneficiario ben;
         private Poliza Pol;
         private Vehiculo Veh;
-        private Polizas_Vehiculos Pol_Vehi;
         // Listar Polizas
         public void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
         {
@@ -47,7 +46,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
-                var Listado_Vehiculos = from veh in db.Vista_Vehiculos select veh;
+                var Listado_Vehiculos = from veh in db.Vehiculos_V2 select veh;
                 Datagrid_receptor.DataSource = Listado_Vehiculos.ToList();
             }
         }
@@ -189,7 +188,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
             Vehiculo Tabla_veh = new Vehiculo();
-            var Placa = from veh in db.Polizas_Vehiculos where veh.PolVeh_Numero_Poliza == Numero_Poliza select veh.PolVeh_Veh_Placa;
+            var Placa = from veh in db.Pol_veh_entity_framework where veh.PolizaPol_Numero_Poliza == Numero_Poliza select veh.VehiculoVeh_Placa;
             Tabla_veh = db.Vehiculo.Find(Placa.First());
 
             if ( Tabla_veh.Veh_Placa == Placa.First())
@@ -390,7 +389,6 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 if (Numero_poliza == null)
                 {
                     db.Vehiculo.Add(Veh);
-                    //db_2.Polizas_Vehiculos.Add(Pol_veh);
                     MessageBox.Show("Registros agregados");
                 }
                 else
@@ -420,14 +418,14 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
                 if (Numero_poliza == null)
                 {
-                    var Placa = from Veh_pol in db.Vehiculo where Veh_pol.Veh_Placa == Placa_txb.Text select Veh_pol.Veh_Placa;
-                    Pol_Vehi = new Polizas_Vehiculos();
-                    Pol_Vehi.PolVeh_Numero_Poliza = long.Parse(Txb_num_pol.Text);
-                    Pol_Vehi.PolVeh_Veh_Placa = Placa.First();
-                    db.Polizas_Vehiculos.Add(Pol_Vehi);
-                    db.Entry(Pol_Vehi).State = System.Data.Entity.EntityState.Modified;
-                    MessageBox.Show("Registros agregados pol_veh");
-
+                    long Poliza_n = long.Parse(Txb_num_pol.Text);
+                    Pol_veh_entity_framework Poliza_veh = new Pol_veh_entity_framework();
+                    Poliza Poliza_rela = db.Poliza.FirstOrDefault(pol => pol.Pol_Numero_Poliza == Poliza_n);
+                    Vehiculo vehi_rela = db.Vehiculo.FirstOrDefault(veh => veh.Veh_Placa == Placa_txb.Text);
+                    Poliza_veh.Poliza = Poliza_rela;
+                    Poliza_veh.Vehiculo = vehi_rela;
+                    db.Pol_veh_entity_framework.Add(Poliza_veh);
+                    MessageBox.Show("Registros de la relacion agregados");
                 }
                 db.SaveChanges();
             }
