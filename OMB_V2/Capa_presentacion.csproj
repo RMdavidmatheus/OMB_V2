@@ -173,89 +173,89 @@
       <DependentUpon>Tab_page.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Aseguradora.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Beneficiario.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\database_firewall_rules.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_OMB.Context.cs">
+    <Compile Include="Models\DB_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_OMB.Context.tt</DependentUpon>
+      <DependentUpon>DB_Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_OMB.cs">
+    <Compile Include="Models\DB_Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DB_OMB.Designer.cs">
+    <Compile Include="Models\DB_Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DB_OMB.edmx</DependentUpon>
+      <DependentUpon>DB_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Metodos bases de datos\Metodos_DB.cs" />
     <Compile Include="Models\Poliza.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pol_veh_entity_framework.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Reporte_SOAT_V3.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tipo_poliza.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Tomador.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuarios.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vehiculo.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vehiculos_V2.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Beneficiario.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Ben_2.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Listado_Polizas.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_reporte_soat.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_reporte_vigencias.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Tomador.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Tom_2.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Vehiculos.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Vista_Vig_Pol_2.cs">
-      <DependentUpon>DB_OMB.tt</DependentUpon>
+      <DependentUpon>DB_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -302,12 +302,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Models\DB_OMB.edmx">
+    <EntityDeploy Include="Models\DB_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB_OMB.Designer.cs</LastGenOutput>
+      <LastGenOutput>DB_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DB_OMB.edmx.diagram">
-      <DependentUpon>DB_OMB.edmx</DependentUpon>
+    <None Include="Models\DB_Model.edmx.diagram">
+      <DependentUpon>DB_Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -365,15 +365,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\DB_OMB.Context.tt">
+    <Content Include="Models\DB_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_OMB.edmx</DependentUpon>
-      <LastGenOutput>DB_OMB.Context.cs</LastGenOutput>
+      <DependentUpon>DB_Model.edmx</DependentUpon>
+      <LastGenOutput>DB_Model.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DB_OMB.tt">
+    <Content Include="Models\DB_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB_OMB.edmx</DependentUpon>
-      <LastGenOutput>DB_OMB.cs</LastGenOutput>
+      <DependentUpon>DB_Model.edmx</DependentUpon>
+      <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

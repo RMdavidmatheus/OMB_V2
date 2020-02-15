@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OMB_SegurosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="OMB_SegurosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aseguradora">
           <Key>
             <PropertyRef Name="Aseguradora_ID" />
@@ -29,7 +29,7 @@
         </EntityType>
         <EntityType Name="Pol_veh_entity_framework">
           <Key>
-            <PropertyRef Name="ID_Poliza_Veh" />
+            <PropertyRef Name="PolizaPol_Numero_Poliza" />
           </Key>
           <Property Name="ID_Poliza_Veh" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PolizaPol_Numero_Poliza" Type="bigint" Nullable="false" />
@@ -378,7 +378,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
         </EntityType>
         <Association Name="FK_Pol_veh_entity_framework_Poliza1">
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
-          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Poliza">
               <PropertyRef Name="Pol_Numero_Poliza" />
@@ -679,7 +679,8 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OMB_SegurosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -709,7 +710,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
         </EntityType>
         <EntityType Name="Pol_veh_entity_framework">
           <Key>
-            <PropertyRef Name="ID_Poliza_Veh" />
+            <PropertyRef Name="PolizaPol_Numero_Poliza" />
           </Key>
           <Property Name="ID_Poliza_Veh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PolizaPol_Numero_Poliza" Type="Int64" Nullable="false" />
@@ -818,6 +819,40 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Valor_del_Auto" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
           <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vehiculos_V2">
+          <Key>
+            <PropertyRef Name="Numero_poliza" />
+            <PropertyRef Name="Aseguradora" />
+            <PropertyRef Name="Tipo_poliza" />
+            <PropertyRef Name="Tipo_documento" />
+            <PropertyRef Name="Documento_tomador" />
+            <PropertyRef Name="Nombres_tomador" />
+            <PropertyRef Name="Tipo_documento_beneficiario" />
+            <PropertyRef Name="Documento_Beneficiario" />
+            <PropertyRef Name="Nombres_beneficiario" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Fasecolda" />
+            <PropertyRef Name="Clase" />
+            <PropertyRef Name="Marca" />
+            <PropertyRef Name="Modelo" />
+            <PropertyRef Name="Servicio" />
+          </Key>
+          <Property Name="Numero_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Aseguradora" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_poliza" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento_tomador" Type="Int64" Nullable="false" />
+          <Property Name="Nombres_tomador" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_documento_beneficiario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Documento_Beneficiario" Type="Int64" Nullable="false" />
+          <Property Name="Nombres_beneficiario" Type="String" MaxLength="61" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Placa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fasecolda" Type="Int32" Nullable="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Vista_Ben_2">
           <Key>
@@ -1034,7 +1069,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
         </Association>
         <Association Name="FK_Pol_veh_entity_framework_Poliza1">
           <End Role="Poliza" Type="Self.Poliza" Multiplicity="1" />
-          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="*" />
+          <End Role="Pol_veh_entity_framework" Type="Self.Pol_veh_entity_framework" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Poliza">
               <PropertyRef Name="Pol_Numero_Poliza" />
@@ -1091,6 +1126,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
           <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" />
+          <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" />
           <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" />
           <EntitySet Name="Vista_Beneficiario" EntityType="Self.Vista_Beneficiario" />
           <EntitySet Name="Vista_Listado_Polizas" EntityType="Self.Vista_Listado_Polizas" />
@@ -1155,7 +1191,6 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="Vehiculos_V2" EntityType="OMB_SegurosModel.Vehiculos_V2" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1168,40 +1203,6 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Vehiculos_V2">
-          <Key>
-            <PropertyRef Name="Numero_poliza" />
-            <PropertyRef Name="Aseguradora" />
-            <PropertyRef Name="Tipo_poliza" />
-            <PropertyRef Name="Tipo_documento" />
-            <PropertyRef Name="Documento_tomador" />
-            <PropertyRef Name="Nombres_tomador" />
-            <PropertyRef Name="Tipo_documento_beneficiario" />
-            <PropertyRef Name="Documento_Beneficiario" />
-            <PropertyRef Name="Nombres_beneficiario" />
-            <PropertyRef Name="Placa" />
-            <PropertyRef Name="Fasecolda" />
-            <PropertyRef Name="Clase" />
-            <PropertyRef Name="Marca" />
-            <PropertyRef Name="Modelo" />
-            <PropertyRef Name="Servicio" />
-          </Key>
-          <Property Name="Numero_poliza" Type="Int64" Nullable="false" />
-          <Property Name="Aseguradora" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Tipo_poliza" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Tipo_documento" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Documento_tomador" Type="Int64" Nullable="false" />
-          <Property Name="Nombres_tomador" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Name="Tipo_documento_beneficiario" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Documento_Beneficiario" Type="Int64" Nullable="false" />
-          <Property Name="Nombres_beneficiario" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
-          <Property Name="Placa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Fasecolda" Type="Int32" Nullable="false" />
-          <Property Name="Clase" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Marca" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Modelo" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Servicio" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1336,6 +1337,27 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
                 <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
                 <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculos_V2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vehiculos_V2">
+              <MappingFragment StoreEntitySet="Vehiculos_V2">
+                <ScalarProperty Name="Numero_poliza" ColumnName="Numero poliza" />
+                <ScalarProperty Name="Aseguradora" ColumnName="Aseguradora" />
+                <ScalarProperty Name="Tipo_poliza" ColumnName="Tipo poliza" />
+                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
+                <ScalarProperty Name="Documento_tomador" ColumnName="Documento tomador" />
+                <ScalarProperty Name="Nombres_tomador" ColumnName="Nombres tomador" />
+                <ScalarProperty Name="Tipo_documento_beneficiario" ColumnName="Tipo documento beneficiario" />
+                <ScalarProperty Name="Documento_Beneficiario" ColumnName="Documento Beneficiario" />
+                <ScalarProperty Name="Nombres_beneficiario" ColumnName="Nombres beneficiario" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1512,27 +1534,6 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="OMB_SegurosModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="OMB_SegurosModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="Vehiculos_V2">
-            <EntityTypeMapping TypeName="OMB_SegurosModel.Vehiculos_V2">
-              <MappingFragment StoreEntitySet="Vehiculos_V2">
-                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
-                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
-                <ScalarProperty Name="Marca" ColumnName="Marca" />
-                <ScalarProperty Name="Clase" ColumnName="Clase" />
-                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
-                <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="Nombres_beneficiario" ColumnName="Nombres beneficiario" />
-                <ScalarProperty Name="Documento_Beneficiario" ColumnName="Documento Beneficiario" />
-                <ScalarProperty Name="Tipo_documento_beneficiario" ColumnName="Tipo documento beneficiario" />
-                <ScalarProperty Name="Nombres_tomador" ColumnName="Nombres tomador" />
-                <ScalarProperty Name="Documento_tomador" ColumnName="Documento tomador" />
-                <ScalarProperty Name="Tipo_documento" ColumnName="Tipo documento" />
-                <ScalarProperty Name="Tipo_poliza" ColumnName="Tipo poliza" />
-                <ScalarProperty Name="Aseguradora" ColumnName="Aseguradora" />
-                <ScalarProperty Name="Numero_poliza" ColumnName="Numero poliza" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

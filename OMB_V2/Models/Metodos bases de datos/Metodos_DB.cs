@@ -368,6 +368,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Servicio_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Clase_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Marca_txb,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_auto_txb, Bunifu.Framework.UI.BunifuDatepicker Fecha_soat)
         {
+            // INSERTANDO O EDITANDO LA ENTIDAD VEHICULO
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
@@ -413,6 +414,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 }
                 db.SaveChanges();
             }
+            // INSERTANDO LA RELACION A LA TABLA POLIZAS VEHICULOS
             using (DB_Entities_OMB db = new DB_Entities_OMB()) 
             {
                 // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
@@ -428,6 +430,82 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                     MessageBox.Show("Registros de la relacion agregados");
                 }
                 db.SaveChanges();
+            }
+        }
+        public void Eliminar_registro_condicion(long? Numero_poliza) 
+        {
+            // HACIENDO LA ELIMINACION DEL REGISTRO
+            if (Numero_poliza == null)
+            {
+                MessageBox.Show("No hay un registro el cual eliminar");
+            }
+            else
+            {
+                using (DB_Entities_OMB db = new DB_Entities_OMB()) 
+                {
+                    // INICIALIZACION DE LAS VARIABLES
+                    var Poliza_encontrar = db.Poliza.Find(Numero_poliza);
+                    var Vehiculo_encontrar = db.Pol_veh_entity_framework.Find(Numero_poliza);
+                    long Cedula_tomador = Poliza_encontrar.Tomador_Documento;
+                    long Cedula_beneficiario = Poliza_encontrar.Beneficiario_Documento;
+                    var Tomador_encontrar = db.Tomador.Find(Cedula_tomador);
+                    var Beneficiario_encontrar = db.Beneficiario.Find(Cedula_beneficiario);
+                    string Placa = Vehiculo_encontrar.VehiculoVeh_Placa;
+                    if (Poliza_encontrar.Pol_Numero_Poliza.Equals(Numero_poliza) || Tomador_encontrar.Tom_Documento.Equals(Cedula_tomador) || Beneficiario_encontrar.Ben_Documento.Equals(Cedula_beneficiario))
+                    {
+                        if (MessageBox.Show("¿Desea eliminar solo la poliza?","ELIMINAR",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            if (Poliza_encontrar.Tipo_Poliza_ID == 1)
+                            {
+                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa);
+                                db.Pol_veh_entity_framework.Remove(Vehiculo_encontrar);
+                                db.SaveChanges();
+                                db.Vehiculo.Remove(Vehiculo_entidad_encontrar);
+                                db.SaveChanges();
+                                db.Poliza.Remove(Poliza_encontrar);
+                                db.SaveChanges();
+                                MessageBox.Show("Se elimino correctamente la poliza");
+                            }
+                            else
+                            {
+                                db.Poliza.Remove(Poliza_encontrar);
+                                db.SaveChanges();
+                                MessageBox.Show("Se elimino correctamente la poliza");
+                            }
+                        }
+                        else
+                        {
+                            if (Poliza_encontrar.Tipo_Poliza_ID == 1)
+                            {
+                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa);
+                                db.Pol_veh_entity_framework.Remove(Vehiculo_encontrar);
+                                db.SaveChanges();
+                                db.Vehiculo.Remove(Vehiculo_entidad_encontrar);
+                                db.SaveChanges();
+                                db.Poliza.Remove(Poliza_encontrar);
+                                db.SaveChanges();
+                                db.Beneficiario.Remove(Beneficiario_encontrar);
+                                db.SaveChanges();
+                                db.Tomador.Remove(Tomador_encontrar);
+                                db.SaveChanges();
+                                MessageBox.Show("Se elimino correctamente el registro");
+
+                            }
+                            else
+                            {
+                                db.Poliza.Remove(Poliza_encontrar);
+                                db.SaveChanges();
+                                db.Beneficiario.Remove(Beneficiario_encontrar);
+                                db.SaveChanges();
+                                db.Tomador.Remove(Tomador_encontrar);
+                                db.SaveChanges();
+                                MessageBox.Show("Se elimino correctamente el registro");
+
+                            }
+                        }
+
+                    }
+                }
             }
         }
     }

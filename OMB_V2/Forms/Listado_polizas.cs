@@ -89,6 +89,13 @@ namespace OMB_V2.Forms
         {
             Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
         }
+
+        private void Eliminar_btn_Click(object sender, EventArgs e)
+        {
+            Metodos.Eliminar_registro_condicion(Numero_poliza_parametro);
+            Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+        }
+
         // Evento Click en celda
         private void Dtg_Listado_polizas_CellClick(object sender, DataGridViewCellEventArgs e)
         {

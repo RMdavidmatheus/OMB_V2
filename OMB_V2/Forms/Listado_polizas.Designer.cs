@@ -170,6 +170,7 @@
             this.Eliminar_btn.Size = new System.Drawing.Size(139, 45);
             this.Eliminar_btn.TabIndex = 8;
             this.Eliminar_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Eliminar_btn.Click += new System.EventHandler(this.Eliminar_btn_Click);
             // 
             // Editar_btn
             // 

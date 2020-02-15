@@ -14,12 +14,6 @@ namespace OMB_V2.Models
     
     public partial class Poliza
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Poliza()
-        {
-            this.Pol_veh_entity_framework = new HashSet<Pol_veh_entity_framework>();
-        }
-    
         public long Pol_Numero_Poliza { get; set; }
         public int Tipo_Poliza_ID { get; set; }
         public int Aseguradora_ID { get; set; }
@@ -33,8 +27,7 @@ namespace OMB_V2.Models
     
         public virtual Aseguradora Aseguradora { get; set; }
         public virtual Beneficiario Beneficiario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pol_veh_entity_framework> Pol_veh_entity_framework { get; set; }
+        public virtual Pol_veh_entity_framework Pol_veh_entity_framework { get; set; }
         public virtual Tipo_poliza Tipo_poliza { get; set; }
         public virtual Tomador Tomador { get; set; }
     }
