@@ -15,7 +15,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         private Poliza Pol;
         private Vehiculo Veh;
         // Listar Polizas
-        public void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        private void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB()) 
             {
@@ -23,8 +23,30 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 Datagrid_receptor.DataSource = Listado_Polizas.ToList();
             }
         }
+        // Cambiar nombres de columnas DTG Polizas
+        private void Cambiar_Columns_Poliza(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Datagrid_receptor.Columns[0].HeaderText = "Numero de poliza";
+            Datagrid_receptor.Columns[2].HeaderText = "Aseguradora";
+            Datagrid_receptor.Columns[3].HeaderText = "Tipo documento tomador";
+            Datagrid_receptor.Columns[4].HeaderText = "Documento tomador";
+            Datagrid_receptor.Columns[5].HeaderText = "Nombres tomador";
+            Datagrid_receptor.Columns[6].HeaderText = "Tipo documento beneficiario";
+            Datagrid_receptor.Columns[7].HeaderText = "Documento beneficiario";
+            Datagrid_receptor.Columns[8].HeaderText = "Nombres beneficiario";
+            Datagrid_receptor.Columns[9].HeaderText = "Vigencia inicial";
+            Datagrid_receptor.Columns[10].HeaderText = "Vigencia final";
+            Datagrid_receptor.Columns[11].HeaderText = "Valor prima";
+        }
+        // Metodo Refrescar e y listar Polizas
+        public void Refrescar_pol(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Listar_DB_Polizas(Datagrid_receptor);
+            Cambiar_Columns_Poliza(Datagrid_receptor);
+            Datagrid_receptor.AutoResizeColumnHeadersHeight();
+        }
         // Listar Tomadores
-        public void Listar_DB_Tomadores(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        private void Listar_DB_Tomadores(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
@@ -32,8 +54,21 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 Datagrid_receptor.DataSource = Listado_Tomadores.ToList();
             }
         }
+        // Cambiar nombres de columnbas DTG Tomadores
+        private void Cambiar_Columns_Tomadores(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Datagrid_receptor.Columns[1].HeaderText = "Tipo documento";
+            Datagrid_receptor.Columns[3].HeaderText = "Fecha de nacimiento";
+        }
+        // Refrescar y listar Tomadores
+        public void Refrescar_tom(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Listar_DB_Tomadores(Datagrid_receptor);
+            Cambiar_Columns_Tomadores(Datagrid_receptor);
+            Datagrid_receptor.ColumnHeadersHeight = 50;
+        }
         // Listar Beneficiarios
-        public void Listar_DB_Beneficiarios(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        private void Listar_DB_Beneficiarios(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
@@ -41,14 +76,46 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 Datagrid_receptor.DataSource = Listado_Beneficiarios.ToList();
             }
         }
+        // Cambiar nombres de columnas DTG Beneficiarios
+        private void Cambiar_Columns_Beneficiarios(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Datagrid_receptor.Columns[1].HeaderText = "Tipo documento";
+            Datagrid_receptor.Columns[3].HeaderText = "Fecha de nacimiento";
+        }
+        // Refrescar y listar Beneficiarios
+        public void Refrescar_ben(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Listar_DB_Beneficiarios(Datagrid_receptor);
+            Cambiar_Columns_Beneficiarios(Datagrid_receptor);
+            Datagrid_receptor.ColumnHeadersHeight = 50;
+        }
         // Listar Vehiculos
-        public void Listar_DB_Vehiculos(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        private void Listar_DB_Vehiculos(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 var Listado_Vehiculos = from veh in db.Vehiculos_V2 select veh;
                 Datagrid_receptor.DataSource = Listado_Vehiculos.ToList();
             }
+        }
+        // Cambiar nombres de columnas DTG Vehiculos
+        private void Cambiar_Columns_Vehiculos(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Datagrid_receptor.Columns[0].HeaderText = "Numero de poliza";
+            Datagrid_receptor.Columns[2].HeaderText = "Ramo";
+            Datagrid_receptor.Columns[3].HeaderText = "Tipo de documento tomador";
+            Datagrid_receptor.Columns[4].HeaderText = "Documento tomador";
+            Datagrid_receptor.Columns[5].HeaderText = "Nombres tomador";
+            Datagrid_receptor.Columns[6].HeaderText = "Tipo de documento beneficiario";
+            Datagrid_receptor.Columns[7].HeaderText = "Documento beneficiario";
+            Datagrid_receptor.Columns[8].HeaderText = "Nombres beneficiario";
+        }
+        // Refrescar y listar vehiculos
+        public void Refrescar_veh(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        {
+            Listar_DB_Vehiculos(Datagrid_receptor);
+            Cambiar_Columns_Vehiculos(Datagrid_receptor);
+            Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
         // Listar vigencias polizas
         public void Listar_DB_Vigencia_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
@@ -64,7 +131,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
-                var Listado_Vig_Soat = from vig_soat in db.Reporte_SOAT_V3 select vig_soat;
+                var Listado_Vig_Soat = from vig_soat in db.Reporte_SOAT_2020 select vig_soat;
                 Datagrid_receptor.DataSource = Listado_Vig_Soat.ToList();
             }
         }
@@ -451,8 +518,10 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                     var Tomador_encontrar = db.Tomador.Find(Cedula_tomador);
                     var Beneficiario_encontrar = db.Beneficiario.Find(Cedula_beneficiario);
                     string Placa = Vehiculo_encontrar.VehiculoVeh_Placa;
+                    // SI EL NUMERO DE LA POLIZA ENCONTRADA COINCIDE CON EL PARAMETRO 
                     if (Poliza_encontrar.Pol_Numero_Poliza.Equals(Numero_poliza) || Tomador_encontrar.Tom_Documento.Equals(Cedula_tomador) || Beneficiario_encontrar.Ben_Documento.Equals(Cedula_beneficiario))
                     {
+                        // ELIMINACION DEL REGISTRO POLIZA UNICAMENTE
                         if (MessageBox.Show("¿Desea eliminar solo la poliza?","ELIMINAR",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             if (Poliza_encontrar.Tipo_Poliza_ID == 1)
@@ -473,6 +542,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                                 MessageBox.Show("Se elimino correctamente la poliza");
                             }
                         }
+                        // ELIMINACION DE TODO EL REGISTRO
                         else
                         {
                             if (Poliza_encontrar.Tipo_Poliza_ID == 1)

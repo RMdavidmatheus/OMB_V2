@@ -87,13 +87,12 @@ namespace OMB_V2.Forms
         Models.Metodos_bases_de_datos.Metodos_DB Metodos = new Models.Metodos_bases_de_datos.Metodos_DB();
         private void Listado_polizas_Load(object sender, EventArgs e)
         {
-            Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+            Metodos.Refrescar_pol(Dtg_Listado_polizas);
         }
 
         private void Eliminar_btn_Click(object sender, EventArgs e)
         {
             Metodos.Eliminar_registro_condicion(Numero_poliza_parametro);
-            Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
         }
 
         // Evento Click en celda
@@ -119,7 +118,7 @@ namespace OMB_V2.Forms
             Añadir.ShowDialog();
             if (Añadir.Visible == false)
             {
-                Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+                Metodos.Refrescar_pol(Dtg_Listado_polizas);
             }
         }
 
@@ -141,7 +140,7 @@ namespace OMB_V2.Forms
             Editar.ShowDialog();
             if (Editar.Visible == false)
             {
-                Metodos.Listar_DB_Polizas(Dtg_Listado_polizas);
+                Metodos.Refrescar_pol(Dtg_Listado_polizas);
             }
         }
     }

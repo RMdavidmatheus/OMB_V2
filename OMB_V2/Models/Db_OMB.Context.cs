@@ -36,7 +36,7 @@ namespace OMB_V2.Models
         public virtual DbSet<Tomador> Tomador { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Vehiculo> Vehiculo { get; set; }
-        public virtual DbSet<Reporte_SOAT_V3> Reporte_SOAT_V3 { get; set; }
+        public virtual DbSet<Reporte_SOAT_2020> Reporte_SOAT_2020 { get; set; }
         public virtual DbSet<Vehiculos_V2> Vehiculos_V2 { get; set; }
         public virtual DbSet<Vista_Ben_2> Vista_Ben_2 { get; set; }
         public virtual DbSet<Vista_Beneficiario> Vista_Beneficiario { get; set; }

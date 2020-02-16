@@ -22,7 +22,7 @@ namespace OMB_V2.Forms
         #endregion
         private void Listados_vehiculos_Load(object sender, EventArgs e)
         {
-            Metodos.Listar_DB_Vehiculos(Dtg_Listado_vehiculos);
+            Metodos.Refrescar_veh(Dtg_Listado_vehiculos);
         }
     }
 }

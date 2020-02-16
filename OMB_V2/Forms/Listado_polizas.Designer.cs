@@ -82,7 +82,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dtg_Listado_polizas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Dtg_Listado_polizas.ColumnHeadersHeight = 40;
+            this.Dtg_Listado_polizas.ColumnHeadersHeight = 55;
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.White;

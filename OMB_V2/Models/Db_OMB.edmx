@@ -109,8 +109,8 @@
           <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_V3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="Reporte_SOAT_V3">
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_2020' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Reporte_SOAT_2020">
           <Key>
             <PropertyRef Name="Numero de poliza" />
             <PropertyRef Name="Nombres" />
@@ -129,7 +129,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_V3' no tiene de
           <Property Name="Marca" Type="varchar" MaxLength="20" />
           <Property Name="Valor del Auto" Type="varchar" MaxLength="32" Nullable="false" />
           <Property Name="Vigencia SOAT" Type="date" />
-          <Property Name="Estado" Type="varchar" MaxLength="10" />
+          <Property Name="Estado " Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vehiculos_V2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -489,22 +489,22 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Tomador" EntityType="Self.Tomador" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="Reporte_SOAT_2020" EntityType="Self.Reporte_SOAT_2020" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Reporte_SOAT_V3].[Numero de poliza] AS [Numero de poliza], 
-    [Reporte_SOAT_V3].[Tipo de Documento] AS [Tipo de Documento], 
-    [Reporte_SOAT_V3].[Documento] AS [Documento], 
-    [Reporte_SOAT_V3].[Nombres] AS [Nombres], 
-    [Reporte_SOAT_V3].[Placa] AS [Placa], 
-    [Reporte_SOAT_V3].[Fasecolda] AS [Fasecolda], 
-    [Reporte_SOAT_V3].[Servicio] AS [Servicio], 
-    [Reporte_SOAT_V3].[Clase] AS [Clase], 
-    [Reporte_SOAT_V3].[Modelo] AS [Modelo], 
-    [Reporte_SOAT_V3].[Marca] AS [Marca], 
-    [Reporte_SOAT_V3].[Valor del Auto] AS [Valor del Auto], 
-    [Reporte_SOAT_V3].[Vigencia SOAT] AS [Vigencia SOAT], 
-    [Reporte_SOAT_V3].[Estado] AS [Estado]
-    FROM [dbo].[Reporte_SOAT_V3] AS [Reporte_SOAT_V3]</DefiningQuery>
+    [Reporte_SOAT_2020].[Numero de poliza] AS [Numero de poliza], 
+    [Reporte_SOAT_2020].[Tipo de Documento] AS [Tipo de Documento], 
+    [Reporte_SOAT_2020].[Documento] AS [Documento], 
+    [Reporte_SOAT_2020].[Nombres] AS [Nombres], 
+    [Reporte_SOAT_2020].[Placa] AS [Placa], 
+    [Reporte_SOAT_2020].[Fasecolda] AS [Fasecolda], 
+    [Reporte_SOAT_2020].[Servicio] AS [Servicio], 
+    [Reporte_SOAT_2020].[Clase] AS [Clase], 
+    [Reporte_SOAT_2020].[Modelo] AS [Modelo], 
+    [Reporte_SOAT_2020].[Marca] AS [Marca], 
+    [Reporte_SOAT_2020].[Valor del Auto] AS [Valor del Auto], 
+    [Reporte_SOAT_2020].[Vigencia SOAT] AS [Vigencia SOAT], 
+    [Reporte_SOAT_2020].[Estado ] AS [Estado ]
+    FROM [dbo].[Reporte_SOAT_2020] AS [Reporte_SOAT_2020]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -799,7 +799,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
           <NavigationProperty Name="Pol_veh_entity_framework" Relationship="Self.FK_Pol_veh_entity_framework_Vehiculo1" FromRole="Vehiculo" ToRole="Pol_veh_entity_framework" />
         </EntityType>
-        <EntityType Name="Reporte_SOAT_V3">
+        <EntityType Name="Reporte_SOAT_2020">
           <Key>
             <PropertyRef Name="Numero_de_poliza" />
             <PropertyRef Name="Nombres" />
@@ -818,7 +818,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Valor_del_Auto" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
-          <Property Name="Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Estado_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Vehiculos_V2">
           <Key>
@@ -1125,7 +1125,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Tomador" EntityType="Self.Tomador" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
-          <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" />
+          <EntitySet Name="Reporte_SOAT_2020" EntityType="Self.Reporte_SOAT_2020" />
           <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" />
           <EntitySet Name="Vista_Ben_2" EntityType="Self.Vista_Ben_2" />
           <EntitySet Name="Vista_Beneficiario" EntityType="Self.Vista_Beneficiario" />
@@ -1321,9 +1321,9 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Reporte_SOAT_V3">
-            <EntityTypeMapping TypeName="OMB_SegurosModel.Reporte_SOAT_V3">
-              <MappingFragment StoreEntitySet="Reporte_SOAT_V3">
+          <EntitySetMapping Name="Reporte_SOAT_2020">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Reporte_SOAT_2020">
+              <MappingFragment StoreEntitySet="Reporte_SOAT_2020">
                 <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
                 <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
                 <ScalarProperty Name="Documento" ColumnName="Documento" />
@@ -1336,7 +1336,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
                 <ScalarProperty Name="Marca" ColumnName="Marca" />
                 <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
                 <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Estado_" ColumnName="Estado " />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

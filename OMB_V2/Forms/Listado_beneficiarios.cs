@@ -22,7 +22,7 @@ namespace OMB_V2.Forms
         #endregion
         private void Listado_beneficiarios_Load(object sender, EventArgs e)
         {
-            Metodos.Listar_DB_Beneficiarios(Dtg_Listado_beneficiarios);
+            Metodos.Refrescar_ben(Dtg_Listado_beneficiarios);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace OMB_V2.Forms
         private void Listado_tomadores_Load(object sender, EventArgs e)
         {
             // Llenar tabla
-            Metodos_DB.Listar_DB_Tomadores(Dtg_Listado_tomadores);
+            Metodos_DB.Refrescar_tom(Dtg_Listado_tomadores);
         }
     }
 }

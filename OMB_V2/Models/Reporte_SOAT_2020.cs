@@ -12,7 +12,7 @@ namespace OMB_V2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Reporte_SOAT_V3
+    public partial class Reporte_SOAT_2020
     {
         public long Numero_de_poliza { get; set; }
         public string Tipo_de_Documento { get; set; }
@@ -26,6 +26,6 @@ namespace OMB_V2.Models
         public string Marca { get; set; }
         public string Valor_del_Auto { get; set; }
         public Nullable<System.DateTime> Vigencia_SOAT { get; set; }
-        public string Estado { get; set; }
+        public string Estado_ { get; set; }
     }
 }
