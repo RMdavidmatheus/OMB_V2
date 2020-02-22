@@ -499,6 +499,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 db.SaveChanges();
             }
         }
+        // ELIMINAR REGISTROS
         public void Eliminar_registro_condicion(long? Numero_poliza) 
         {
             // HACIENDO LA ELIMINACION DEL REGISTRO
@@ -576,6 +577,22 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
 
                     }
                 }
+            }
+        }
+        // FILTROS
+        public void Filtrar_poliza(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_buscar) 
+        {
+            DB_Entities_OMB db = new DB_Entities_OMB();
+            var Filtro = from p in db.Vista_Listado_Polizas where p.Numero_de_Poliza.ToString() == Txb_buscar.Text select p;
+            if (Txb_buscar.Text == "")
+            {
+                Datagrid_receptor.DataSource = null;
+                Refrescar_pol(Datagrid_receptor);
+            }
+            else 
+            {
+                Datagrid_receptor.DataSource = null;
+                Datagrid_receptor.DataSource = Filtro.ToList();
             }
         }
     }

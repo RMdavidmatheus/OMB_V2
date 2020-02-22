@@ -95,6 +95,11 @@ namespace OMB_V2.Forms
             Metodos.Eliminar_registro_condicion(Numero_poliza_parametro);
         }
 
+        private void txt_search_TextChange(object sender, EventArgs e)
+        {
+            Metodos.Filtrar_poliza(Dtg_Listado_polizas, txt_search);
+        }
+
         // Evento Click en celda
         private void Dtg_Listado_polizas_CellClick(object sender, DataGridViewCellEventArgs e)
         {

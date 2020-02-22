@@ -82,7 +82,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Dtg_Listado_polizas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Dtg_Listado_polizas.ColumnHeadersHeight = 55;
+            this.Dtg_Listado_polizas.ColumnHeadersHeight = 40;
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Dtg_Listado_polizas.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.White;
@@ -261,7 +261,7 @@
             this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_search.DefaultFont = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_search.DefaultText = "";
-            this.txt_search.FillColor = System.Drawing.Color.White;
+            this.txt_search.FillColor = System.Drawing.SystemColors.Control;
             this.txt_search.HideSelection = true;
             this.txt_search.IconLeft = null;
             this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -286,6 +286,7 @@
             this.txt_search.TextMarginLeft = 8;
             this.txt_search.TextPlaceholder = "Buscar...";
             this.txt_search.UseSystemPasswordChar = false;
+            this.txt_search.TextChange += new System.EventHandler(this.txt_search_TextChange);
             // 
             // Forma_ventana
             // 
