@@ -12,13 +12,20 @@ namespace OMB_V2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Roles
     {
-        public string Nombre_Usuario { get; set; }
-        public string Contraseña_Usuario { get; set; }
-        public string Email_Usuario { get; set; }
-        public long Documento_Usuario { get; set; }
-        public byte[] Imagenes_Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Roles()
+        {
+            this.Users_v2 = new HashSet<Users_v2>();
+        }
+    
+        public int ID_Rol { get; set; }
+        public string Nombre_rol { get; set; }
+        public string Descripcion_rol { get; set; }
         public System.DateTime Fecha_creacion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Users_v2> Users_v2 { get; set; }
     }
 }

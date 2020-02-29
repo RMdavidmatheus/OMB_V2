@@ -97,7 +97,12 @@ namespace OMB_V2.Forms
 
         private void txt_search_TextChange(object sender, EventArgs e)
         {
-            Metodos.Filtrar_poliza(Dtg_Listado_polizas, txt_search);
+            Metodos.Filtrar_poliza(Dtg_Listado_polizas, txt_search.Text);
+        }
+
+        private void Reset_txt_btn_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
         }
 
         // Evento Click en celda

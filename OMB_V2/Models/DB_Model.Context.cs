@@ -31,10 +31,11 @@ namespace OMB_V2.Models
         public virtual DbSet<Beneficiario> Beneficiario { get; set; }
         public virtual DbSet<Pol_veh_entity_framework> Pol_veh_entity_framework { get; set; }
         public virtual DbSet<Poliza> Poliza { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_poliza> Tipo_poliza { get; set; }
         public virtual DbSet<Tomador> Tomador { get; set; }
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Users_v2> Users_v2 { get; set; }
         public virtual DbSet<Vehiculo> Vehiculo { get; set; }
         public virtual DbSet<Reporte_SOAT_2020> Reporte_SOAT_2020 { get; set; }
         public virtual DbSet<Vehiculos_V2> Vehiculos_V2 { get; set; }

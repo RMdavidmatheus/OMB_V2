@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimtToo.VisualReactive;
+using OMB_V2.Models;
 
 namespace OMB_V2.Forms
 {
@@ -19,17 +20,13 @@ namespace OMB_V2.Forms
             InitializeComponent();
             // INICIO CON FORM DE BIENVENIDA
             #region
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Forms.Bienvenida());
+            Metodos_d.Llenar_panel(Panel_content, new Forms.Bienvenida());
             #endregion
             Logo_pic.Visible = false;
         }
         Forms.Submenus.Tab_page Paginado = new Submenus.Tab_page();
         // BOOLEANO METODO PARA MENU AUTOMATICO
         bool Menu_expandido = false;
-        // INICIALIZANDO METODOS DESDE CAPA LOGICA
-        Capa_logica.Metodos Metodos_capa_logica = new Capa_logica.Metodos();
-        // INICIALIZANDO METODOS DESDE LOGIN
-        Capa_login.Metodos_login Metodos_login = new Capa_login.Metodos_login();
         // METODO MOVER PANTALLA
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -41,6 +38,8 @@ namespace OMB_V2.Forms
         
         // VARIABLES PRIVADAS
         private int LX, LY;
+        // VARIABLE DISEÑO
+        Models.Metodos_diseño.Metodos_diseño Metodos_d = new Models.Metodos_diseño.Metodos_diseño();
 
         private void Btn_close_Click(object sender, EventArgs e)
         {
@@ -77,7 +76,7 @@ namespace OMB_V2.Forms
         private void BunifuImageButton1_Click(object sender, EventArgs e)
         {
             // ABRIENDO DE NUEVO EL FORM DE BIENVENIDA
-            Metodos_capa_logica.Llenar_panel(Panel_content,new Forms.Bienvenida());
+            Metodos_d.Llenar_panel(Panel_content,new Forms.Bienvenida());
         }
 
         private void Menu_btn_Click(object sender, EventArgs e)
@@ -89,7 +88,7 @@ namespace OMB_V2.Forms
 
         private void Logo_pic_Click(object sender, EventArgs e)
         {
-            Metodos_capa_logica.Llenar_panel(Panel_content, new Forms.Bienvenida());
+            Metodos_d.Llenar_panel(Panel_content, new Forms.Bienvenida());
             if (Titulo_window.Visible == true)
             {
                 Animacion_txt_title.HideSync(Titulo_window);

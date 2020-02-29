@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Forma_app = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panel_sup = new System.Windows.Forms.Panel();
+            this.Reset_txt_btn = new Bunifu.UI.WinForms.BunifuImageButton();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_user_edit = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
@@ -55,6 +56,7 @@
             // 
             // panel_sup
             // 
+            this.panel_sup.Controls.Add(this.Reset_txt_btn);
             this.panel_sup.Controls.Add(this.txt_search);
             this.panel_sup.Controls.Add(this.txt_user_edit);
             this.panel_sup.Controls.Add(this.User_image);
@@ -65,6 +67,38 @@
             this.panel_sup.Size = new System.Drawing.Size(1352, 209);
             this.panel_sup.TabIndex = 0;
             // 
+            // Reset_txt_btn
+            // 
+            this.Reset_txt_btn.ActiveImage = null;
+            this.Reset_txt_btn.AllowAnimations = true;
+            this.Reset_txt_btn.AllowZooming = true;
+            this.Reset_txt_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Reset_txt_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Reset_txt_btn.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.ErrorImage")));
+            this.Reset_txt_btn.FadeWhenInactive = false;
+            this.Reset_txt_btn.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Reset_txt_btn.Image = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.Image")));
+            this.Reset_txt_btn.ImageActive = null;
+            this.Reset_txt_btn.ImageLocation = null;
+            this.Reset_txt_btn.ImageMargin = 10;
+            this.Reset_txt_btn.ImageSize = new System.Drawing.Size(21, 25);
+            this.Reset_txt_btn.ImageZoomSize = new System.Drawing.Size(31, 35);
+            this.Reset_txt_btn.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.InitialImage")));
+            this.Reset_txt_btn.Location = new System.Drawing.Point(1309, 12);
+            this.Reset_txt_btn.Name = "Reset_txt_btn";
+            this.Reset_txt_btn.Rotation = 0;
+            this.Reset_txt_btn.ShowActiveImage = true;
+            this.Reset_txt_btn.ShowCursorChanges = true;
+            this.Reset_txt_btn.ShowImageBorders = true;
+            this.Reset_txt_btn.ShowSizeMarkers = false;
+            this.Reset_txt_btn.Size = new System.Drawing.Size(31, 35);
+            this.Reset_txt_btn.TabIndex = 14;
+            this.Reset_txt_btn.ToolTipText = "";
+            this.Reset_txt_btn.WaitOnLoad = false;
+            this.Reset_txt_btn.Zoom = 10;
+            this.Reset_txt_btn.ZoomSpeed = 10;
+            this.Reset_txt_btn.Click += new System.EventHandler(this.Reset_txt_btn_Click);
+            // 
             // txt_search
             // 
             this.txt_search.AcceptsReturn = false;
@@ -73,7 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_search.BackColor = System.Drawing.Color.Transparent;
+            this.txt_search.BackColor = System.Drawing.Color.White;
             this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
             this.txt_search.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(143)))));
             this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
@@ -86,12 +120,12 @@
             this.txt_search.DefaultText = "";
             this.txt_search.FillColor = System.Drawing.Color.White;
             this.txt_search.HideSelection = true;
-            this.txt_search.IconLeft = null;
+            this.txt_search.IconLeft = ((System.Drawing.Image)(resources.GetObject("txt_search.IconLeft")));
             this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.txt_search.IconPadding = 10;
+            this.txt_search.IconPadding = 6;
             this.txt_search.IconRight = null;
             this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txt_search.Location = new System.Drawing.Point(12, 12);
+            this.txt_search.Location = new System.Drawing.Point(14, 12);
             this.txt_search.MaxLength = 32767;
             this.txt_search.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_search.Modified = false;
@@ -102,13 +136,14 @@
             this.txt_search.SelectionLength = 0;
             this.txt_search.SelectionStart = 0;
             this.txt_search.ShortcutsEnabled = true;
-            this.txt_search.Size = new System.Drawing.Size(1328, 35);
-            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_search.Size = new System.Drawing.Size(1289, 35);
+            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
             this.txt_search.TabIndex = 10;
             this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_search.TextMarginLeft = 8;
             this.txt_search.TextPlaceholder = "Buscar...";
             this.txt_search.UseSystemPasswordChar = false;
+            this.txt_search.TextChange += new System.EventHandler(this.txt_search_TextChange);
             // 
             // txt_user_edit
             // 
@@ -255,5 +290,6 @@
         private Bunifu.UI.WinForms.BunifuPictureBox User_image;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
         private Bunifu.Framework.UI.BunifuElipse Forma_grid;
+        private Bunifu.UI.WinForms.BunifuImageButton Reset_txt_btn;
     }
 }

@@ -26,5 +26,15 @@ namespace OMB_V2.Forms
             // Llenar tabla
             Metodos_DB.Refrescar_tom(Dtg_Listado_tomadores);
         }
+
+        private void txt_search_TextChange(object sender, EventArgs e)
+        {
+            Metodos_DB.Filtrar_tomador(Dtg_Listado_tomadores,txt_search.Text);
+        }
+
+        private void Reset_txt_btn_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+        }
     }
 }

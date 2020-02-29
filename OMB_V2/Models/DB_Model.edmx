@@ -50,6 +50,15 @@
           <Property Name="Pol_Estado" Type="varchar" MaxLength="10" />
           <Property Name="Fecha_Creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_rol" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Descripcion_rol" Type="nchar" MaxLength="50" />
+          <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -82,15 +91,18 @@
           <Property Name="Tom_Fecha_Nacimiento" Type="datetime" Nullable="false" />
           <Property Name="Fecha_Creacion" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="Usuarios">
+        <EntityType Name="Users_v2">
           <Key>
-            <PropertyRef Name="Nombre_Usuario" />
+            <PropertyRef Name="ID_Usuario" />
           </Key>
-          <Property Name="Nombre_Usuario" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Contraseña_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Email_Usuario" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="Documento_Usuario" Type="bigint" Nullable="false" />
-          <Property Name="Imagenes_Usuario" Type="varbinary(max)" />
+          <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contraseña" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pregunta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Respuesta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="ID_Rol" Type="int" Nullable="false" />
           <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehiculo">
@@ -448,6 +460,18 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_v2_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users_v2" Type="Self.Users_v2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Users_v2">
+              <PropertyRef Name="ID_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -484,10 +508,11 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pol_veh_entity_framework" EntityType="Self.Pol_veh_entity_framework" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Poliza" EntityType="Self.Poliza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tomador" EntityType="Self.Tomador" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_v2" EntityType="Self.Users_v2" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reporte_SOAT_2020" EntityType="Self.Reporte_SOAT_2020" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -678,6 +703,10 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <End Role="Tomador" EntitySet="Tomador" />
             <End Role="Poliza" EntitySet="Poliza" />
           </AssociationSet>
+          <AssociationSet Name="FK_Users_v2_Roles" Association="Self.FK_Users_v2_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users_v2" EntitySet="Users_v2" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -738,6 +767,16 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <NavigationProperty Name="Tipo_poliza" Relationship="Self.FK_Poliza_Tipo_poliza1" FromRole="Poliza" ToRole="Tipo_poliza" />
           <NavigationProperty Name="Tomador" Relationship="Self.FK_Poliza_Tomador1" FromRole="Poliza" ToRole="Tomador" />
         </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_rol" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Descripcion_rol" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Users_v2" Relationship="Self.FK_Users_v2_Roles" FromRole="Roles" ToRole="Users_v2" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -772,16 +811,20 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Poliza" Relationship="Self.FK_Poliza_Tomador1" FromRole="Tomador" ToRole="Poliza" />
         </EntityType>
-        <EntityType Name="Usuarios">
+        <EntityType Name="Users_v2">
           <Key>
-            <PropertyRef Name="Nombre_Usuario" />
+            <PropertyRef Name="ID_Usuario" />
           </Key>
-          <Property Name="Nombre_Usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Contraseña_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email_Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Documento_Usuario" Type="Int64" Nullable="false" />
-          <Property Name="Imagenes_Usuario" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Pregunta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Respuesta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" />
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK_Users_v2_Roles" FromRole="Users_v2" ToRole="Roles" />
         </EntityType>
         <EntityType Name="Vehiculo">
           <Key>
@@ -1115,15 +1158,28 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Users_v2_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users_v2" Type="Self.Users_v2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Users_v2">
+              <PropertyRef Name="ID_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB_Entities_OMB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aseguradora" EntityType="Self.Aseguradora" />
           <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" />
           <EntitySet Name="Pol_veh_entity_framework" EntityType="Self.Pol_veh_entity_framework" />
           <EntitySet Name="Poliza" EntityType="Self.Poliza" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Tipo_poliza" EntityType="Self.Tipo_poliza" />
           <EntitySet Name="Tomador" EntityType="Self.Tomador" />
-          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="Users_v2" EntityType="Self.Users_v2" />
           <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
           <EntitySet Name="Reporte_SOAT_2020" EntityType="Self.Reporte_SOAT_2020" />
           <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" />
@@ -1160,6 +1216,10 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <AssociationSet Name="FK_Poliza_Tomador1" Association="Self.FK_Poliza_Tomador1">
             <End Role="Tomador" EntitySet="Tomador" />
             <End Role="Poliza" EntitySet="Poliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_v2_Roles" Association="Self.FK_Users_v2_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users_v2" EntitySet="Users_v2" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -1258,6 +1318,16 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="Nombre_rol" ColumnName="Nombre_rol" />
+                <ScalarProperty Name="Descripcion_rol" ColumnName="Descripcion_rol" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="OMB_SegurosModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -1293,14 +1363,17 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="OMB_SegurosModel.Usuarios">
-              <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="Nombre_Usuario" ColumnName="Nombre_Usuario" />
-                <ScalarProperty Name="Contraseña_Usuario" ColumnName="Contraseña_Usuario" />
-                <ScalarProperty Name="Email_Usuario" ColumnName="Email_Usuario" />
-                <ScalarProperty Name="Documento_Usuario" ColumnName="Documento_Usuario" />
-                <ScalarProperty Name="Imagenes_Usuario" ColumnName="Imagenes_Usuario" />
+          <EntitySetMapping Name="Users_v2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Users_v2">
+              <MappingFragment StoreEntitySet="Users_v2">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Pregunta_seguridad" ColumnName="Pregunta_seguridad" />
+                <ScalarProperty Name="Respuesta_seguridad" ColumnName="Respuesta_seguridad" />
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
                 <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
               </MappingFragment>
             </EntityTypeMapping>

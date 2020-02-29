@@ -15,9 +15,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         private Poliza Pol;
         private Vehiculo Veh;
         // Listar Polizas
-        private void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        private void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
-            using (DB_Entities_OMB db = new DB_Entities_OMB()) 
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 var Listado_Polizas = from pol in db.Vista_Listado_Polizas select pol;
                 Datagrid_receptor.DataSource = Listado_Polizas.ToList();
@@ -136,9 +136,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // Llenar Formularios para editar tomador
-        public void Llenar_Tomador_Edit(long? Cedula,Bunifu.Framework.UI.BunifuDropdown Tipo_doc , Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
+        public void Llenar_Tomador_Edit(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
             Tomador tom_tabla = new Tomador();
@@ -224,7 +224,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // Llenar Poliza
-        public void Llenar_Poliza_Edit(long? Numero_Poliza, Bunifu.Framework.UI.BunifuDropdown Aseguradora_drop, Bunifu.Framework.UI.BunifuDropdown Tipo_poliza_drop, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Numero_Poliza_txb,Bunifu.Framework.UI.BunifuDatepicker Fecha_inicial,
+        public void Llenar_Poliza_Edit(long? Numero_Poliza, Bunifu.Framework.UI.BunifuDropdown Aseguradora_drop, Bunifu.Framework.UI.BunifuDropdown Tipo_poliza_drop, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Numero_Poliza_txb, Bunifu.Framework.UI.BunifuDatepicker Fecha_inicial,
             Bunifu.Framework.UI.BunifuDatepicker Fecha_final, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_txb)
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
@@ -233,9 +233,9 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
 
             if (Pol_tabla.Pol_Numero_Poliza == Numero_Poliza)
             {
-                Aseguradora_drop.selectedIndex = Pol_tabla.Aseguradora_ID-1;
+                Aseguradora_drop.selectedIndex = Pol_tabla.Aseguradora_ID - 1;
                 Aseguradora_drop.Enabled = false;
-                Tipo_poliza_drop.selectedIndex = Pol_tabla.Tipo_Poliza_ID-1;
+                Tipo_poliza_drop.selectedIndex = Pol_tabla.Tipo_Poliza_ID - 1;
                 Tipo_poliza_drop.Enabled = false;
                 Numero_Poliza_txb.Text = Pol_tabla.Pol_Numero_Poliza.ToString();
                 Numero_Poliza_txb.Enabled = false;
@@ -258,7 +258,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             var Placa = from veh in db.Pol_veh_entity_framework where veh.PolizaPol_Numero_Poliza == Numero_Poliza select veh.VehiculoVeh_Placa;
             Tabla_veh = db.Vehiculo.Find(Placa.First());
 
-            if ( Tabla_veh.Veh_Placa == Placa.First())
+            if (Tabla_veh.Veh_Placa == Placa.First())
             {
                 Placa_txb.Text = Tabla_veh.Veh_Placa;
                 Placa_txb.Enabled = false;
@@ -278,13 +278,13 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         // METODO PARA AÑADIR U EDITAR REGISTROS
         public void Añadir_Editar_Tom(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento) 
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_telefono, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.Framework.UI.BunifuDatepicker Fecha_nacimiento)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
 
                 // SI LA CEDULA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
-                if (Cedula == null) 
+                if (Cedula == null)
                 {
                     tom = new Tomador();
                     tom.Tom_Documento = Convert.ToInt64(Txb_cedula.Text);
@@ -299,7 +299,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
 
                 }
                 // SI LA CEDULA ES NULA AGREGARA LOS REGISTROS
-                if (Cedula == null) 
+                if (Cedula == null)
                 {
                     db.Tomador.Add(tom);
                     MessageBox.Show("Registros agregados");
@@ -482,7 +482,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                 db.SaveChanges();
             }
             // INSERTANDO LA RELACION A LA TABLA POLIZAS VEHICULOS
-            using (DB_Entities_OMB db = new DB_Entities_OMB()) 
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 // SI EL NUMERO DE POLIZA ES NULA NOS INICIALIZARA LA CLASE TOMADOR
                 if (Numero_poliza == null)
@@ -500,7 +500,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // ELIMINAR REGISTROS
-        public void Eliminar_registro_condicion(long? Numero_poliza) 
+        public void Eliminar_registro_condicion(long? Numero_poliza)
         {
             // HACIENDO LA ELIMINACION DEL REGISTRO
             if (Numero_poliza == null)
@@ -509,7 +509,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
             else
             {
-                using (DB_Entities_OMB db = new DB_Entities_OMB()) 
+                using (DB_Entities_OMB db = new DB_Entities_OMB())
                 {
                     // INICIALIZACION DE LAS VARIABLES
                     var Poliza_encontrar = db.Poliza.Find(Numero_poliza);
@@ -523,7 +523,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                     if (Poliza_encontrar.Pol_Numero_Poliza.Equals(Numero_poliza) || Tomador_encontrar.Tom_Documento.Equals(Cedula_tomador) || Beneficiario_encontrar.Ben_Documento.Equals(Cedula_beneficiario))
                     {
                         // ELIMINACION DEL REGISTRO POLIZA UNICAMENTE
-                        if (MessageBox.Show("¿Desea eliminar solo la poliza?","ELIMINAR",MessageBoxButtons.YesNo,MessageBoxIcon.Warning) == DialogResult.Yes)
+                        if (MessageBox.Show("¿Desea eliminar solo la poliza?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                         {
                             if (Poliza_encontrar.Tipo_Poliza_ID == 1)
                             {
@@ -580,19 +580,60 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // FILTROS
-        public void Filtrar_poliza(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_buscar) 
+        public void Filtrar_poliza(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor, string Busqueda)
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
-            var Filtro = from p in db.Vista_Listado_Polizas where p.Numero_de_Poliza.ToString() == Txb_buscar.Text select p;
-            if (Txb_buscar.Text == "")
+            var Filtro = from p in db.Vista_Listado_Polizas
+                         where p.Numero_de_Poliza.ToString().Contains(Busqueda) || p.Documento_Tomador.ToString().Contains(Busqueda)
+                         || p.Documento_Beneficiario.ToString().Contains(Busqueda) || p.Nombres_Tomador.Contains(Busqueda) || p.Nombres_Beneficiario.Contains(Busqueda)
+                         select p;
+            if (Busqueda == "")
             {
                 Datagrid_receptor.DataSource = null;
                 Refrescar_pol(Datagrid_receptor);
             }
-            else 
+            else
             {
                 Datagrid_receptor.DataSource = null;
                 Datagrid_receptor.DataSource = Filtro.ToList();
+                // FORMATO A LAS COLUMNAS
+                #region
+                Datagrid_receptor.Columns[0].HeaderText = "Numero de poliza";
+                Datagrid_receptor.Columns[2].HeaderText = "Aseguradora";
+                Datagrid_receptor.Columns[3].HeaderText = "Tipo documento tomador";
+                Datagrid_receptor.Columns[4].HeaderText = "Documento tomador";
+                Datagrid_receptor.Columns[5].HeaderText = "Nombres tomador";
+                Datagrid_receptor.Columns[6].HeaderText = "Tipo documento beneficiario";
+                Datagrid_receptor.Columns[7].HeaderText = "Documento beneficiario";
+                Datagrid_receptor.Columns[8].HeaderText = "Nombres beneficiario";
+                Datagrid_receptor.Columns[9].HeaderText = "Vigencia inicial";
+                Datagrid_receptor.Columns[10].HeaderText = "Vigencia final";
+                Datagrid_receptor.Columns[11].HeaderText = "Valor prima";
+                #endregion
+
+            }
+        }
+        public void Filtrar_tomador(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor, string Busqueda)
+        {
+            DB_Entities_OMB db = new DB_Entities_OMB();
+            var Filtro = from t in db.Vista_Tom_2
+                         where t.Documento.ToString().Contains(Busqueda) || t.Nombres.Contains(Busqueda) || t.Telefono.ToString().Contains(Busqueda)
+                         select t;
+            if (Busqueda == "")
+            {
+                Datagrid_receptor.DataSource = null;
+                Refrescar_tom(Datagrid_receptor);
+            }
+            else
+            {
+                Datagrid_receptor.DataSource = null;
+                Datagrid_receptor.DataSource = Filtro.ToList();
+                // FORMATO A LAS COLUMNAS
+                #region
+                Datagrid_receptor.Columns[1].HeaderText = "Tipo documento";
+                Datagrid_receptor.Columns[3].HeaderText = "Fecha de nacimiento";
+                #endregion
+
             }
         }
     }
