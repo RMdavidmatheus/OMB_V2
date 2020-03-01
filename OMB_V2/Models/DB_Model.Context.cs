@@ -46,6 +46,7 @@ namespace OMB_V2.Models
         public virtual DbSet<Vista_reporte_vigencias> Vista_reporte_vigencias { get; set; }
         public virtual DbSet<Vista_Tom_2> Vista_Tom_2 { get; set; }
         public virtual DbSet<Vista_Tomador> Vista_Tomador { get; set; }
+        public virtual DbSet<Vista_usuarios_v2> Vista_usuarios_v2 { get; set; }
         public virtual DbSet<Vista_Vehiculos> Vista_Vehiculos { get; set; }
         public virtual DbSet<Vista_Vig_Pol_2> Vista_Vig_Pol_2 { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }

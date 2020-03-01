@@ -31,5 +31,23 @@ namespace OMB_V2.Models.Metodos_diseño
                 }
             }
         }
+        public void reset_txb_users(Bunifu.UI.WinForms.BunifuDropdown Pregunta_drp, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_tel,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_email, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txb_pass, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txb_resp,
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_conf_p, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_conf_e,PictureBox OK_e, PictureBox OK_p, PictureBox Error_e, PictureBox Error_p) 
+        {
+            Pregunta_drp.ResetText();
+            Pregunta_drp.Text = "Pregunta de seguridad";
+            Txb_nombres.Text = "";
+            Txb_tel.Text = "";
+            txb_resp.Text = "";
+            txb_pass.Text = "";
+            Txb_email.Text = "";
+            Txb_conf_p.Text = "";
+            Txb_conf_e.Text = "";
+            OK_e.Visible = false;
+            OK_p.Visible = false;
+            Error_e.Visible = false;
+            Error_p.Visible = false;
+        }
     }
 }

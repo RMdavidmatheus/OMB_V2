@@ -56,7 +56,7 @@
           </Key>
           <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre_rol" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="Descripcion_rol" Type="nchar" MaxLength="50" />
+          <Property Name="Descripcion_rol" Type="nchar" MaxLength="100" />
           <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -96,9 +96,9 @@
             <PropertyRef Name="ID_Usuario" />
           </Key>
           <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombres" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombres" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Telefono" Type="nchar" MaxLength="20" Nullable="false" />
-          <Property Name="Email" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="Contraseña" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="Pregunta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
           <Property Name="Respuesta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
@@ -324,6 +324,30 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Tomador' no tiene defi
           <Property Name="Telefono" Type="int" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Fecha de nacimiento" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_usuarios_v2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Vista_usuarios_v2">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Contraseña" />
+            <PropertyRef Name="Pregunta_seguridad" />
+            <PropertyRef Name="Respuesta_seguridad" />
+            <PropertyRef Name="Nombre_rol" />
+            <PropertyRef Name="Fecha_creacion" />
+          </Key>
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Contraseña" Type="nchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pregunta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Respuesta_seguridad" Type="nchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nombre_rol" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Vista_Vehiculos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -641,6 +665,19 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
     [Vista_Tomador].[Fecha de nacimiento] AS [Fecha de nacimiento]
     FROM [dbo].[Vista_Tomador] AS [Vista_Tomador]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Vista_usuarios_v2" EntityType="Self.Vista_usuarios_v2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Vista_usuarios_v2].[ID_Usuario] AS [ID_Usuario], 
+    [Vista_usuarios_v2].[Nombres] AS [Nombres], 
+    [Vista_usuarios_v2].[Telefono] AS [Telefono], 
+    [Vista_usuarios_v2].[Email] AS [Email], 
+    [Vista_usuarios_v2].[Contraseña] AS [Contraseña], 
+    [Vista_usuarios_v2].[Pregunta_seguridad] AS [Pregunta_seguridad], 
+    [Vista_usuarios_v2].[Respuesta_seguridad] AS [Respuesta_seguridad], 
+    [Vista_usuarios_v2].[Nombre_rol] AS [Nombre_rol], 
+    [Vista_usuarios_v2].[Fecha_creacion] AS [Fecha_creacion]
+    FROM [dbo].[Vista_usuarios_v2] AS [Vista_usuarios_v2]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Vista_Vehiculos" EntityType="Self.Vista_Vehiculos" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Vista_Vehiculos].[Numero de Poliza] AS [Numero de Poliza], 
@@ -773,7 +810,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           </Key>
           <Property Name="ID_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre_rol" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Descripcion_rol" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion_rol" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Users_v2" Relationship="Self.FK_Users_v2_Roles" FromRole="Roles" ToRole="Users_v2" />
         </EntityType>
@@ -816,9 +853,9 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <PropertyRef Name="ID_Usuario" />
           </Key>
           <Property Name="ID_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombres" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Contraseña" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Pregunta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Respuesta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
@@ -1029,6 +1066,28 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Fecha_de_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
+        <EntityType Name="Vista_usuarios_v2">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Telefono" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Contraseña" />
+            <PropertyRef Name="Pregunta_seguridad" />
+            <PropertyRef Name="Respuesta_seguridad" />
+            <PropertyRef Name="Nombre_rol" />
+            <PropertyRef Name="Fecha_creacion" />
+          </Key>
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Pregunta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Respuesta_seguridad" Type="String" MaxLength="40" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombre_rol" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <EntityType Name="Vista_Vehiculos">
           <Key>
             <PropertyRef Name="Nombres_Tomador" />
@@ -1190,6 +1249,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <EntitySet Name="Vista_reporte_vigencias" EntityType="Self.Vista_reporte_vigencias" />
           <EntitySet Name="Vista_Tom_2" EntityType="Self.Vista_Tom_2" />
           <EntitySet Name="Vista_Tomador" EntityType="Self.Vista_Tomador" />
+          <EntitySet Name="Vista_usuarios_v2" EntityType="Self.Vista_usuarios_v2" />
           <EntitySet Name="Vista_Vehiculos" EntityType="Self.Vista_Vehiculos" />
           <EntitySet Name="Vista_Vig_Pol_2" EntityType="Self.Vista_Vig_Pol_2" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
@@ -1536,6 +1596,21 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
                 <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha de nacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vista_usuarios_v2">
+            <EntityTypeMapping TypeName="OMB_SegurosModel.Vista_usuarios_v2">
+              <MappingFragment StoreEntitySet="Vista_usuarios_v2">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Pregunta_seguridad" ColumnName="Pregunta_seguridad" />
+                <ScalarProperty Name="Respuesta_seguridad" ColumnName="Respuesta_seguridad" />
+                <ScalarProperty Name="Nombre_rol" ColumnName="Nombre_rol" />
+                <ScalarProperty Name="Fecha_creacion" ColumnName="Fecha_creacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
