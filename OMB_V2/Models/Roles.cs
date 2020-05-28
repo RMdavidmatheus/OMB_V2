@@ -17,7 +17,7 @@ namespace OMB_V2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Roles()
         {
-            this.Users_v2 = new HashSet<Users_v2>();
+            this.Users_v3 = new HashSet<Users_v3>();
         }
     
         public int ID_Rol { get; set; }
@@ -26,6 +26,6 @@ namespace OMB_V2.Models
         public System.DateTime Fecha_creacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users_v2> Users_v2 { get; set; }
+        public virtual ICollection<Users_v3> Users_v3 { get; set; }
     }
 }

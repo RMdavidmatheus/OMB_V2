@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16b57b366ea04dc88568a0374273957f" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_Model_v2.Aseguradora" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Beneficiario" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Pol_veh_entity_framework" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Poliza" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Roles" Width="1.5" PointX="5.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Tipo_poliza" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Tomador" Width="1.5" PointX="0.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Users_v3" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vehiculo" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Reporte_SOAT_2020" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vehiculos_V2" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Ben_2" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Beneficiario" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Listado_Polizas" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_reporte_soat" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_reporte_vigencias" Width="1.5" PointX="11.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Tom_2" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Tomador" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_usuarios_v3" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Vehiculos" Width="1.5" PointX="4.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.Vista_Vig_Pol_2" Width="1.5" PointX="6.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_Model_v2.database_firewall_rules" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="DB_Model_v2.FK_Poliza_Aseguradora1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Poliza_Beneficiario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Pol_veh_entity_framework_Poliza1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Pol_veh_entity_framework_Vehiculo1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Poliza_Tipo_poliza1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Poliza_Tomador1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_Model_v2.FK_Users_v3_Roles1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

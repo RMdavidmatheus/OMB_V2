@@ -172,12 +172,11 @@ namespace OMB_V2.Forms
         {
             if (Pass_user_txb.Text == Conf_pass_txb.Text || Email_user_txb.Text == Conf_email_txb.Text)
             {
-                Metodos_login.Añadir_Editar_Usuario(Id_usuario,Pregunta_drp,Nombre_user_txb,Telefono_user_txb,Email_user_txb,
+                Metodos_login.Añadir_Editar_Usuario(Id_usuario,Pregunta_seguridad,Nombre_user_txb,Telefono_user_txb,Email_user_txb,
                     Pass_user_txb,Respuesta_txb);
-                Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
-                Metodos_diseño.reset_txb_users(Pregunta_drp, Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                Metodos_diseño.reset_txb_users(Nombre_user_txb, Telefono_user_txb, Email_user_txb,
                     Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb, Ok_email,OK_pass,Error_Email,Error_pass);
-
+                Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
             }
             else
             {
@@ -188,15 +187,34 @@ namespace OMB_V2.Forms
         private void Dtg_Listado_polizas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Id_usuario = Get_Id_user();
+            if (Id_usuario != null)
+            {
+                Metodos_login.Llenar_editar_usuario(Id_usuario, Pregunta_seguridad, Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb);
+            }
+            else
+            {
+                // no hace nada jajaja
+            }
         }
 
         private void Editar_user_btn_Click(object sender, EventArgs e)
         {
             if (Id_usuario != null)
             {
-                Metodos_login.Llenar_editar_usuario(Id_usuario, Pregunta_drp, Nombre_user_txb, Telefono_user_txb, Email_user_txb,
-                Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb);
+                Metodos_login.Añadir_Editar_Usuario(Id_usuario, Pregunta_seguridad, Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                    Pass_user_txb, Respuesta_txb);
+                Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
             }
+            else 
+            {
+                MessageBox.Show("No se puede realizar la edicion del registro");
+            }
+        }
+
+        private void Eliminar_user_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

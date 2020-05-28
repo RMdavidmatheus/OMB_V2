@@ -35,7 +35,7 @@ namespace OMB_V2.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tipo_poliza> Tipo_poliza { get; set; }
         public virtual DbSet<Tomador> Tomador { get; set; }
-        public virtual DbSet<Users_v2> Users_v2 { get; set; }
+        public virtual DbSet<Users_v3> Users_v3 { get; set; }
         public virtual DbSet<Vehiculo> Vehiculo { get; set; }
         public virtual DbSet<Reporte_SOAT_2020> Reporte_SOAT_2020 { get; set; }
         public virtual DbSet<Vehiculos_V2> Vehiculos_V2 { get; set; }
@@ -46,7 +46,7 @@ namespace OMB_V2.Models
         public virtual DbSet<Vista_reporte_vigencias> Vista_reporte_vigencias { get; set; }
         public virtual DbSet<Vista_Tom_2> Vista_Tom_2 { get; set; }
         public virtual DbSet<Vista_Tomador> Vista_Tomador { get; set; }
-        public virtual DbSet<Vista_usuarios_v2> Vista_usuarios_v2 { get; set; }
+        public virtual DbSet<Vista_usuarios_v3> Vista_usuarios_v3 { get; set; }
         public virtual DbSet<Vista_Vehiculos> Vista_Vehiculos { get; set; }
         public virtual DbSet<Vista_Vig_Pol_2> Vista_Vig_Pol_2 { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }

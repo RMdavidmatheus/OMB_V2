@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios_gestion));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
@@ -37,10 +36,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios_gestion));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Tab_selector_user = new MaterialSkin.Controls.MaterialTabSelector();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Añadir_users = new System.Windows.Forms.TabPage();
+            this.Pregunta_seguridad = new Bunifu.Framework.UI.BunifuDropdown();
             this.Eliminar_user_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Editar_user_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Añadir_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -49,7 +50,6 @@
             this.Error_Email = new System.Windows.Forms.PictureBox();
             this.Ok_email = new System.Windows.Forms.PictureBox();
             this.Dtg_Listado_polizas = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.Pregunta_drp = new Bunifu.UI.WinForms.BunifuDropdown();
             this.Conf_pass_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Conf_email_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -108,6 +108,7 @@
             // 
             // Añadir_users
             // 
+            this.Añadir_users.Controls.Add(this.Pregunta_seguridad);
             this.Añadir_users.Controls.Add(this.Eliminar_user_btn);
             this.Añadir_users.Controls.Add(this.Editar_user_btn);
             this.Añadir_users.Controls.Add(this.Añadir_btn);
@@ -116,7 +117,6 @@
             this.Añadir_users.Controls.Add(this.Error_Email);
             this.Añadir_users.Controls.Add(this.Ok_email);
             this.Añadir_users.Controls.Add(this.Dtg_Listado_polizas);
-            this.Añadir_users.Controls.Add(this.Pregunta_drp);
             this.Añadir_users.Controls.Add(this.Conf_pass_txb);
             this.Añadir_users.Controls.Add(this.Conf_email_txb);
             this.Añadir_users.Controls.Add(this.pictureBox1);
@@ -133,6 +133,26 @@
             this.Añadir_users.TabIndex = 0;
             this.Añadir_users.Text = "Añadir usuarios";
             this.Añadir_users.UseVisualStyleBackColor = true;
+            // 
+            // Pregunta_seguridad
+            // 
+            this.Pregunta_seguridad.BackColor = System.Drawing.Color.Transparent;
+            this.Pregunta_seguridad.BorderRadius = 3;
+            this.Imagenes_slide.SetDecoration(this.Pregunta_seguridad, BunifuAnimatorNS.DecorationType.None);
+            this.Pregunta_seguridad.DisabledColor = System.Drawing.Color.Gray;
+            this.Pregunta_seguridad.ForeColor = System.Drawing.Color.White;
+            this.Pregunta_seguridad.items = new string[] {
+        "Colegio de su infancia",
+        "Nombre de su familiar más querido",
+        "Año de nacimiento",
+        "Lugar donde realizo sus estudios"};
+            this.Pregunta_seguridad.Location = new System.Drawing.Point(7, 462);
+            this.Pregunta_seguridad.Name = "Pregunta_seguridad";
+            this.Pregunta_seguridad.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Pregunta_seguridad.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.Pregunta_seguridad.selectedIndex = 0;
+            this.Pregunta_seguridad.Size = new System.Drawing.Size(297, 42);
+            this.Pregunta_seguridad.TabIndex = 71;
             // 
             // Eliminar_user_btn
             // 
@@ -161,13 +181,14 @@
             stateProperties1.BorderRadius = 30;
             stateProperties1.BorderThickness = 1;
             stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(11)))), ((int)(((byte)(11)))));
-            stateProperties1.IconLeftImage = null;
+            stateProperties1.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties1.IconLeftImage")));
             stateProperties1.IconRightImage = null;
             this.Eliminar_user_btn.onHoverState = stateProperties1;
             this.Eliminar_user_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Eliminar_user_btn.Size = new System.Drawing.Size(139, 45);
             this.Eliminar_user_btn.TabIndex = 70;
             this.Eliminar_user_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Eliminar_user_btn.Click += new System.EventHandler(this.Eliminar_user_btn_Click);
             // 
             // Editar_user_btn
             // 
@@ -196,7 +217,7 @@
             stateProperties2.BorderRadius = 30;
             stateProperties2.BorderThickness = 1;
             stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(136)))));
-            stateProperties2.IconLeftImage = null;
+            stateProperties2.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties2.IconLeftImage")));
             stateProperties2.IconRightImage = null;
             this.Editar_user_btn.onHoverState = stateProperties2;
             this.Editar_user_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -232,7 +253,7 @@
             stateProperties3.BorderRadius = 30;
             stateProperties3.BorderThickness = 1;
             stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(143)))), ((int)(((byte)(64)))));
-            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconLeftImage = ((System.Drawing.Image)(resources.GetObject("stateProperties3.IconLeftImage")));
             stateProperties3.IconRightImage = null;
             this.Añadir_btn.onHoverState = stateProperties3;
             this.Añadir_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -349,45 +370,6 @@
             this.Dtg_Listado_polizas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Dark;
             this.Dtg_Listado_polizas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dtg_Listado_polizas_CellClick);
             // 
-            // Pregunta_drp
-            // 
-            this.Pregunta_drp.BackColor = System.Drawing.Color.Transparent;
-            this.Pregunta_drp.BorderRadius = 1;
-            this.Pregunta_drp.Color = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Imagenes_slide.SetDecoration(this.Pregunta_drp, BunifuAnimatorNS.DecorationType.None);
-            this.Pregunta_drp.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.Pregunta_drp.DisabledColor = System.Drawing.Color.Gray;
-            this.Pregunta_drp.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.Pregunta_drp.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
-            this.Pregunta_drp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Pregunta_drp.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.Pregunta_drp.FillDropDown = true;
-            this.Pregunta_drp.FillIndicator = false;
-            this.Pregunta_drp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Pregunta_drp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pregunta_drp.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Pregunta_drp.FormattingEnabled = true;
-            this.Pregunta_drp.Icon = null;
-            this.Pregunta_drp.IndicatorColor = System.Drawing.Color.White;
-            this.Pregunta_drp.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.Pregunta_drp.ItemBackColor = System.Drawing.Color.White;
-            this.Pregunta_drp.ItemBorderColor = System.Drawing.Color.Black;
-            this.Pregunta_drp.ItemForeColor = System.Drawing.Color.Black;
-            this.Pregunta_drp.ItemHeight = 40;
-            this.Pregunta_drp.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.Pregunta_drp.Items.AddRange(new object[] {
-            "Colegio de su infancia",
-            "El nombre de alguno de sus hijos",
-            "Mes de nacimiento de un ser querido",
-            "Nombre de su primera mascota",
-            "En que universidad realizo sus estudios",
-            "Su ciudad de origen"});
-            this.Pregunta_drp.Location = new System.Drawing.Point(7, 458);
-            this.Pregunta_drp.Name = "Pregunta_drp";
-            this.Pregunta_drp.Size = new System.Drawing.Size(297, 46);
-            this.Pregunta_drp.TabIndex = 61;
-            this.Pregunta_drp.Text = "Pregunta de seguridad";
-            // 
             // Conf_pass_txb
             // 
             this.Conf_pass_txb.AcceptsReturn = false;
@@ -414,7 +396,7 @@
             this.Conf_pass_txb.IconRight = null;
             this.Conf_pass_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Conf_pass_txb.Location = new System.Drawing.Point(7, 411);
-            this.Conf_pass_txb.MaxLength = 32767;
+            this.Conf_pass_txb.MaxLength = 30;
             this.Conf_pass_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Conf_pass_txb.Modified = false;
             this.Conf_pass_txb.Name = "Conf_pass_txb";
@@ -459,7 +441,7 @@
             this.Conf_email_txb.IconRight = null;
             this.Conf_email_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Conf_email_txb.Location = new System.Drawing.Point(7, 317);
-            this.Conf_email_txb.MaxLength = 32767;
+            this.Conf_email_txb.MaxLength = 30;
             this.Conf_email_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Conf_email_txb.Modified = false;
             this.Conf_email_txb.Name = "Conf_email_txb";
@@ -515,7 +497,7 @@
             this.Email_user_txb.IconRight = null;
             this.Email_user_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Email_user_txb.Location = new System.Drawing.Point(7, 270);
-            this.Email_user_txb.MaxLength = 32767;
+            this.Email_user_txb.MaxLength = 30;
             this.Email_user_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Email_user_txb.Modified = false;
             this.Email_user_txb.Name = "Email_user_txb";
@@ -560,7 +542,7 @@
             this.Pass_user_txb.IconRight = null;
             this.Pass_user_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Pass_user_txb.Location = new System.Drawing.Point(9, 364);
-            this.Pass_user_txb.MaxLength = 32767;
+            this.Pass_user_txb.MaxLength = 30;
             this.Pass_user_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Pass_user_txb.Modified = false;
             this.Pass_user_txb.Name = "Pass_user_txb";
@@ -605,7 +587,7 @@
             this.Respuesta_txb.IconRight = null;
             this.Respuesta_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Respuesta_txb.Location = new System.Drawing.Point(9, 510);
-            this.Respuesta_txb.MaxLength = 32767;
+            this.Respuesta_txb.MaxLength = 30;
             this.Respuesta_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Respuesta_txb.Modified = false;
             this.Respuesta_txb.Name = "Respuesta_txb";
@@ -649,7 +631,7 @@
             this.Telefono_user_txb.IconRight = null;
             this.Telefono_user_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Telefono_user_txb.Location = new System.Drawing.Point(7, 223);
-            this.Telefono_user_txb.MaxLength = 32767;
+            this.Telefono_user_txb.MaxLength = 30;
             this.Telefono_user_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Telefono_user_txb.Modified = false;
             this.Telefono_user_txb.Name = "Telefono_user_txb";
@@ -671,7 +653,7 @@
             // 
             this.Nombre_user_txb.AcceptsReturn = false;
             this.Nombre_user_txb.AcceptsTab = false;
-            this.Nombre_user_txb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.Nombre_user_txb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Nombre_user_txb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.Nombre_user_txb.BackColor = System.Drawing.Color.White;
             this.Nombre_user_txb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Nombre_user_txb.BackgroundImage")));
@@ -693,7 +675,7 @@
             this.Nombre_user_txb.IconRight = null;
             this.Nombre_user_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.Nombre_user_txb.Location = new System.Drawing.Point(7, 176);
-            this.Nombre_user_txb.MaxLength = 32767;
+            this.Nombre_user_txb.MaxLength = 30;
             this.Nombre_user_txb.MinimumSize = new System.Drawing.Size(100, 35);
             this.Nombre_user_txb.Modified = false;
             this.Nombre_user_txb.Name = "Nombre_user_txb";
@@ -789,7 +771,6 @@
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Pass_user_txb;
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Respuesta_txb;
         public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Telefono_user_txb;
-        private Bunifu.UI.WinForms.BunifuDropdown Pregunta_drp;
         private Bunifu.UI.WinForms.BunifuDataGridView Dtg_Listado_polizas;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
         private System.Windows.Forms.PictureBox OK_pass;
@@ -800,5 +781,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Editar_user_btn;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Añadir_btn;
         private BunifuAnimatorNS.BunifuTransition Imagenes_slide;
+        public Bunifu.Framework.UI.BunifuDropdown Pregunta_seguridad;
     }
 }

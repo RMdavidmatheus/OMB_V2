@@ -12,7 +12,7 @@ namespace OMB_V2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Vista_usuarios_v2
+    public partial class Users_v3
     {
         public int ID_Usuario { get; set; }
         public string Nombres { get; set; }
@@ -21,7 +21,9 @@ namespace OMB_V2.Models
         public string Contraseña { get; set; }
         public string Pregunta_seguridad { get; set; }
         public string Respuesta_seguridad { get; set; }
-        public string Nombre_rol { get; set; }
-        public System.DateTime Fecha_creacion { get; set; }
+        public int ID_Rol { get; set; }
+        public Nullable<System.DateTime> Fecha_de_creacion { get; set; }
+    
+        public virtual Roles Roles { get; set; }
     }
 }

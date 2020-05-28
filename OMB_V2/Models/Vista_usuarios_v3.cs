@@ -12,9 +12,9 @@ namespace OMB_V2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Users_v2
+    public partial class Vista_usuarios_v3
     {
-        public int ID_Usuario { get; set; }
+        public int ID { get; set; }
         public string Nombres { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
@@ -22,8 +22,8 @@ namespace OMB_V2.Models
         public string Pregunta_seguridad { get; set; }
         public string Respuesta_seguridad { get; set; }
         public int ID_Rol { get; set; }
-        public System.DateTime Fecha_creacion { get; set; }
-    
-        public virtual Roles Roles { get; set; }
+        public string Nombre_rol { get; set; }
+        public string Descripcion_rol { get; set; }
+        public Nullable<System.DateTime> Creacion { get; set; }
     }
 }
