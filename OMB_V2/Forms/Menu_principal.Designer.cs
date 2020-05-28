@@ -62,6 +62,7 @@
             this.Animacion_txt_title = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Conf_form = new Bunifu.UI.WinForms.BunifuFormDock();
             this.Mouse_detectado = new System.Windows.Forms.Timer(this.components);
+            this.Btn_admin = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tab_page1 = new OMB_V2.Forms.Submenus.Tab_page();
             this.Panel_lateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo_pic)).BeginInit();
@@ -75,6 +76,7 @@
             // Panel_lateral
             // 
             this.Panel_lateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Panel_lateral.Controls.Add(this.Btn_admin);
             this.Panel_lateral.Controls.Add(this.Menu_btn);
             this.Panel_lateral.Controls.Add(this.Logo_pic);
             this.Panel_lateral.Controls.Add(this.Btn_vig_soat);
@@ -818,6 +820,50 @@
             this.Mouse_detectado.Enabled = true;
             this.Mouse_detectado.Tick += new System.EventHandler(this.Mouse_detectado_Tick);
             // 
+            // Btn_admin
+            // 
+            this.Btn_admin.Active = false;
+            this.Btn_admin.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(173)))), ((int)(((byte)(66)))));
+            this.Btn_admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Btn_admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Btn_admin.BorderRadius = 0;
+            this.Btn_admin.ButtonText = "Panel administrador";
+            this.Btn_admin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Animacion_txt_title.SetDecoration(this.Btn_admin, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_logo.SetDecoration(this.Btn_admin, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral.SetDecoration(this.Btn_admin, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_menu_lateral_vuelta.SetDecoration(this.Btn_admin, BunifuAnimatorNS.DecorationType.None);
+            this.Animacion_btn_menu.SetDecoration(this.Btn_admin, BunifuAnimatorNS.DecorationType.None);
+            this.Btn_admin.DisabledColor = System.Drawing.Color.Gray;
+            this.Btn_admin.Iconcolor = System.Drawing.Color.Transparent;
+            this.Btn_admin.Iconimage = ((System.Drawing.Image)(resources.GetObject("Btn_admin.Iconimage")));
+            this.Btn_admin.Iconimage_right = null;
+            this.Btn_admin.Iconimage_right_Selected = null;
+            this.Btn_admin.Iconimage_Selected = null;
+            this.Btn_admin.IconMarginLeft = 0;
+            this.Btn_admin.IconMarginRight = 0;
+            this.Btn_admin.IconRightVisible = true;
+            this.Btn_admin.IconRightZoom = 0D;
+            this.Btn_admin.IconVisible = true;
+            this.Btn_admin.IconZoom = 55D;
+            this.Btn_admin.IsTab = false;
+            this.Btn_admin.Location = new System.Drawing.Point(-5, 623);
+            this.Btn_admin.Margin = new System.Windows.Forms.Padding(5);
+            this.Btn_admin.Name = "Btn_admin";
+            this.Btn_admin.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Btn_admin.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(124)))), ((int)(((byte)(0)))));
+            this.Btn_admin.OnHoverTextColor = System.Drawing.Color.White;
+            this.Btn_admin.Padding = new System.Windows.Forms.Padding(5);
+            this.Btn_admin.selected = false;
+            this.Btn_admin.Size = new System.Drawing.Size(315, 57);
+            this.Btn_admin.TabIndex = 11;
+            this.Btn_admin.Tag = "6";
+            this.Btn_admin.Text = "Panel administrador";
+            this.Btn_admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_admin.Textcolor = System.Drawing.Color.White;
+            this.Btn_admin.TextFont = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_admin.Click += new System.EventHandler(this.Btn_admin_Click);
+            // 
             // tab_page1
             // 
             this.Animacion_menu_lateral_vuelta.SetDecoration(this.tab_page1, BunifuAnimatorNS.DecorationType.None);
@@ -889,5 +935,6 @@
         private System.Windows.Forms.Panel Panel_menu_reactive;
         private System.Windows.Forms.Panel Panel_todo_dos;
         private Submenus.Tab_page tab_page1;
+        private Bunifu.Framework.UI.BunifuFlatButton Btn_admin;
     }
 }

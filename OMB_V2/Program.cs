@@ -16,7 +16,7 @@ namespace OMB_V2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Usuarios_gestion());
+            Application.Run(new Forms.Menu_principal());
         }
     }
 }

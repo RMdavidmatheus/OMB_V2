@@ -24,5 +24,10 @@ namespace OMB_V2.Forms
         {
             Metodos.Refrescar_ben(Dtg_Listado_beneficiarios);
         }
+
+        private void Reset_txt_btn_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+        }
     }
 }

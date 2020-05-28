@@ -513,7 +513,7 @@
             this.PDF_Veh_listado.IconVisible = false;
             this.PDF_Veh_listado.IconZoom = 40D;
             this.PDF_Veh_listado.IsTab = false;
-            this.PDF_Veh_listado.Location = new System.Drawing.Point(-2, 147);
+            this.PDF_Veh_listado.Location = new System.Drawing.Point(0, 147);
             this.PDF_Veh_listado.Name = "PDF_Veh_listado";
             this.PDF_Veh_listado.Normalcolor = System.Drawing.SystemColors.Control;
             this.PDF_Veh_listado.OnHovercolor = System.Drawing.Color.Gainsboro;

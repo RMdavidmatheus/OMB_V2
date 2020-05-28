@@ -54,5 +54,9 @@ namespace OMB_V2.Forms
                 }
             }
         }
+        private void Reset_txt_btn_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+        }
     }
 }

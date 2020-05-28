@@ -23,19 +23,17 @@ namespace OMB_V2.Forms
 
         private void Listado_vigencias_polizas_Load(object sender, EventArgs e)
         {
-            Metodos.Listar_DB_Vigencia_Polizas(Dtg_Listado_vigencia_pol);
+            Metodos.Refrescar_Vig(Dtg_Listado_vigencia_pol);
         }
 
         private void Dtg_Listado_vigencia_pol_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.Dtg_Listado_vigencia_pol.Columns[e.ColumnIndex].Name == "Estado")
+            if (Dtg_Listado_vigencia_pol.Columns[e.ColumnIndex].Name == "Estado")
             {
                 try
                 {
                     if (e.Value.GetType() != typeof(System.DBNull))
                     {
-
-
                         if (e.Value.ToString().Equals("ACTIVO"))
                         {
                             e.CellStyle.BackColor = Color.LightGreen;
@@ -54,6 +52,10 @@ namespace OMB_V2.Forms
 
                 }
             }
+        }
+        private void Reset_txt_btn_Click(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
         }
     }
 }

@@ -36,12 +36,13 @@
             this.Forma_app = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Dtg_Listado_beneficiarios = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel_sup = new System.Windows.Forms.Panel();
-            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_user_edit = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.User_image = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.txt_bienvenida = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel_content = new System.Windows.Forms.Panel();
             this.Forma_datagrid = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Reset_txt_btn = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_beneficiarios)).BeginInit();
             this.panel_sup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.User_image)).BeginInit();
@@ -116,6 +117,7 @@
             // 
             // panel_sup
             // 
+            this.panel_sup.Controls.Add(this.Reset_txt_btn);
             this.panel_sup.Controls.Add(this.txt_search);
             this.panel_sup.Controls.Add(this.txt_user_edit);
             this.panel_sup.Controls.Add(this.User_image);
@@ -125,51 +127,6 @@
             this.panel_sup.Name = "panel_sup";
             this.panel_sup.Size = new System.Drawing.Size(1352, 209);
             this.panel_sup.TabIndex = 2;
-            // 
-            // txt_search
-            // 
-            this.txt_search.AcceptsReturn = false;
-            this.txt_search.AcceptsTab = false;
-            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_search.BackColor = System.Drawing.Color.Transparent;
-            this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
-            this.txt_search.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(143)))));
-            this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.txt_search.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.txt_search.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.txt_search.BorderRadius = 5;
-            this.txt_search.BorderThickness = 2;
-            this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txt_search.DefaultFont = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search.DefaultText = "";
-            this.txt_search.FillColor = System.Drawing.Color.White;
-            this.txt_search.HideSelection = true;
-            this.txt_search.IconLeft = null;
-            this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.txt_search.IconPadding = 10;
-            this.txt_search.IconRight = null;
-            this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txt_search.Location = new System.Drawing.Point(12, 12);
-            this.txt_search.MaxLength = 32767;
-            this.txt_search.MinimumSize = new System.Drawing.Size(100, 35);
-            this.txt_search.Modified = false;
-            this.txt_search.Name = "txt_search";
-            this.txt_search.PasswordChar = '\0';
-            this.txt_search.ReadOnly = false;
-            this.txt_search.SelectedText = "";
-            this.txt_search.SelectionLength = 0;
-            this.txt_search.SelectionStart = 0;
-            this.txt_search.ShortcutsEnabled = true;
-            this.txt_search.Size = new System.Drawing.Size(1328, 35);
-            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_search.TabIndex = 10;
-            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_search.TextMarginLeft = 8;
-            this.txt_search.TextPlaceholder = "Buscar...";
-            this.txt_search.UseSystemPasswordChar = false;
             // 
             // txt_user_edit
             // 
@@ -222,6 +179,83 @@
             this.Forma_datagrid.ElipseRadius = 20;
             this.Forma_datagrid.TargetControl = this.Dtg_Listado_beneficiarios;
             // 
+            // Reset_txt_btn
+            // 
+            this.Reset_txt_btn.ActiveImage = null;
+            this.Reset_txt_btn.AllowAnimations = true;
+            this.Reset_txt_btn.AllowZooming = true;
+            this.Reset_txt_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Reset_txt_btn.BackColor = System.Drawing.Color.Transparent;
+            this.Reset_txt_btn.ErrorImage = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.ErrorImage")));
+            this.Reset_txt_btn.FadeWhenInactive = false;
+            this.Reset_txt_btn.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
+            this.Reset_txt_btn.Image = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.Image")));
+            this.Reset_txt_btn.ImageActive = null;
+            this.Reset_txt_btn.ImageLocation = null;
+            this.Reset_txt_btn.ImageMargin = 10;
+            this.Reset_txt_btn.ImageSize = new System.Drawing.Size(21, 25);
+            this.Reset_txt_btn.ImageZoomSize = new System.Drawing.Size(31, 35);
+            this.Reset_txt_btn.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.InitialImage")));
+            this.Reset_txt_btn.Location = new System.Drawing.Point(1309, 12);
+            this.Reset_txt_btn.Name = "Reset_txt_btn";
+            this.Reset_txt_btn.Rotation = 0;
+            this.Reset_txt_btn.ShowActiveImage = true;
+            this.Reset_txt_btn.ShowCursorChanges = true;
+            this.Reset_txt_btn.ShowImageBorders = true;
+            this.Reset_txt_btn.ShowSizeMarkers = false;
+            this.Reset_txt_btn.Size = new System.Drawing.Size(31, 35);
+            this.Reset_txt_btn.TabIndex = 16;
+            this.Reset_txt_btn.ToolTipText = "";
+            this.Reset_txt_btn.WaitOnLoad = false;
+            this.Reset_txt_btn.Zoom = 10;
+            this.Reset_txt_btn.ZoomSpeed = 10;
+            this.Reset_txt_btn.Click += new System.EventHandler(this.Reset_txt_btn_Click);
+            // 
+            // txt_search
+            // 
+            this.txt_search.AcceptsReturn = false;
+            this.txt_search.AcceptsTab = false;
+            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_search.BackColor = System.Drawing.Color.White;
+            this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
+            this.txt_search.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(143)))));
+            this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txt_search.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.txt_search.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.txt_search.BorderRadius = 5;
+            this.txt_search.BorderThickness = 2;
+            this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_search.DefaultFont = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.DefaultText = "";
+            this.txt_search.FillColor = System.Drawing.Color.White;
+            this.txt_search.HideSelection = true;
+            this.txt_search.IconLeft = ((System.Drawing.Image)(resources.GetObject("txt_search.IconLeft")));
+            this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.txt_search.IconPadding = 6;
+            this.txt_search.IconRight = null;
+            this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.txt_search.Location = new System.Drawing.Point(14, 12);
+            this.txt_search.MaxLength = 32767;
+            this.txt_search.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txt_search.Modified = false;
+            this.txt_search.Name = "txt_search";
+            this.txt_search.PasswordChar = '\0';
+            this.txt_search.ReadOnly = false;
+            this.txt_search.SelectedText = "";
+            this.txt_search.SelectionLength = 0;
+            this.txt_search.SelectionStart = 0;
+            this.txt_search.ShortcutsEnabled = true;
+            this.txt_search.Size = new System.Drawing.Size(1289, 35);
+            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.txt_search.TabIndex = 15;
+            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_search.TextMarginLeft = 8;
+            this.txt_search.TextPlaceholder = "Buscar...";
+            this.txt_search.UseSystemPasswordChar = false;
+            // 
             // Listado_beneficiarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,12 +280,13 @@
 
         private Bunifu.Framework.UI.BunifuElipse Forma_app;
         private System.Windows.Forms.Panel panel_sup;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_user_edit;
         private Bunifu.UI.WinForms.BunifuPictureBox User_image;
         private Bunifu.Framework.UI.BunifuCustomLabel txt_bienvenida;
         private System.Windows.Forms.Panel panel_content;
         private Bunifu.UI.WinForms.BunifuDataGridView Dtg_Listado_beneficiarios;
         private Bunifu.Framework.UI.BunifuElipse Forma_datagrid;
+        private Bunifu.UI.WinForms.BunifuImageButton Reset_txt_btn;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
     }
 }

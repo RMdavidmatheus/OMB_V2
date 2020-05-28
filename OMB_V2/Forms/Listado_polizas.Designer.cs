@@ -156,7 +156,7 @@
             this.Reset_txt_btn.ImageSize = new System.Drawing.Size(21, 25);
             this.Reset_txt_btn.ImageZoomSize = new System.Drawing.Size(31, 35);
             this.Reset_txt_btn.InitialImage = ((System.Drawing.Image)(resources.GetObject("Reset_txt_btn.InitialImage")));
-            this.Reset_txt_btn.Location = new System.Drawing.Point(1309, 12);
+            this.Reset_txt_btn.Location = new System.Drawing.Point(1307, 12);
             this.Reset_txt_btn.Name = "Reset_txt_btn";
             this.Reset_txt_btn.Rotation = 0;
             this.Reset_txt_btn.ShowActiveImage = true;
@@ -302,7 +302,7 @@
             this.txt_search.IconPadding = 6;
             this.txt_search.IconRight = null;
             this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.txt_search.Location = new System.Drawing.Point(18, 12);
+            this.txt_search.Location = new System.Drawing.Point(16, 12);
             this.txt_search.MaxLength = 32767;
             this.txt_search.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_search.Modified = false;

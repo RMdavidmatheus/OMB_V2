@@ -127,6 +127,12 @@ namespace OMB_V2.Forms
             }
         }
 
+        private void Btn_admin_Click(object sender, EventArgs e)
+        {
+            Usuarios_gestion Admin = new Usuarios_gestion();
+            Admin.Show();
+        }
+
         private void Btn_max_Click(object sender, EventArgs e)
         {
             LX = this.Location.X;

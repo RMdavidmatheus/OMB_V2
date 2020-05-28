@@ -118,13 +118,31 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
         // Listar vigencias polizas
-        public void Listar_DB_Vigencia_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        private void Listar_DB_Vigencia_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 var Listado_Vig = from vig in db.Vista_Vig_Pol_2 select vig;
                 Datagrid_receptor.DataSource = Listado_Vig.ToList();
             }
+        }
+        // Cambiar Columns
+        private void Cambiar_Columns_Vig_Pol(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        {
+            Datagrid_receptor.Columns[0].HeaderText = "Numero de poliza";
+            Datagrid_receptor.Columns[1].HeaderText = "Tipo de documento";
+            Datagrid_receptor.Columns[2].HeaderText = "Nombres";
+            Datagrid_receptor.Columns[4].HeaderText = "Valor prima";
+            Datagrid_receptor.Columns[5].HeaderText = "Vigencia inicial";
+            Datagrid_receptor.Columns[6].HeaderText = "Vigencia final";
+            Datagrid_receptor.Columns[7].HeaderText = "Estado";
+        }
+        // Refrescar tabla
+        public void Refrescar_Vig(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        {
+            Listar_DB_Vigencia_Polizas(Datagrid_receptor);
+            Cambiar_Columns_Vig_Pol(Datagrid_receptor);
+            Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
         // Listar vigencias soat
         public void Listar_DB_Vigencia_Soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
