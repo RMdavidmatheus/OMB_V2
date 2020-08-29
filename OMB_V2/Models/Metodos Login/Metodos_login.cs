@@ -129,5 +129,25 @@ namespace OMB_V2.Models.Metodos_Login
                 MessageBox.Show("No se encontraron registros");
             }
         }
+        public void Eliminar_user(int ? ID_user) 
+        {
+            if (MessageBox.Show("¿Desea eliminar el registro?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (ID_user != null)
+                {
+                    DB_Entities_OMB db = new DB_Entities_OMB();
+                    var Users = db.Users_v3.Find(ID_user);
+                    if (ID_user == Users.ID_Usuario)
+                    {
+                        db.Users_v3.Remove(Users);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            else
+            {
+                //prueba
+            }
+        }
     }
 }

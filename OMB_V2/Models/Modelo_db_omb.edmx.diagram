@@ -35,6 +35,7 @@
         <AssociationConnector Association="DB_Model_v2.FK_Poliza_Tipo_poliza1" ManuallyRouted="false" />
         <AssociationConnector Association="DB_Model_v2.FK_Poliza_Tomador1" ManuallyRouted="false" />
         <AssociationConnector Association="DB_Model_v2.FK_Users_v3_Roles1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_Model_v2.Reporte_SOAT_V3" Width="2.5" PointX="9.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

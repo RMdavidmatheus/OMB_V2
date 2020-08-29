@@ -149,7 +149,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
-                var Listado_Vig_Soat = from vig_soat in db.Reporte_SOAT_2020 select vig_soat;
+                var Listado_Vig_Soat = from vig_soat in db.Reporte_SOAT_V3 select vig_soat;
                 Datagrid_receptor.DataSource = Listado_Vig_Soat.ToList();
             }
         }
@@ -654,5 +654,27 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
 
             }
         }
+        public void Filtrar_reporte_pol(Bunifu.UI.WinForms.BunifuDataGridView Datagrid, int Indice)
+        {
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
+            {
+                var Consulta = from c in db.Vista_Vig_Pol_2
+                               where c.Vigencia_Final.Month.ToString() == Indice.ToString()
+                               select c;
+                Datagrid.DataSource = Consulta.ToList();
+            }
+        }
+        public void Filtrar_reporte_soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid, int Indice)
+        {
+            using (DB_Entities_OMB db = new DB_Entities_OMB())
+            {
+                var Consulta = from b in db.Reporte_SOAT_V3
+                               where b.Vigencia_SOAT.Month.ToString() == Indice.ToString()
+                               select b;
+
+                Datagrid.DataSource = Consulta.ToList();
+            }
+        }
+
     }
 }

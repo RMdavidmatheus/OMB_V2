@@ -50,6 +50,7 @@ namespace OMB_V2.Models
         public virtual DbSet<Vista_Vehiculos> Vista_Vehiculos { get; set; }
         public virtual DbSet<Vista_Vig_Pol_2> Vista_Vig_Pol_2 { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Reporte_SOAT_V3> Reporte_SOAT_V3 { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

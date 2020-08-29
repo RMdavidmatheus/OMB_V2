@@ -214,6 +214,9 @@
     <Compile Include="Models\Reporte_SOAT_2020.cs">
       <DependentUpon>Modelo_db_omb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reporte_SOAT_V3.cs">
+      <DependentUpon>Modelo_db_omb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Roles.cs">
       <DependentUpon>Modelo_db_omb.tt</DependentUpon>
     </Compile>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_Model_v2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_Model_v2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aseguradora">
           <Key>
             <PropertyRef Name="Aseguradora_ID" />
@@ -116,13 +116,36 @@
           <Property Name="Veh_Clase" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Veh_Marca" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Veh_Valor_Auto" Type="money" Nullable="false" />
-          <Property Name="Veh_Vigencia_Soat" Type="date" Nullable="false" />
+          <Property Name="Veh_Vigencia_Soat" Type="datetime" Nullable="false" />
           <Property Name="Veh_Soat_Estado" Type="varchar" MaxLength="10" />
           <Property Name="Fecha_creacion" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_2020' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Reporte_SOAT_2020">
+          <Key>
+            <PropertyRef Name="Numero de poliza" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Valor del Auto" />
+          </Key>
+          <Property Name="Numero de poliza" Type="bigint" Nullable="false" />
+          <Property Name="Tipo de Documento" Type="varchar" MaxLength="30" />
+          <Property Name="Documento" Type="bigint" />
+          <Property Name="Nombres" Type="varchar" MaxLength="61" Nullable="false" />
+          <Property Name="Placa" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fasecolda" Type="int" />
+          <Property Name="Servicio" Type="varchar" MaxLength="20" />
+          <Property Name="Clase" Type="varchar" MaxLength="20" />
+          <Property Name="Modelo" Type="varchar" MaxLength="4" />
+          <Property Name="Marca" Type="varchar" MaxLength="20" />
+          <Property Name="Valor del Auto" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Vigencia SOAT" Type="date" />
+          <Property Name="Estado " Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'OMB_Seguros.dbo.Reporte_SOAT_V3' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Reporte_SOAT_V3">
           <Key>
             <PropertyRef Name="Numero de poliza" />
             <PropertyRef Name="Nombres" />
@@ -551,6 +574,23 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
     [Reporte_SOAT_2020].[Estado ] AS [Estado ]
     FROM [dbo].[Reporte_SOAT_2020] AS [Reporte_SOAT_2020]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="Reporte_SOAT_V3" EntityType="Self.Reporte_SOAT_V3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reporte_SOAT_V3].[Numero de poliza] AS [Numero de poliza], 
+    [Reporte_SOAT_V3].[Tipo de Documento] AS [Tipo de Documento], 
+    [Reporte_SOAT_V3].[Documento] AS [Documento], 
+    [Reporte_SOAT_V3].[Nombres] AS [Nombres], 
+    [Reporte_SOAT_V3].[Placa] AS [Placa], 
+    [Reporte_SOAT_V3].[Fasecolda] AS [Fasecolda], 
+    [Reporte_SOAT_V3].[Servicio] AS [Servicio], 
+    [Reporte_SOAT_V3].[Clase] AS [Clase], 
+    [Reporte_SOAT_V3].[Modelo] AS [Modelo], 
+    [Reporte_SOAT_V3].[Marca] AS [Marca], 
+    [Reporte_SOAT_V3].[Valor del Auto] AS [Valor del Auto], 
+    [Reporte_SOAT_V3].[Vigencia SOAT] AS [Vigencia SOAT], 
+    [Reporte_SOAT_V3].[Estado ] AS [Estado ]
+    FROM [dbo].[Reporte_SOAT_V3] AS [Reporte_SOAT_V3]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Vehiculos_V2" EntityType="Self.Vehiculos_V2" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Vehiculos_V2].[Numero poliza] AS [Numero poliza], 
@@ -743,8 +783,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <End Role="Users_v3" EntitySet="Users_v3" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_Model_v2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -872,7 +911,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Name="Veh_Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Veh_Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Veh_Valor_Auto" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Veh_Vigencia_Soat" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Veh_Vigencia_Soat" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Veh_Soat_Estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Fecha_creacion" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
           <NavigationProperty Name="Pol_veh_entity_framework" Relationship="Self.FK_Pol_veh_entity_framework_Vehiculo1" FromRole="Vehiculo" ToRole="Pol_veh_entity_framework" />
@@ -1305,6 +1344,7 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Reporte_SOAT_V3" EntityType="DB_Model_v2.Reporte_SOAT_V3" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1317,6 +1357,27 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Reporte_SOAT_V3">
+          <Key>
+            <PropertyRef Name="Numero_de_poliza" />
+            <PropertyRef Name="Nombres" />
+            <PropertyRef Name="Placa" />
+            <PropertyRef Name="Valor_del_Auto" />
+          </Key>
+          <Property Name="Numero_de_poliza" Type="Int64" Nullable="false" />
+          <Property Name="Tipo_de_Documento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Documento" Type="Int64" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="61" FixedLength="false" Unicode="false" />
+          <Property Name="Placa" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Fasecolda" Type="Int32" />
+          <Property Name="Servicio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Clase" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_del_Auto" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Vigencia_SOAT" Type="DateTime" Precision="0" />
+          <Property Name="Estado_" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1678,6 +1739,25 @@ advertencia 6002: La tabla o vista 'OMB_Seguros.sys.database_firewall_rules' no 
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DB_Model_v2.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DB_Model_v2.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Reporte_SOAT_V3">
+            <EntityTypeMapping TypeName="DB_Model_v2.Reporte_SOAT_V3">
+              <MappingFragment StoreEntitySet="Reporte_SOAT_V3">
+                <ScalarProperty Name="Estado_" ColumnName="Estado " />
+                <ScalarProperty Name="Vigencia_SOAT" ColumnName="Vigencia SOAT" />
+                <ScalarProperty Name="Valor_del_Auto" ColumnName="Valor del Auto" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Servicio" ColumnName="Servicio" />
+                <ScalarProperty Name="Fasecolda" ColumnName="Fasecolda" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Tipo_de_Documento" ColumnName="Tipo de Documento" />
+                <ScalarProperty Name="Numero_de_poliza" ColumnName="Numero de poliza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

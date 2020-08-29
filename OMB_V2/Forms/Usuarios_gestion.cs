@@ -35,7 +35,7 @@ namespace OMB_V2.Forms
         {
             try
             {
-                return int.Parse(Dtg_Listado_polizas.Rows[Dtg_Listado_polizas.CurrentRow.Index].Cells[0].Value.ToString());
+                return int.Parse(Dtg_Listado_Users.Rows[Dtg_Listado_Users.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch (Exception)
             {
@@ -49,9 +49,8 @@ namespace OMB_V2.Forms
             Ok_email.Visible = false;
             Error_Email.Visible = false;
             Error_pass.Visible = false;
-            Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
+            Metodos_login.Refrescar_usuarios(Dtg_Listado_Users);
         }
-
         private void Conf_email_txb_KeyUp(object sender, KeyEventArgs e)
         {
             if (Conf_email_txb.Text != Email_user_txb.Text)
@@ -176,14 +175,15 @@ namespace OMB_V2.Forms
                     Pass_user_txb,Respuesta_txb);
                 Metodos_diseño.reset_txb_users(Nombre_user_txb, Telefono_user_txb, Email_user_txb,
                     Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb, Ok_email,OK_pass,Error_Email,Error_pass);
-                Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
+                Metodos_login.Refrescar_usuarios(Dtg_Listado_Users);
+                Id_usuario = null;
             }
             else
             {
                 MessageBox.Show("Algunos valores no coinciden, por favor valide campos","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
-
+        // EVENTO DEL DATAGRID
         private void Dtg_Listado_polizas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Id_usuario = Get_Id_user();
@@ -194,7 +194,7 @@ namespace OMB_V2.Forms
             }
             else
             {
-                // no hace nada jajaja
+                MessageBox.Show("No se encontro un usuario con ese ID");
             }
         }
 
@@ -204,7 +204,10 @@ namespace OMB_V2.Forms
             {
                 Metodos_login.Añadir_Editar_Usuario(Id_usuario, Pregunta_seguridad, Nombre_user_txb, Telefono_user_txb, Email_user_txb,
                     Pass_user_txb, Respuesta_txb);
-                Metodos_login.Refrescar_usuarios(Dtg_Listado_polizas);
+                Metodos_login.Refrescar_usuarios(Dtg_Listado_Users);
+                Metodos_diseño.reset_txb_users(Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                    Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb, Ok_email, OK_pass, Error_Email, Error_pass);
+                Id_usuario = null;
             }
             else 
             {
@@ -214,7 +217,18 @@ namespace OMB_V2.Forms
 
         private void Eliminar_user_btn_Click(object sender, EventArgs e)
         {
+            Metodos_login.Eliminar_user(Id_usuario);
+            Metodos_login.Refrescar_usuarios(Dtg_Listado_Users);
+            Metodos_diseño.reset_txb_users(Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                    Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb, Ok_email, OK_pass, Error_Email, Error_pass);
+            Id_usuario = null;
+        }
 
+        private void Reset_icn_Click(object sender, EventArgs e)
+        {
+            Metodos_diseño.reset_txb_users(Nombre_user_txb, Telefono_user_txb, Email_user_txb,
+                    Pass_user_txb, Respuesta_txb, Conf_pass_txb, Conf_email_txb, Ok_email, OK_pass, Error_Email, Error_pass);
+            Id_usuario = null;
         }
     }
 }

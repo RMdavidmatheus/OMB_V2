@@ -36,12 +36,12 @@
             this.panel_content = new System.Windows.Forms.Panel();
             this.Dtg_Listado_vigencia_pol_so = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.panel_sup = new System.Windows.Forms.Panel();
+            this.Reset_txt_btn = new Bunifu.UI.WinForms.BunifuImageButton();
+            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Texto_fecha_vig_pol = new System.Windows.Forms.Label();
             this.Fecha_mes_vig_pol_soat = new Bunifu.Framework.UI.BunifuDropdown();
             this.forma_dtg = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.forma_app = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.Reset_txt_btn = new Bunifu.UI.WinForms.BunifuImageButton();
-            this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.panel_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dtg_Listado_vigencia_pol_so)).BeginInit();
             this.panel_sup.SuspendLayout();
@@ -130,58 +130,6 @@
             this.panel_sup.Size = new System.Drawing.Size(1352, 209);
             this.panel_sup.TabIndex = 4;
             // 
-            // Texto_fecha_vig_pol
-            // 
-            this.Texto_fecha_vig_pol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Texto_fecha_vig_pol.AutoSize = true;
-            this.Texto_fecha_vig_pol.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Texto_fecha_vig_pol.Location = new System.Drawing.Point(873, 103);
-            this.Texto_fecha_vig_pol.Name = "Texto_fecha_vig_pol";
-            this.Texto_fecha_vig_pol.Size = new System.Drawing.Size(301, 45);
-            this.Texto_fecha_vig_pol.TabIndex = 14;
-            this.Texto_fecha_vig_pol.Text = "Seleccione una fecha";
-            // 
-            // Fecha_mes_vig_pol_soat
-            // 
-            this.Fecha_mes_vig_pol_soat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Fecha_mes_vig_pol_soat.BackColor = System.Drawing.Color.Transparent;
-            this.Fecha_mes_vig_pol_soat.BorderRadius = 3;
-            this.Fecha_mes_vig_pol_soat.DisabledColor = System.Drawing.Color.Gray;
-            this.Fecha_mes_vig_pol_soat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Fecha_mes_vig_pol_soat.ForeColor = System.Drawing.Color.White;
-            this.Fecha_mes_vig_pol_soat.items = new string[] {
-        "ENERO",
-        "FEBRERO",
-        "MARZO",
-        "ABRIL",
-        "MAYO",
-        "JUNIO",
-        "JULIO",
-        "AGOSTO",
-        "SEPTIEMBRE",
-        "OCTUBRE",
-        "NOVIEMBRE",
-        "DICIEMBRE"};
-            this.Fecha_mes_vig_pol_soat.Location = new System.Drawing.Point(14, 100);
-            this.Fecha_mes_vig_pol_soat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Fecha_mes_vig_pol_soat.Name = "Fecha_mes_vig_pol_soat";
-            this.Fecha_mes_vig_pol_soat.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.Fecha_mes_vig_pol_soat.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.Fecha_mes_vig_pol_soat.selectedIndex = 0;
-            this.Fecha_mes_vig_pol_soat.Size = new System.Drawing.Size(838, 52);
-            this.Fecha_mes_vig_pol_soat.TabIndex = 13;
-            // 
-            // forma_dtg
-            // 
-            this.forma_dtg.ElipseRadius = 20;
-            this.forma_dtg.TargetControl = this.Dtg_Listado_vigencia_pol_so;
-            // 
-            // forma_app
-            // 
-            this.forma_app.ElipseRadius = 5;
-            this.forma_app.TargetControl = this;
-            // 
             // Reset_txt_btn
             // 
             this.Reset_txt_btn.ActiveImage = null;
@@ -258,6 +206,59 @@
             this.txt_search.TextMarginLeft = 8;
             this.txt_search.TextPlaceholder = "Buscar...";
             this.txt_search.UseSystemPasswordChar = false;
+            // 
+            // Texto_fecha_vig_pol
+            // 
+            this.Texto_fecha_vig_pol.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Texto_fecha_vig_pol.AutoSize = true;
+            this.Texto_fecha_vig_pol.Font = new System.Drawing.Font("Segoe UI Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Texto_fecha_vig_pol.Location = new System.Drawing.Point(873, 103);
+            this.Texto_fecha_vig_pol.Name = "Texto_fecha_vig_pol";
+            this.Texto_fecha_vig_pol.Size = new System.Drawing.Size(301, 45);
+            this.Texto_fecha_vig_pol.TabIndex = 14;
+            this.Texto_fecha_vig_pol.Text = "Seleccione una fecha";
+            // 
+            // Fecha_mes_vig_pol_soat
+            // 
+            this.Fecha_mes_vig_pol_soat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Fecha_mes_vig_pol_soat.BackColor = System.Drawing.Color.Transparent;
+            this.Fecha_mes_vig_pol_soat.BorderRadius = 3;
+            this.Fecha_mes_vig_pol_soat.DisabledColor = System.Drawing.Color.Gray;
+            this.Fecha_mes_vig_pol_soat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fecha_mes_vig_pol_soat.ForeColor = System.Drawing.Color.White;
+            this.Fecha_mes_vig_pol_soat.items = new string[] {
+        "ENERO",
+        "FEBRERO",
+        "MARZO",
+        "ABRIL",
+        "MAYO",
+        "JUNIO",
+        "JULIO",
+        "AGOSTO",
+        "SEPTIEMBRE",
+        "OCTUBRE",
+        "NOVIEMBRE",
+        "DICIEMBRE"};
+            this.Fecha_mes_vig_pol_soat.Location = new System.Drawing.Point(14, 100);
+            this.Fecha_mes_vig_pol_soat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Fecha_mes_vig_pol_soat.Name = "Fecha_mes_vig_pol_soat";
+            this.Fecha_mes_vig_pol_soat.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Fecha_mes_vig_pol_soat.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.Fecha_mes_vig_pol_soat.selectedIndex = 0;
+            this.Fecha_mes_vig_pol_soat.Size = new System.Drawing.Size(838, 52);
+            this.Fecha_mes_vig_pol_soat.TabIndex = 13;
+            this.Fecha_mes_vig_pol_soat.onItemSelected += new System.EventHandler(this.Fecha_mes_vig_pol_soat_onItemSelected);
+            // 
+            // forma_dtg
+            // 
+            this.forma_dtg.ElipseRadius = 20;
+            this.forma_dtg.TargetControl = this.Dtg_Listado_vigencia_pol_so;
+            // 
+            // forma_app
+            // 
+            this.forma_app.ElipseRadius = 5;
+            this.forma_app.TargetControl = this;
             // 
             // Listado_vigencias_Soat
             // 

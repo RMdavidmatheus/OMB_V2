@@ -58,5 +58,14 @@ namespace OMB_V2.Forms
         {
             txt_search.Text = "";
         }
+
+        private void Fecha_mes_vig_pol_soat_onItemSelected(object sender, EventArgs e)
+        {
+            if (Fecha_mes_vig_pol_soat.selectedIndex >= 0)
+            {
+                int Indice = Fecha_mes_vig_pol_soat.selectedIndex + 1;
+                Metodos.Filtrar_reporte_soat(Dtg_Listado_vigencia_pol_so,Indice);
+            }
+        }
     }
 }
