@@ -145,13 +145,29 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
         // Listar vigencias soat
-        public void Listar_DB_Vigencia_Soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
+        private void Listar_DB_Vigencia_Soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
             using (DB_Entities_OMB db = new DB_Entities_OMB())
             {
                 var Listado_Vig_Soat = from vig_soat in db.Reporte_SOAT_V3 select vig_soat;
                 Datagrid_receptor.DataSource = Listado_Vig_Soat.ToList();
             }
+        }
+        // Cambiar Columns
+        private void Cambiar_Columns_Vig_Soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        {
+            Datagrid_receptor.Columns[0].HeaderText = "Numero de poliza";
+            Datagrid_receptor.Columns[1].HeaderText = "Tipo de documento";
+            Datagrid_receptor.Columns[10].HeaderText = "Valor del auto";
+            Datagrid_receptor.Columns[11].HeaderText = "Vigencia SOAT";
+            Datagrid_receptor.Columns[12].HeaderText = "Estado";
+        }
+        // Refrescar tabla
+        public void Refrescar_Vig_Soat(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor) 
+        {
+            Listar_DB_Vigencia_Soat(Datagrid_receptor);
+            Cambiar_Columns_Vig_Soat(Datagrid_receptor);
+            Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
         // Llenar Formularios para editar tomador
         public void Llenar_Tomador_Edit(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
@@ -267,30 +283,35 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             }
         }
         // Llenar Vehiculo
-        public void Llenar_Vehiculo_Edit(long? Numero_Poliza, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Placa_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Modelo_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Fascolda_txb,
+        public void Llenar_Vehiculo_Edit(long? Numero_Poliza, long? Tipo_Poliza_ID ,Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Placa_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Modelo_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Fascolda_txb,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Servicio_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Clase_txb, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Marca_txb,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Valor_txb, Bunifu.Framework.UI.BunifuDatepicker Fecha_Soat)
         {
             DB_Entities_OMB db = new DB_Entities_OMB();
             Vehiculo Tabla_veh = new Vehiculo();
-            var Placa = from veh in db.Pol_veh_entity_framework where veh.PolizaPol_Numero_Poliza == Numero_Poliza select veh.VehiculoVeh_Placa;
-            Tabla_veh = db.Vehiculo.Find(Placa.First());
-
-            if (Tabla_veh.Veh_Placa == Placa.First())
+            if (Tipo_Poliza_ID == 1)
             {
-                Placa_txb.Text = Tabla_veh.Veh_Placa;
-                Placa_txb.Enabled = false;
-                Modelo_txb.Text = Tabla_veh.Veh_Modelo;
-                Fascolda_txb.Text = Tabla_veh.Veh_Fasecolda.ToString();
-                Servicio_txb.Text = Tabla_veh.Veh_Servicio;
-                Clase_txb.Text = Tabla_veh.Veh_Clase;
-                Marca_txb.Text = Tabla_veh.Veh_Marca;
-                Valor_txb.Text = Tabla_veh.Veh_Valor_Auto.ToString();
-                Fecha_Soat.Value = Tabla_veh.Veh_Vigencia_Soat;
-            }
-            else
-            {
-                MessageBox.Show("No hay datos en los registros");
+                var Placa = from veh in db.Pol_veh_entity_framework where veh.PolizaPol_Numero_Poliza == Numero_Poliza select veh.VehiculoVeh_Placa;
+                if (Placa.First() != null)
+                {
+                    Tabla_veh = db.Vehiculo.Find(Placa.First());
+                    if (Tabla_veh.Veh_Placa == Placa.First())
+                    {
+                        Placa_txb.Text = Tabla_veh.Veh_Placa;
+                        Placa_txb.Enabled = false;
+                        Modelo_txb.Text = Tabla_veh.Veh_Modelo;
+                        Fascolda_txb.Text = Tabla_veh.Veh_Fasecolda.ToString();
+                        Servicio_txb.Text = Tabla_veh.Veh_Servicio;
+                        Clase_txb.Text = Tabla_veh.Veh_Clase;
+                        Marca_txb.Text = Tabla_veh.Veh_Marca;
+                        Valor_txb.Text = Tabla_veh.Veh_Valor_Auto.ToString();
+                        Fecha_Soat.Value = Tabla_veh.Veh_Vigencia_Soat;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay datos en los registros");
+                    }
+                }
             }
         }
         // METODO PARA AÑADIR U EDITAR REGISTROS

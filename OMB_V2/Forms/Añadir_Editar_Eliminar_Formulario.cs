@@ -180,7 +180,7 @@ namespace OMB_V2.Forms
                         Direccion_ben_txb, Telefono_ben_txb, Email_ben_txb, Fecha_ben);
                     Metodos.Llenar_Poliza_Edit(Numero_Poliza,Aseguradoras_dropdown,Tipo_de_poliza_dropdown, Numero_poliza_txb,
                         Fecha_inicial,Fecha_final,Valor_prima_pol_txb);
-                    Metodos.Llenar_Vehiculo_Edit(Numero_Poliza, Placa_txb,Modelo_txb,Fasecolda_txb,Servicio_txb,Clase_txb,Marca_txb,Valor_auto_txb,Fecha_soat);
+                    Metodos.Llenar_Vehiculo_Edit(Numero_Poliza,Tipo_poliza_ID , Placa_txb,Modelo_txb,Fasecolda_txb,Servicio_txb,Clase_txb,Marca_txb,Valor_auto_txb,Fecha_soat);
                 }
                 else
                 {

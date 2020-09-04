@@ -22,7 +22,7 @@ namespace OMB_V2.Forms
         #endregion
         private void Listado_vigencias_Soat_Load(object sender, EventArgs e)
         {
-            Metodos.Listar_DB_Vigencia_Soat(Dtg_Listado_vigencia_pol_so);
+            Metodos.Refrescar_Vig_Soat(Dtg_Listado_vigencia_pol_so);
         }
 
         private void Dtg_Listado_vigencia_pol_so_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
