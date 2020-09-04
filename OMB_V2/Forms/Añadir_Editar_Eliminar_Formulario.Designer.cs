@@ -70,8 +70,7 @@
             this.Aseguradoras_dropdown = new Bunifu.Framework.UI.BunifuDropdown();
             this.Editar_pol_btn = new MaterialSkin.Controls.MaterialRaisedButton();
             this.Vehiculo_page = new System.Windows.Forms.TabPage();
-            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
-            this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Placa_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Valor_auto_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Marca_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.Clase_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -83,7 +82,8 @@
             this.Fecha_soat = new Bunifu.Framework.UI.BunifuDatepicker();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Editar_veh_btn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.Placa_txb = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.Forma = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Control_tab.SuspendLayout();
             this.Tomador_page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1118,21 +1118,48 @@
             this.Vehiculo_page.TabIndex = 3;
             this.Vehiculo_page.Text = "Vehiculo";
             // 
-            // materialTabSelector1
+            // Placa_txb
             // 
-            this.materialTabSelector1.BaseTabControl = this.Control_tab;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(-10, 55);
-            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(559, 57);
-            this.materialTabSelector1.TabIndex = 2;
-            this.materialTabSelector1.Text = "Tab_selector";
-            // 
-            // Forma
-            // 
-            this.Forma.ElipseRadius = 20;
-            this.Forma.TargetControl = this;
+            this.Placa_txb.AcceptsReturn = false;
+            this.Placa_txb.AcceptsTab = false;
+            this.Placa_txb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.Placa_txb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.Placa_txb.BackColor = System.Drawing.Color.White;
+            this.Placa_txb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Placa_txb.BackgroundImage")));
+            this.Placa_txb.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(170)))));
+            this.Placa_txb.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.Placa_txb.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
+            this.Placa_txb.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
+            this.Placa_txb.BorderRadius = 30;
+            this.Placa_txb.BorderThickness = 3;
+            this.Placa_txb.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.Placa_txb.DefaultFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Placa_txb.DefaultText = "";
+            this.Placa_txb.FillColor = System.Drawing.Color.White;
+            this.Placa_txb.HideSelection = true;
+            this.Placa_txb.IconLeft = ((System.Drawing.Image)(resources.GetObject("Placa_txb.IconLeft")));
+            this.Placa_txb.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.Placa_txb.IconPadding = 10;
+            this.Placa_txb.IconRight = null;
+            this.Placa_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.Placa_txb.Location = new System.Drawing.Point(18, 194);
+            this.Placa_txb.MaxLength = 32767;
+            this.Placa_txb.MinimumSize = new System.Drawing.Size(100, 35);
+            this.Placa_txb.Modified = false;
+            this.Placa_txb.Name = "Placa_txb";
+            this.Placa_txb.PasswordChar = '\0';
+            this.Placa_txb.ReadOnly = false;
+            this.Placa_txb.SelectedText = "";
+            this.Placa_txb.SelectionLength = 0;
+            this.Placa_txb.SelectionStart = 0;
+            this.Placa_txb.ShortcutsEnabled = true;
+            this.Placa_txb.Size = new System.Drawing.Size(495, 41);
+            this.Placa_txb.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+            this.Placa_txb.TabIndex = 66;
+            this.Placa_txb.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Placa_txb.TextMarginLeft = 5;
+            this.Placa_txb.TextPlaceholder = "Placa";
+            this.Placa_txb.UseSystemPasswordChar = false;
             // 
             // Valor_auto_txb
             // 
@@ -1400,7 +1427,7 @@
             this.Añadir_veh_btn.Depth = 0;
             this.Añadir_veh_btn.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Añadir_veh_btn.Image = ((System.Drawing.Image)(resources.GetObject("Añadir_veh_btn.Image")));
-            this.Añadir_veh_btn.Location = new System.Drawing.Point(56, 549);
+            this.Añadir_veh_btn.Location = new System.Drawing.Point(56, 607);
             this.Añadir_veh_btn.MouseState = MaterialSkin.MouseState.HOVER;
             this.Añadir_veh_btn.Name = "Añadir_veh_btn";
             this.Añadir_veh_btn.Primary = true;
@@ -1459,48 +1486,21 @@
             this.Editar_veh_btn.UseVisualStyleBackColor = true;
             this.Editar_veh_btn.Click += new System.EventHandler(this.Editar_veh_btn_Click);
             // 
-            // Placa_txb
+            // materialTabSelector1
             // 
-            this.Placa_txb.AcceptsReturn = false;
-            this.Placa_txb.AcceptsTab = false;
-            this.Placa_txb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.Placa_txb.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.Placa_txb.BackColor = System.Drawing.Color.White;
-            this.Placa_txb.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Placa_txb.BackgroundImage")));
-            this.Placa_txb.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(170)))));
-            this.Placa_txb.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.Placa_txb.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(255)))));
-            this.Placa_txb.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(107)))), ((int)(((byte)(107)))));
-            this.Placa_txb.BorderRadius = 30;
-            this.Placa_txb.BorderThickness = 3;
-            this.Placa_txb.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.Placa_txb.DefaultFont = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Placa_txb.DefaultText = "";
-            this.Placa_txb.FillColor = System.Drawing.Color.White;
-            this.Placa_txb.HideSelection = true;
-            this.Placa_txb.IconLeft = ((System.Drawing.Image)(resources.GetObject("Placa_txb.IconLeft")));
-            this.Placa_txb.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.Placa_txb.IconPadding = 10;
-            this.Placa_txb.IconRight = null;
-            this.Placa_txb.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.Placa_txb.Location = new System.Drawing.Point(18, 194);
-            this.Placa_txb.MaxLength = 32767;
-            this.Placa_txb.MinimumSize = new System.Drawing.Size(100, 35);
-            this.Placa_txb.Modified = false;
-            this.Placa_txb.Name = "Placa_txb";
-            this.Placa_txb.PasswordChar = '\0';
-            this.Placa_txb.ReadOnly = false;
-            this.Placa_txb.SelectedText = "";
-            this.Placa_txb.SelectionLength = 0;
-            this.Placa_txb.SelectionStart = 0;
-            this.Placa_txb.ShortcutsEnabled = true;
-            this.Placa_txb.Size = new System.Drawing.Size(495, 41);
-            this.Placa_txb.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.Placa_txb.TabIndex = 66;
-            this.Placa_txb.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.Placa_txb.TextMarginLeft = 5;
-            this.Placa_txb.TextPlaceholder = "Placa";
-            this.Placa_txb.UseSystemPasswordChar = false;
+            this.materialTabSelector1.BaseTabControl = this.Control_tab;
+            this.materialTabSelector1.Depth = 0;
+            this.materialTabSelector1.Location = new System.Drawing.Point(-10, 55);
+            this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialTabSelector1.Name = "materialTabSelector1";
+            this.materialTabSelector1.Size = new System.Drawing.Size(559, 57);
+            this.materialTabSelector1.TabIndex = 2;
+            this.materialTabSelector1.Text = "Tab_selector";
+            // 
+            // Forma
+            // 
+            this.Forma.ElipseRadius = 20;
+            this.Forma.TargetControl = this;
             // 
             // Añadir_Editar_Eliminar_Formulario
             // 

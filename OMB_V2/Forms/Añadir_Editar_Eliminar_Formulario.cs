@@ -189,6 +189,7 @@ namespace OMB_V2.Forms
                         Metodos.Llenar_Tomador_Edit(Cedula_tomador, Tip_Doc_Tom, Documento_tom_txb, Nombres_tom_txb, Apellidos_tom_txb, Direccion_tom_txb, Telefono_tom_txb, Email_tom_txb, Fecha_tom);
                         Metodos.Llenar_Beneficiario_Edit(Cedula_beneficiario, Doc_Tip_Ben, Documento_ben_txb, Nombres_ben_txb, Apellidos_ben_txb,
                         Direccion_ben_txb, Telefono_ben_txb, Email_ben_txb, Fecha_ben);
+                        Numero_Poliza = null;
                     }
                     else
                     {

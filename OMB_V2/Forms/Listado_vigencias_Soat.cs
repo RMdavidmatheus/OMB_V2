@@ -27,14 +27,12 @@ namespace OMB_V2.Forms
 
         private void Dtg_Listado_vigencia_pol_so_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (this.Dtg_Listado_vigencia_pol_so.Columns[e.ColumnIndex].Name == "Estado")
+            if (Dtg_Listado_vigencia_pol_so.Columns[e.ColumnIndex].Name == "Estado_")
             {
                 try
                 {
                     if (e.Value.GetType() != typeof(System.DBNull))
                     {
-
-
                         if (e.Value.ToString().Equals("ACTIVO"))
                         {
                             e.CellStyle.BackColor = Color.LightGreen;
