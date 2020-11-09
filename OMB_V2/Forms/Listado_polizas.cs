@@ -93,6 +93,7 @@ namespace OMB_V2.Forms
         private void Eliminar_btn_Click(object sender, EventArgs e)
         {
             Metodos.Eliminar_registro_condicion(Numero_poliza_parametro);
+            Metodos.Refrescar_pol(Dtg_Listado_polizas);
         }
 
         private void txt_search_TextChange(object sender, EventArgs e)

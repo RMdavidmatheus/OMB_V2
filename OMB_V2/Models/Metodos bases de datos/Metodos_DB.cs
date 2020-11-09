@@ -14,6 +14,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
         private Beneficiario ben;
         private Poliza Pol;
         private Vehiculo Veh;
+        private string Placa_veh;
         // Listar Polizas
         private void Listar_DB_Polizas(Bunifu.UI.WinForms.BunifuDataGridView Datagrid_receptor)
         {
@@ -169,6 +170,8 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
             Cambiar_Columns_Vig_Soat(Datagrid_receptor);
             Datagrid_receptor.AutoResizeColumnHeadersHeight();
         }
+        // Metodo Trigger para actualizar la base de datos
+
         // Llenar Formularios para editar tomador
         public void Llenar_Tomador_Edit(long? Cedula, Bunifu.Framework.UI.BunifuDropdown Tipo_doc, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_cedula, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_nombres,
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_apellidos, Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox Txb_direccion,
@@ -557,7 +560,15 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                     long Cedula_beneficiario = Poliza_encontrar.Beneficiario_Documento;
                     var Tomador_encontrar = db.Tomador.Find(Cedula_tomador);
                     var Beneficiario_encontrar = db.Beneficiario.Find(Cedula_beneficiario);
-                    string Placa = Vehiculo_encontrar.VehiculoVeh_Placa;
+                    switch (Poliza_encontrar.Tipo_Poliza_ID)
+                    {
+                        case 1:
+                            Placa_veh = Vehiculo_encontrar.VehiculoVeh_Placa;
+                            break;
+
+                        default:
+                            break;
+                    }
                     // SI EL NUMERO DE LA POLIZA ENCONTRADA COINCIDE CON EL PARAMETRO 
                     if (Poliza_encontrar.Pol_Numero_Poliza.Equals(Numero_poliza) || Tomador_encontrar.Tom_Documento.Equals(Cedula_tomador) || Beneficiario_encontrar.Ben_Documento.Equals(Cedula_beneficiario))
                     {
@@ -566,7 +577,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                         {
                             if (Poliza_encontrar.Tipo_Poliza_ID == 1)
                             {
-                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa);
+                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa_veh);
                                 db.Pol_veh_entity_framework.Remove(Vehiculo_encontrar);
                                 db.SaveChanges();
                                 db.Vehiculo.Remove(Vehiculo_entidad_encontrar);
@@ -574,6 +585,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                                 db.Poliza.Remove(Poliza_encontrar);
                                 db.SaveChanges();
                                 MessageBox.Show("Se elimino correctamente la poliza");
+                                Placa_veh = null;
                             }
                             else
                             {
@@ -587,7 +599,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                         {
                             if (Poliza_encontrar.Tipo_Poliza_ID == 1)
                             {
-                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa);
+                                var Vehiculo_entidad_encontrar = db.Vehiculo.Find(Placa_veh);
                                 db.Pol_veh_entity_framework.Remove(Vehiculo_encontrar);
                                 db.SaveChanges();
                                 db.Vehiculo.Remove(Vehiculo_entidad_encontrar);
@@ -599,6 +611,7 @@ namespace OMB_V2.Models.Metodos_bases_de_datos
                                 db.Tomador.Remove(Tomador_encontrar);
                                 db.SaveChanges();
                                 MessageBox.Show("Se elimino correctamente el registro");
+                                Placa_veh = null;
 
                             }
                             else
